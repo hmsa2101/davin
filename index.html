@@ -26,12 +26,121 @@ html, body, button, input, textarea, select { font-family: "Segoe UI", Tahoma, A
 .phrase{min-height:150px}
 .phrase p{line-height:2}
 </style>
+<style id="davin-signature-redesign">
+/* DAVIN — Signature redesign / luxury romantic interface */
+:root{
+ --bg:#100914;--panel:#1d1220;--panel2:#2a182b;--text:#fff4f7;--muted:#c2aab9;
+ --accent:#f18aaa;--accent2:#bd82d6;--line:#f7d9e51c;--good:#91dfbd;--danger:#ff829b;
+ --shadow:0 24px 70px #05020780;--gold:#e9c58d;--glass:rgba(37,19,37,.78)
+}
+[data-theme="light"]{--bg:#fff6f7;--panel:#fffdfd;--panel2:#f8e8ef;--text:#3e2033;--muted:#947789;--line:#8d47601c;--shadow:0 22px 55px #9a54701c;--glass:rgba(255,250,252,.86);--gold:#a97942}
+[data-theme="ocean"]{--bg:#09151e;--panel:#122530;--panel2:#1b3542;--text:#f1fbff;--muted:#abc4cf;--accent:#72d0d4;--accent2:#9d9be9;--gold:#e5c68c;--glass:rgba(13,32,43,.82)}
+[data-theme="rose"]{--bg:#170b15;--panel:#281426;--panel2:#3b1d35;--text:#fff1f7;--muted:#d8aec3;--accent:#ff91b9;--accent2:#d58de0;--gold:#edc58c;--glass:rgba(39,17,36,.82)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;min-height:100vh;color:var(--text);font-family:"Segoe UI",Tahoma,Arial,"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif;background:radial-gradient(ellipse at 82% 0%,color-mix(in srgb,var(--accent) 18%,transparent),transparent 35%),radial-gradient(ellipse at 5% 65%,color-mix(in srgb,var(--accent2) 11%,transparent),transparent 33%),var(--bg);background-attachment:fixed;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;opacity:.22;background-image:radial-gradient(#fff 0.55px,transparent .55px);background-size:27px 27px;mask-image:linear-gradient(to bottom,black,transparent 80%)}
+button,input,textarea,select{font:inherit}button{cursor:pointer;transition:transform .2s ease,filter .2s ease,background .2s ease,border-color .2s ease}button:hover{filter:brightness(1.08)}button:active{transform:scale(.97)}.hidden{display:none!important}
+.app{display:grid;grid-template-columns:276px minmax(0,1fr);min-height:100vh;max-width:1900px;margin:auto}.sidebar{padding:30px 19px 22px;border-left:1px solid var(--line);background:linear-gradient(180deg,color-mix(in srgb,var(--panel) 94%,transparent),color-mix(in srgb,var(--bg) 94%,transparent));backdrop-filter:blur(24px);position:sticky;top:0;height:100vh;display:flex;flex-direction:column;gap:30px;z-index:12;box-shadow:12px 0 55px #00000012}.brand{font-size:34px;font-weight:950;letter-spacing:2px;text-align:center;color:var(--text);text-shadow:0 5px 25px color-mix(in srgb,var(--accent) 30%,transparent)}.brand span{color:var(--accent);display:inline-block;animation:heartBeat 2.4s infinite}.tagline{text-align:center;color:var(--muted);font-size:11px;letter-spacing:2.6px;margin-top:3px;text-transform:uppercase}.nav{display:grid;gap:8px}.nav button,.mobile-nav button{background:transparent;color:var(--muted);text-align:right;padding:13px 15px;border-radius:16px;display:flex;align-items:center;gap:13px;border:1px solid transparent;position:relative}.nav button:before{content:"";position:absolute;right:0;top:24%;height:52%;width:3px;border-radius:5px;background:transparent}.nav button.active,.nav button:hover,.mobile-nav button.active{background:linear-gradient(110deg,color-mix(in srgb,var(--accent) 17%,var(--panel2)),color-mix(in srgb,var(--accent2) 10%,var(--panel2)));color:var(--text);border-color:color-mix(in srgb,var(--accent) 25%,var(--line));box-shadow:0 9px 28px #00000015}.nav button.active:before{background:linear-gradient(var(--accent),var(--accent2))}.nav .ico{width:25px;text-align:center;font-size:20px;filter:drop-shadow(0 3px 8px color-mix(in srgb,var(--accent) 25%,transparent))}.side-bottom{margin-top:auto;display:grid;gap:10px}.side-bottom .btn{justify-content:center}
+.main{padding:34px clamp(18px,4vw,58px) 100px;max-width:1600px;width:100%;margin:auto}.topbar{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-bottom:30px;padding-bottom:20px;border-bottom:1px solid var(--line)}.eyebrow{color:var(--gold);font-size:10px;letter-spacing:3px;font-weight:800}.topbar h1{font-size:clamp(25px,3vw,38px);margin:7px 0 4px;letter-spacing:-.7px}.top-actions{display:flex;gap:9px;flex-wrap:wrap}.btn{padding:11px 17px;border-radius:14px;background:linear-gradient(145deg,var(--panel2),var(--panel));color:var(--text);border:1px solid var(--line);box-shadow:0 5px 18px #00000012}.btn.primary{background:linear-gradient(120deg,var(--accent),var(--accent2));color:#281323;font-weight:850;border:0;box-shadow:0 9px 25px color-mix(in srgb,var(--accent) 28%,transparent)}.btn.ghost{background:transparent;border:1px solid var(--line)}.btn.danger{color:var(--danger)}
+.grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:17px}.card{position:relative;background:linear-gradient(145deg,color-mix(in srgb,var(--panel) 96%,transparent),color-mix(in srgb,var(--panel2) 65%,var(--panel)));border:1px solid var(--line);border-radius:24px;padding:23px;box-shadow:var(--shadow);overflow:hidden;backdrop-filter:blur(14px)}.card:after{content:"";position:absolute;inset:0 0 auto;height:1px;background:linear-gradient(90deg,transparent,color-mix(in srgb,var(--accent) 45%,transparent),transparent);pointer-events:none}.span-12{grid-column:span 12}.span-8{grid-column:span 8}.span-6{grid-column:span 6}.span-4{grid-column:span 4}.hero{min-height:290px;display:flex;align-items:center;justify-content:space-between;overflow:hidden;position:relative;padding:clamp(24px,4vw,48px);border-radius:30px;background:radial-gradient(circle at 13% 50%,color-mix(in srgb,var(--accent) 25%,transparent),transparent 34%),radial-gradient(circle at 88% 15%,color-mix(in srgb,var(--accent2) 22%,transparent),transparent 30%),linear-gradient(125deg,var(--panel2),var(--panel));border:1px solid color-mix(in srgb,var(--accent) 28%,var(--line))}.hero:before{content:"";position:absolute;width:330px;height:330px;border:1px solid color-mix(in srgb,var(--accent) 20%,transparent);border-radius:50%;left:8%;top:-40%;box-shadow:0 0 0 28px color-mix(in srgb,var(--accent) 4%,transparent),0 0 0 58px color-mix(in srgb,var(--accent2) 4%,transparent)}.hero h2{font-size:clamp(30px,4.4vw,52px);margin:16px 0 10px;line-height:1.35;position:relative}.hero p{color:var(--muted);max-width:610px;line-height:2;font-size:14px;position:relative}.hero-art{font-size:clamp(75px,10vw,140px);filter:drop-shadow(0 14px 34px color-mix(in srgb,var(--accent) 55%,transparent));padding:10px 35px;animation:floatHeart 5s ease-in-out infinite;position:relative}.heart{color:var(--accent);text-shadow:0 5px 24px color-mix(in srgb,var(--accent) 35%,transparent)}.pill{display:inline-flex;align-items:center;gap:6px;padding:7px 12px;border-radius:50px;background:color-mix(in srgb,var(--accent) 14%,var(--panel2));border:1px solid color-mix(in srgb,var(--accent) 22%,var(--line));color:var(--text);font-size:11px;letter-spacing:.2px}
+.stat{font-size:34px;font-weight:900;margin-top:12px;color:var(--accent);letter-spacing:-1px}.section-head{display:flex;justify-content:space-between;align-items:center;gap:10px;margin:5px 0 18px}.section-head h2{margin:0;font-size:21px}.muted{color:var(--muted)}.small{font-size:12px}.field{width:100%;background:color-mix(in srgb,var(--bg) 72%,var(--panel));color:var(--text);border:1px solid var(--line);border-radius:14px;padding:13px 15px;outline:none;transition:.2s}.field:focus{border-color:var(--accent);box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 14%,transparent)}.form-row{display:flex;gap:9px;margin:10px 0}.form-row>*{min-width:0}
+.chat-layout{display:grid;grid-template-columns:1fr;gap:14px}.messages{height:min(62vh,720px);overflow:auto;display:flex;flex-direction:column;gap:14px;padding:12px 7px 18px;scroll-behavior:smooth;overscroll-behavior:contain}.messages::-webkit-scrollbar{width:6px}.messages::-webkit-scrollbar-thumb{background:color-mix(in srgb,var(--accent) 35%,transparent);border-radius:8px}.msg{max-width:min(76%,680px);padding:14px 17px;border-radius:21px;background:linear-gradient(145deg,var(--panel2),var(--panel));border:1px solid var(--line);align-self:flex-start;line-height:1.85;overflow-wrap:anywhere;box-shadow:0 8px 22px #00000012}.msg.mine{align-self:flex-end;background:linear-gradient(135deg,color-mix(in srgb,var(--accent) 24%,var(--panel2)),color-mix(in srgb,var(--accent2) 12%,var(--panel)));border-color:color-mix(in srgb,var(--accent) 26%,var(--line));border-bottom-right-radius:7px}.msg .meta{font-size:10px;color:var(--muted);margin-top:8px;display:flex;gap:10px;align-items:center}.msg a{color:var(--accent)}.msg .shared-gif{display:block;width:auto;max-width:min(100%,390px);max-height:390px;height:auto;object-fit:contain;border-radius:16px;background:var(--panel2);margin-top:7px}.shared-gif-link{display:inline-block;max-width:100%}.shared-gif{cursor:zoom-in}.chat-history-tools{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;margin:4px 0 12px}.chat-history-tools .btn{padding:8px 12px;font-size:12px}.composer{display:flex;gap:9px;align-items:flex-end;padding:12px;border-radius:20px;background:color-mix(in srgb,var(--panel2) 78%,transparent);border:1px solid var(--line)}.composer textarea{resize:vertical;min-height:48px;max-height:145px;background:transparent;border:0;box-shadow:none}.composer textarea:focus{box-shadow:none}.toolbar{display:flex;gap:8px;flex-wrap:wrap;margin-top:11px}.toolbar button{padding:8px 12px;border-radius:12px}.bubble-reply{border-right:3px solid var(--accent);padding:7px 11px;background:#0001;border-radius:9px;margin-bottom:9px;font-size:12px;color:var(--muted)}
+.library-grid,.game-grid,.memory-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(235px,1fr));gap:14px}.phrase,.tile{padding:19px;border-radius:19px;background:linear-gradient(145deg,var(--panel2),color-mix(in srgb,var(--panel) 90%,var(--accent) 5%));border:1px solid var(--line);line-height:1.95;box-shadow:0 8px 22px #00000010}.phrase{min-height:160px}.phrase p{margin:0 0 13px;line-height:2}.actions{display:flex;gap:8px;flex-wrap:wrap}.media-results{display:grid;grid-template-columns:repeat(auto-fill,minmax(155px,1fr));gap:12px;margin-top:17px}.media-results img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:15px;background:var(--panel2)}.media-item{background:var(--panel2);padding:9px;border-radius:17px;display:flex;flex-direction:column;gap:8px;border:1px solid var(--line)}.media-item .btn{margin-top:auto}.game-card{background:linear-gradient(145deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:18px;padding:16px;margin:10px 0}.game-card h4{margin:0 0 9px;color:var(--accent);font-size:16px}.game-options{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.game-answer{border-right:3px solid var(--good);padding:11px 14px;margin-top:9px;background:#8bd6b111;border-radius:11px;line-height:1.9}
+.modal-wrap{position:fixed;inset:0;background:rgba(8,3,12,.78);backdrop-filter:blur(12px);display:grid;place-items:center;padding:16px;z-index:30}.modal{background:linear-gradient(145deg,var(--panel),var(--panel2));border:1px solid color-mix(in srgb,var(--accent) 25%,var(--line));border-radius:26px;padding:25px;width:min(590px,100%);max-height:88vh;overflow:auto;box-shadow:0 35px 100px #0009}.modal h3{margin-top:0}.toast{position:fixed;bottom:28px;left:50%;transform:translateX(-50%);background:var(--text);color:var(--bg);padding:12px 19px;border-radius:30px;z-index:60;box-shadow:var(--shadow);font-size:13px}.login{min-height:100vh;display:grid;place-items:center;padding:22px;position:relative;overflow:hidden;background:radial-gradient(ellipse at 50% 25%,color-mix(in srgb,var(--accent) 19%,transparent),transparent 45%)}.login:before,.login:after{content:"♡";position:absolute;color:color-mix(in srgb,var(--accent) 14%,transparent);font-size:clamp(180px,30vw,420px);line-height:1;pointer-events:none}.login:before{top:-8%;right:-5%;transform:rotate(18deg)}.login:after{bottom:-20%;left:-5%;transform:rotate(-18deg)}.login-card{width:min(470px,100%);padding:38px 34px;border-radius:30px;background:linear-gradient(145deg,color-mix(in srgb,var(--panel) 96%,transparent),color-mix(in srgb,var(--panel2) 90%,transparent));border:1px solid color-mix(in srgb,var(--accent) 30%,var(--line));backdrop-filter:blur(22px);box-shadow:0 35px 100px #0007;position:relative;z-index:1}.login-card .brand{font-size:46px;margin-bottom:9px}.login-card p{line-height:1.95;color:var(--muted)}.login-card label{display:block;margin:16px 0 7px}.login-card .field{padding:15px 16px}.heart{color:var(--accent)}.empty{text-align:center;padding:45px 18px;color:var(--muted)}.countdown{font-size:36px;font-weight:900;color:var(--accent);margin:12px 0}.list-row{display:flex;justify-content:space-between;gap:10px;align-items:center;padding:14px 0;border-bottom:1px solid var(--line)}.list-row:last-child{border:0}
+.media-lightbox{position:fixed;inset:0;background:rgba(5,3,9,.96);backdrop-filter:blur(12px);z-index:100;display:flex;align-items:center;justify-content:center;padding:18px}.media-lightbox.hidden{display:none}.media-lightbox-panel{position:relative;width:min(1180px,100%);height:min(92vh,940px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px}.media-lightbox-image{max-width:100%;max-height:calc(100% - 75px);object-fit:contain;border-radius:16px;box-shadow:0 20px 70px #0008}.media-lightbox-toolbar{display:flex;align-items:center;justify-content:center;gap:12px;color:#fff}.media-lightbox-toolbar button,.media-lightbox-close{background:#ffffff18;color:#fff;border:1px solid #ffffff40;border-radius:14px;padding:11px 17px}.media-lightbox-close{position:absolute;top:0;right:0;font-size:20px}.media-lightbox-count{min-width:70px;text-align:center;font-size:13px}
+.mobile-nav{display:none}.page{animation:pageIn .35s ease both}.nav button,.card,.phrase,.tile,.game-card{transition:transform .24s ease,border-color .24s ease,box-shadow .24s ease}.card:hover{border-color:color-mix(in srgb,var(--accent) 25%,var(--line))}.phrase:hover,.tile:hover,.game-card:hover{transform:translateY(-3px);border-color:color-mix(in srgb,var(--accent) 32%,var(--line))}
+@keyframes floatHeart{0%,100%{transform:translateY(0) rotate(-4deg)}50%{transform:translateY(-12px) rotate(4deg)}}@keyframes heartBeat{0%,45%,100%{transform:scale(1)}10%,25%{transform:scale(1.16)}}@keyframes pageIn{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:1000px){.app{grid-template-columns:235px minmax(0,1fr)}.sidebar{padding-inline:14px}.main{padding-inline:24px}.span-8{grid-column:span 12}.span-4{grid-column:span 6}}
+@media(max-width:760px){.app{display:block}.sidebar{display:none}.main{padding:19px 13px calc(104px + env(safe-area-inset-bottom));}.mobile-nav{display:flex;position:fixed;bottom:0;right:0;left:0;z-index:20;justify-content:space-around;gap:2px;padding:8px 5px calc(8px + env(safe-area-inset-bottom));background:var(--glass);border-top:1px solid var(--line);backdrop-filter:blur(24px);box-shadow:0 -12px 35px #0002}.mobile-nav button{flex:1;display:grid;justify-items:center;gap:4px;text-align:center;padding:8px 2px;font-size:10px;border-radius:13px}.mobile-nav .ico{font-size:20px}.hero{min-height:235px;padding:23px 19px}.hero-art{font-size:68px;padding:4px 4px 4px 12px}.hero h2{font-size:29px}.hero p{font-size:12px;line-height:1.8}.span-8,.span-6,.span-4{grid-column:span 12}.grid{gap:12px}.card{padding:18px;border-radius:20px}.topbar{align-items:flex-start;margin-bottom:20px;padding-bottom:15px}.topbar h1{font-size:25px}.top-actions{gap:6px}.top-actions .btn{padding:9px 11px;font-size:12px}.msg{max-width:91%;padding:12px 14px}.messages{height:58vh;gap:11px;padding-inline:2px}.composer{padding:8px;gap:6px}.login-card{padding:30px 22px}.login-card .brand{font-size:40px}}
+@media(max-width:390px){.hero-art{font-size:52px}.hero h2{font-size:25px}.topbar h1{font-size:22px}.mobile-nav button{font-size:9px}.mobile-nav .ico{font-size:18px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}}
+
+</style>
+</head>
+<body>
+<div id="loginView" class="login">
+ <div class="card login-card">
+  <div class="brand">DAVIN <span>♡</span></div><div class="tagline">مكان صغير… يجمع عالمين</div>
+  <p>هذه المساحة خاصة. سجّل الدخول بالحساب الذي أضافه صاحبا الموقع في Firebase Authentication.</p>
+  <label class="small muted">البريد الإلكتروني</label><input id="email" class="field" type="email" autocomplete="username" placeholder="name@example.com">
+  <label class="small muted">كلمة المرور</label><input id="password" class="field" type="password" autocomplete="current-password" placeholder="••••••••">
+  <button id="loginBtn" class="btn primary" style="width:100%;margin-top:14px">دخول إلى عالمنا ♡</button>
+  <p id="loginError" class="small" role="alert"></p>
+  <p class="small">لا يوجد تسجيل عام أو إنشاء حساب من داخل الموقع. أنشئ الحسابين المسموحين من Firebase Console.</p>
+ </div>
+</div>
+<div id="appView" class="app hidden">
+ <aside class="sidebar">
+  <div><div class="brand">DAVIN <span>♡</span></div><div class="tagline">our little universe</div></div>
+  <nav class="nav" id="sideNav"></nav>
+  <div class="side-bottom"><div class="small muted" id="whoami"></div><button class="btn ghost" id="themeBtn">◐ تغيير المظهر</button><button class="btn ghost" id="logoutBtn">↪ تسجيل الخروج</button></div>
+ </aside>
+ <main class="main">
+  <header class="topbar"><div><div class="eyebrow">A PRIVATE WORLD FOR TWO</div><h1 id="pageTitle">مساحتنا الخاصة</h1><div class="muted small" id="pageSub">كل شيء جميل يبدأ بنا ♡</div></div><div class="top-actions"><button class="btn" id="quickHeart">♡ نبضة حب</button><button class="btn" id="themeBtnMobile">◐</button></div></header>
+  <section id="page-home" class="page">
+   <div class="card hero"><div><span class="pill">♡ عالمنا نحن الاثنين</span><h2>بين بلدين… <span class="heart">قلب واحد</span></h2><p>هنا نحفظ التفاصيل الصغيرة، ونصنع ذكريات كبيرة. اكتب، العب، اضحك، واحلم… فهذه المساحة لنا.</p><button class="btn primary" data-go="chat">ابدأ محادثتنا ←</button></div><div class="hero-art">💗</div></div>
+   <div class="grid" style="margin-top:16px">
+    <div class="card span-4"><div class="muted small">رسائلنا</div><div class="stat" id="statMessages">—</div><div class="small muted">لحظات محفوظة بيننا</div></div>
+    <div class="card span-4"><div class="muted small">ذكرياتنا</div><div class="stat" id="statMemories">—</div><div class="small muted">حكايات لا نريد نسيانها</div></div>
+    <div class="card span-4"><div class="muted small">أحلام مشتركة</div><div class="stat" id="statDreams">—</div><div class="small muted">أشياء سنحققها معاً</div></div>
+    <div class="card span-6"><div class="section-head"><h2>مزاجي اليوم</h2><span class="pill">شارك شعورك</span></div><select id="moodSelect" class="field"><option>🥰 واقع في الحب</option><option>💗 مشتاق</option><option>😊 سعيد</option><option>😴 نعسان</option><option>🌧️ أحتاج احتواء</option><option>🔥 مشاكس</option><option>🌿 هادئ</option></select><button class="btn primary" id="saveMood" style="margin-top:10px">مشاركة المزاج</button><div id="moodDisplay" class="muted small" style="margin-top:10px"></div></div>
+    <div class="card span-6"><div class="section-head"><h2>اللقاء القادم</h2><span class="pill">موعدنا المنتظر</span></div><input id="meetDate" class="field" type="datetime-local"><button class="btn primary" id="saveMeet" style="margin-top:10px">حفظ الموعد</button><div id="meetCountdown" class="countdown">♡</div><div class="small muted">العد التنازلي يظهر على هذا الجهاز بعد حفظ الموعد.</div></div>
+   </div>
+  </section>
+  <section id="page-chat" class="page hidden">
+   <div class="card"><div class="section-head"><h2>محادثتنا <span class="heart">♡</span></h2><span class="pill" id="connectionStatus">جارٍ الاتصال…</span></div>
+    <div class="chat-history-tools"><button type="button" class="btn" id="loadOlderMessages">↑ تحميل الرسائل الأقدم</button><span class="small muted" id="chatLoadInfo">يتم عرض آخر الرسائل فقط لتخفيف المتصفح</span><button type="button" class="btn" id="jumpLatestMessages">↓ آخر رسالة</button></div><div id="messages" class="messages"><div class="empty">أول رسالة تنتظر أن تُكتب… ♡</div></div>
+    <div id="replyBar" class="bubble-reply hidden"></div>
+    <div class="composer"><textarea id="messageInput" class="field" rows="1" placeholder="اكتب شيئاً من قلبك…"></textarea><button id="sendBtn" class="btn primary">إرسال ♡</button></div>
+    <div class="toolbar"><button class="btn" id="emojiBtn">😊 إيموجي</button><button class="btn" data-go="library">💌 المكتبة</button><button class="btn" data-go="media">🎞️ وسائط</button><button class="btn" id="giftBtn">🎁 هدية</button><button class="btn" id="secretBtn">🔒 رسالة سرية</button></div>
+   </div>
+  </section>
+  <section id="page-library" class="page hidden">
+   <div class="card"><div class="section-head"><h2>مكتبتنا 💌</h2><span class="pill">كلمات تختارها القلوب</span></div><input id="librarySearch" class="field" placeholder="ابحث في العبارات…"><div class="form-row"><select id="libraryCategory" class="field"><option value="all">كل التصنيفات</option></select><button id="favoritesOnly" class="btn">♡ المفضلة</button></div><div id="libraryItems" class="library-grid"></div></div>
+   <div class="card" style="margin-top:15px"><h3>ركّب رسالتك</h3><textarea id="composeText" class="field" rows="3" placeholder="اكتب وامزج العبارات بطريقتك…"></textarea><button id="composeSend" class="btn primary" style="margin-top:9px">إرسال إلى المحادثة</button></div>
+  </section>
+  <section id="page-media" class="page hidden">
+   <div class="card"><div class="section-head"><h2>استكشف الوسائط 🎞️</h2><span class="pill">معاينة قبل الإرسال</span></div>
+    <div class="form-row"><input id="mediaQuery" class="field" placeholder="ابحث بالعربية أو الإنجليزية…"><select id="mediaType" class="field" style="max-width:130px"><option value="gifs">GIF</option><option value="stickers">ملصقات</option></select><button id="mediaSearch" class="btn primary">بحث</button></div>
+    <div class="small muted">مفتاح البحث عن GIF والملصقات يوضع هنا مرة واحدة ويُحفظ في هذا المتصفح. مفاتيح Google وYouTube غير مطلوبة للروابط الخارجية.</div>
+    <div class="form-row"><input id="giphyKey" class="field" type="password" autocomplete="off" placeholder="الصق GIPHY API Key هنا"><button id="toggleGiphyKey" class="btn" type="button">إظهار</button><button id="saveGiphy" class="btn">حفظ</button><button id="mediaKeyTest" class="btn primary" type="button">اختبار المفتاح</button></div>
+    <div class="small muted">أنشئ المفتاح من لوحة GIPHY ضمن تطبيق Romantique Website، واختر API وليس SDK. المفتاح المخصص للمتصفح يظهر لمن يفحص مصدر الصفحة؛ لا تضع أي كلمة مرور أو مفتاح خاص.</div>
+    <div class="toolbar"><button class="btn" id="mediaTrending">🔥 الأكثر تداولاً</button><button class="btn" id="mediaMore" disabled>تحميل المزيد</button></div>
+    <div id="mediaStatus" class="small muted" role="status" style="margin-top:8px">أدخل كلمة للبحث، أو استعرض الأكثر تداولاً.</div>
+    <div id="mediaResults" class="media-results"></div>
+    <div class="card" style="margin-top:15px;box-shadow:none"><h3>مصادر أخرى</h3><p class="muted small">البحث عن الصور والفيديو يفتح المصدر في تبويب مستقل؛ الإرسال يكون كرابط بعد نسخه.</p><div class="actions"><button class="btn" id="imageSearchLink">🔎 بحث صور</button><button class="btn" id="videoSearchLink">▶ بحث فيديو</button><button class="btn" id="stickerSearchLink">✨ ملصقات</button></div></div>
+   </div>
+  </section>
+  <section id="page-games" class="page hidden"><div class="card"><div class="section-head"><h2>وقت اللعب 🎲</h2><span class="pill">نلعب معاً</span></div><div id="gameArea" class="game-grid"></div><div id="gameResult" class="tile hidden" style="margin-top:15px"></div></div></section>
+  <section id="page-surprises" class="page hidden"><div class="grid">
+   <div class="card span-6"><h2>🎁 هدية افتراضية</h2><p class="muted">اختر هدية صغيرة تصل إلى محادثتنا.</p><div class="actions" id="giftChoices"></div></div>
+   <div class="card span-6"><h2>💗 نبضة حب</h2><p class="muted">أرسل نبضة تقول: أنا أفكر بك الآن.</p><button class="btn primary" id="pulseBtn">أرسل نبضة ♡</button></div>
+   <div class="card span-6"><h2>🫂 عناق وقبلة</h2><div class="actions"><button class="btn" id="hugBtn">🫂 عناق دافئ</button><button class="btn" id="kissBtn">💋 قبلة</button></div></div>
+   <div class="card span-6"><h2>🎡 اختر لنا</h2><p class="muted">اقتراح عشوائي لنشاط مشترك.</p><button class="btn primary" id="chooseUs">فاجئنا</button><div id="activityResult" class="stat"></div></div>
+   <div class="card span-12"><h2>🔐 رسالة سرية</h2><p class="muted">تظهر كرسالة مقفلة في المحادثة، ويمكن فتحها بالضغط عليها. ليست مشفرة تشفيراً من طرف إلى طرف؛ من لديه صلاحية قاعدة البيانات يمكنه قراءة محتواها.</p><button class="btn primary" id="secretCompose">اكتب رسالة سرية</button></div>
+  </div></section>
+  <section id="page-memories" class="page hidden"><div class="grid">
+   <div class="card span-6"><h2>📸 ذكرياتنا</h2><input id="memoryTitle" class="field" placeholder="عنوان الذكرى"><input id="memoryDate" class="field" type="date" style="margin-top:8px"><textarea id="memoryNote" class="field" rows="3" style="margin-top:8px" placeholder="احكِ لنا ما حدث…"></textarea><button id="addMemory" class="btn primary" style="margin-top:8px">حفظ الذكرى</button></div>
+   <div class="card span-6"><h2>✨ أحلامنا</h2><input id="dreamInput" class="field" placeholder="حلم نريد تحقيقه"><button id="addDream" class="btn primary" style="margin-top:8px">أضف إلى أحلامنا</button><div id="dreamList" style="margin-top:12px"></div></div>
+   <div class="card span-12"><div class="section-head"><h2>خط زمني لقصتنا</h2><span class="pill">كل تاريخ حكاية</span></div><div id="memoryList" class="memory-grid"></div></div>
+  </div></section>
+  <section id="page-settings" class="page hidden"><div class="grid">
+   <div class="card span-6"><h2>🎨 المظهر</h2><select id="themeSelect" class="field"><option value="dark">ليلي فاخر</option><option value="light">نهاري ناعم</option><option value="rose">وردي عميق</option><option value="ocean">أزرق هادئ</option></select><p class="muted small">يُحفظ اختيار المظهر على هذا الجهاز.</p></div>
+   <div class="card span-6"><h2>🔊 الأصوات</h2><label><input type="checkbox" id="soundToggle"> تفعيل صوت التنبيه الاختياري</label><p class="muted small">الصوت يصدر عند استخدام بعض المفاجآت فقط.</p></div>
+   <div class="card span-12"><h2>حول الخصوصية والاتصال</h2><p class="muted">المشروع يستخدم Firebase Authentication وCloud Firestore. لا توجد صلاحيات إدارية أو مفاتيح سرية داخل الصفحة. قواعد Firestore هي الحاجز الأمني الأساسي ويجب نشرها قبل الاستخدام.</p><p id="uidInfo" class="small"></p><button class="btn danger" id="logoutBtn2">تسجيل الخروج</button></div>
+  </div></section>
+ </main>
+</div>
+<nav id="mobileNav" class="mobile-nav hidden"></nav>
+<div id="modalWrap" class="modal-wrap hidden"><div class="modal"><div style="display:flex;justify-content:space-between;align-items:center"><h3 id="modalTitle">رسالة</h3><button class="btn" id="modalClose">✕</button></div><div id="modalBody"></div></div></div>
+<div id="mediaLightbox" class="media-lightbox hidden" role="dialog" aria-modal="true" aria-label="معاينة الصور داخل المحادثة"><div class="media-lightbox-panel"><button type="button" class="media-lightbox-close" id="mediaLightboxClose" aria-label="إغلاق">✕</button><img id="mediaLightboxImage" class="media-lightbox-image" alt="معاينة GIF"><div id="mediaLightboxLabel" class="media-lightbox-toolbar"></div><div class="media-lightbox-toolbar"><button type="button" id="mediaLightboxPrev">❮ السابق</button><span id="mediaLightboxCount" class="media-lightbox-count"></span><button type="button" id="mediaLightboxNext">التالي ❯</button></div></div></div>
+<div id="toast" class="toast hidden" role="status"></div>
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js";
 import { getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-auth.js";
 import { getFirestore, collection, addDoc, query, orderBy, onSnapshot, serverTimestamp, doc, setDoc, getDoc, updateDoc, deleteDoc, limit, getDocs, startAfter } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-firestore.js";
 
-/* إعدادات مشروع Firebase الحالي */
+/* 1) ضع إعدادات مشروع Firebase من Project settings > Your apps.
+   هذه القيم إعدادات تعريفية للعميل وليست مفاتيح إدارية سرية. */
 const firebaseConfig = {
   apiKey: "AIzaSyCyXx7ynIiMtIncmNG_CmB3_J6pOEYzMPk",
   authDomain: "mero-2e39b.firebaseapp.com",
@@ -40,1327 +149,494 @@ const firebaseConfig = {
   messagingSenderId: "30733503616",
   appId: "1:30733503616:web:e7e02032c200d347802a65"
 };
-
-/* الحسابان المسموح لهما بالدخول */
-const ALLOWED_UIDS = [
-  "H832XVNpZvOaaAPyyjuORadd0qy1",
-  "t6ADRp8k0HNeCoq1hieRtpJs2N02"
-];
-
+/* 2) استبدل موضعي UID بالقيمتين الحقيقيتين من Firebase Authentication.
+   يجب أن تطابق القيم ملف firestore.rules حرفياً. */
+const ALLOWED_UIDS = ["H832XVNpZvOaaAPyyjuORadd0qy1", "t6ADRp8k0HNeCoq1hieRtpJs2N02"];
 const COUPLE_ID = "davin-private-space";
 const PATH = `couples/${COUPLE_ID}`;
 const $ = id => document.getElementById(id);
-const validConfig = !JSON.stringify(firebaseConfig).includes("PUT_") &&
-  !ALLOWED_UIDS.some(x => x.includes("PUT_"));
-
-let app, auth, db, currentUser = null;
-let unsubMessages = null, unsubMemories = null, unsubDreams = null;
-let replyTarget = null;
-let messagesCache = [];
-let oldestMessageDoc = null;
-let hasMoreMessages = false;
-let loadingOlderMessages = false;
-let messagesInitialized = false;
-let hasLoadedOlderMessages = false;
-let memoryCache = [], dreamCache = [];
-let favOnly = false;
-let libraryFavs = new Set(
-  JSON.parse(localStorage.getItem("davinFavs") || "[]")
-);
-
-const navItems = [
-  ["home","⌂","الرئيسية"],
-  ["chat","♡","المحادثة"],
-  ["library","✉","المكتبة"],
-  ["media","▧","الوسائط"],
-  ["games","♧","الألعاب"],
-  ["surprises","✧","المفاجآت"],
-  ["memories","◷","ذكرياتنا"],
-  ["settings","⚙","الإعدادات"]
-];
-
-const titles = {
-  home:"مساحتنا الخاصة",
-  chat:"محادثتنا",
-  library:"مكتبة الكلمات",
-  media:"عالم الوسائط",
-  games:"نلعب معاً",
-  surprises:"مفاجآت لنا",
-  memories:"ذكرياتنا وأحلامنا",
-  settings:"إعدادات عالمنا"
-};
+const validConfig = !JSON.stringify(firebaseConfig).includes("PUT_") && !ALLOWED_UIDS.some(x=>x.includes("PUT_"));
+let app,auth,db,currentUser=null,unsubMessages=null,unsubMemories=null,unsubDreams=null,replyTarget=null,messagesCache=[],oldestMessageDoc=null,hasMoreMessages=false,loadingOlderMessages=false,messagesInitialized=false,hasLoadedOlderMessages=false,memoryCache=[],dreamCache=[],favOnly=false,libraryFavs=new Set(JSON.parse(localStorage.getItem("davinFavs")||"[]"));
+const navItems=[["home","⌂","الرئيسية"],["chat","♡","المحادثة"],["library","✉","المكتبة"],["media","▧","الوسائط"],["games","♧","الألعاب"],["surprises","✧","المفاجآت"],["memories","◷","ذكرياتنا"],["settings","⚙","الإعدادات"]];
+const titles={home:"مساحتنا الخاصة",chat:"محادثتنا",library:"مكتبة الكلمات",media:"عالم الوسائط",games:"نلعب معاً",surprises:"مفاجآت لنا",memories:"ذكرياتنا وأحلامنا",settings:"إعدادات عالمنا"};
 const phrases=[
-["غزل وحب","أحبك بطريقة تجعل كل الأشياء العادية حولي تبدو أجمل."],
-["غزل وحب","أنت لست جزءاً من يومي، أنت الجزء الذي يجعل اليوم يستحق."],
-["غزل وحب","كل مرة أختارك فيها، أشعر أنني اخترت الحياة الأجمل."],
-["اشتياق","المسافة لا تقيس الشوق… قلبي يعرف طريقه إليك دائماً."],
-["اشتياق","أفتقد تفاصيلك الصغيرة التي لا يعرف قيمتها أحد غيري."],
-["اشتياق","ليت بيننا زرّاً أضغطه فأصبح بجانبك الآن."],
-["حنان","تعال أخبئ تعبك في حضني، ولا تفكر في شيء."],
-["حنان","أريد أن أكون المكان الذي ترتاح فيه روحك."],
-["حنان","خذ وقتك، أنا هنا، ولن تحتاج أن تشرح كل شيء."],
-["مباشرة","أريدك في تفاصيل أيامي، اليوم وغداً وكل الأيام."],
-["مباشرة","أنا أحبك، وهذه أكثر حقيقة أحب قولها."],
-["تلميحات","هناك شخص يجعل قلبي يبتسم كلما ظهر اسمه… تعرفه؟"],
-["تلميحات","لو كان الشوق رسالة، لوصلتك مني آلاف الرسائل."],
-["مرح ومشاكسات","عندي شكوى رسمية: أنت مسؤول عن كثرة ابتسامي للهاتف."],
-["مرح ومشاكسات","ممنوع تكون بهذا الجمال من دون تصريح مسبق."],
-["مصالحة واحتواء","لا أريد أن نكسب النقاش ونخسر قربنا. تعال نتفاهم."],
-["مصالحة واحتواء","أنا آسف إن جرحتك. يهمني شعورك أكثر من كبريائي."],
-["قبل النوم","نام مطمئناً، هناك قلب يتمنى لك أحلاماً تشبه لطفك."],
-["قبل النوم","آخر فكرة قبل النوم؟ أنت. وأول فكرة حين أصحو؟ أنت."],
-["صباح","صباح الخير لوجه أتمنى أن أراه قبل كل شيء."],
-["صباح","أتمنى أن يكون يومك خفيفاً وجميلاً مثل قلبك."],
-["حميمية بالتراضي","أشتاق لقربك ولمسة يدك، ولتلك اللحظة التي يهدأ فيها العالم حولنا."],
-["حميمية بالتراضي","أحب أن نقترب بالقدر الذي يريحنا نحن الاثنين، وبكل حب ورضا."],
-["غموض وتلميح","جهّز قلبك… لديّ لك مفاجأة لا تشبه أي شيء."],
-["مرح ومشاكسات","اختر: حضن طويل أم ألف قبلة؟ لا يوجد خيار ثالث."],
-["احتواء","حتى في أصعب أيامك، لا تنس أنك محبوب كما أنت."],
-["اشتياق","أحسب المسافة بالأيام، وأختصرها في كلمة: قريباً."],
-["غزل وحب","لو أعادوا ترتيب العالم، سأبحث عنك في كل نسخة منه."],
-["صباح","أتمنى أن تصلك ابتسامتي قبل قهوتك."],
-["قبل النوم","أرسل لك قبلة صغيرة لترافق أحلامك."],
-["غزل وحب","في زحمة العالم، قلبي يعرف صوتك حتى قبل أن تنطق."],
-["غزل وحب","أنت التفصيلة التي تجعل حكايتي المفضلة هي حياتي."],
-["غزل وحب","كل الطرق التي أحبها تبدأ بفكرة أنني سأراك."],
-["غزل وحب","وجودك لا يغيّر يومي فقط، بل يغيّر إحساسي بالحياة."],
-["غزل وحب","أحبك في هدوئك، وفي ضحكتك، وحتى في لحظات صمتك."],
-["غزل وحب","لو كان للحب عنوان، لكان أقرب مكان إلى قلبك."],
-["غزل وحب","أنت اختياري الجميل، حتى في الأيام التي لا تكون سهلة."],
-["اشتياق","أحياناً أفتح المحادثة فقط لأشعر أنك قريب."],
-["اشتياق","كل دقيقة بعيدة تذكرني كم أحب وجودك بجانبي."],
-["اشتياق","أريد أن أحكي لك أشياء صغيرة لا تكتمل إلا معك."],
-["اشتياق","المسافة بيننا على الخريطة، وليست بين قلبينا."],
-["اشتياق","أشتاق لصوتك أكثر مما أستطيع وصفه."],
-["اشتياق","لو أستطيع إرسال حضن عبر الشاشة لفعلت الآن."],
-["حنان","إذا أثقل عليك اليوم، تعال نخففه معاً بالكلام."],
-["حنان","لا يلزم أن تكون قوياً طوال الوقت، أنا بجانبك."],
-["حنان","أحب أن أسمع منك حتى لو لم يكن لديك شيء محدد لتقوله."],
-["حنان","خذ نفساً عميقاً، وتذكر أن هناك من يهتم لأمرك."],
-["حنان","أريد أن يكون وجودي راحة لا عبئاً عليك."],
-["حنان","أنا معك في التفاصيل السهلة والصعبة."],
-["مباشرة","أريد أن نصنع أياماً كثيرة نتذكرها بابتسامة."],
-["مباشرة","أختارك اليوم، وأتمنى أن أختارك في كل غد."],
-["مباشرة","أنت الشخص الذي أريد أن أشاركه الأخبار الصغيرة قبل الكبيرة."],
-["مباشرة","مكانك في قلبي ثابت، مهما تغيّرت الظروف."],
-["تلميحات","لو سألت قلبي عن أجمل إشعار، سيختار اسمك."],
-["تلميحات","هناك ابتسامة لا تظهر إلا عندما تكون أنت السبب."],
-["تلميحات","هل تعرف من الذي سرق انتباهي اليوم؟ أنت كالعادة."],
-["تلميحات","لديّ موعد مع شخص مميز… وأتمنى أن يكون أنت."],
-["مرح ومشاكسات","أطالب بتعويض عن كل مرة جعلتني أبتسم بلا سبب."],
-["مرح ومشاكسات","أنت مشتبه به في قضية احتلال أفكاري."],
-["مرح ومشاكسات","تنبيه: جرعة الدلال المطلوبة منك مرتفعة اليوم."],
-["مرح ومشاكسات","هل تسمح لي بسرقة خمس دقائق من وقتك؟ وقد تصبح ساعة."],
-["مرح ومشاكسات","أنت محظوظ لأنني أحبك، وإلا لرفعت عليك قضية شوق."],
-["مصالحة واحتواء","خلينا نفهم بعض بدل ما نفترض أشياء عن بعض."],
-["مصالحة واحتواء","مشاعرك مهمة عندي، وأريد أن أسمعها بهدوء."],
-["مصالحة واحتواء","نحن في نفس الفريق، حتى عندما نختلف."],
-["مصالحة واحتواء","أفضّل حديثاً صادقاً يعيد قربنا على صمت يبعدنا."],
-["مصالحة واحتواء","إذا أخطأت، أريد فرصة لأفهم وأصلح."],
-["قبل النوم","أتمنى أن يزورك حلم لطيف يشبه قلبك."],
-["قبل النوم","ضع تعب اليوم جانباً، وغداً فرصة جديدة."],
-["قبل النوم","ليلة هادئة لقلب أتمنى له كل الطمأنينة."],
-["قبل النوم","لو كنت بجانبك الآن، لقلت لك: تصبح على خير يا أجمل أقداري."],
-["صباح","صباحك رضا وراحة وخبر جميل يفرح قلبك."],
-["صباح","أتمنى أن تجد اليوم سبباً جديداً للضحك."],
-["صباح","أرسل لك بداية يوم مليئة بالمحبة والتفاؤل."],
-["صباح","صباحي أحلى عندما أعرف أنك بخير."],
-["حميمية بالتراضي","أحب قربك حين يكون مريحاً وجميلاً لنا معاً."],
-["حميمية بالتراضي","أجمل لحظاتنا هي التي نختارها برغبة وراحة من الطرفين."],
-["حميمية بالتراضي","أشتاق ليدك في يدي ولطمأنينة وجودك."],
-["غموض وتلميح","احتفظ بقليل من الفضول… هناك شيء جميل أعدّه لك."],
-["غموض وتلميح","هذه الليلة لديّ سؤال واحد: هل أنت مستعد للدلال؟"],
-["احتواء","لا تقارن نفسك بأحد؛ أنت مميز بطريقتك."],
-["احتواء","أنا فخور بك وبكل خطوة تحاول أن تخطوها."],
-["احتواء","حتى لو لم يكن يومك مثالياً، أنت تستحق الحب."],
-["احتواء","لا تحمل كل شيء وحدك، شاركني ما في قلبك."],
-["ذكريات","أريد أن نجمع صوراً ومواقف تجعلنا نضحك بعد سنوات."],
-["ذكريات","ما زلت أحب تذكّر أول مرة جعلتني أبتسم."],
-["ذكريات","بعض اللحظات قصيرة، لكنها تبقى في القلب طويلاً."],
-["أحلامنا","أحلم بيوم عادي جداً، لكنه يبدأ وينتهي بقربك."],
-["أحلامنا","لنخطط لأشياء صغيرة ونحققها واحدة تلو الأخرى."],
-["أحلامنا","أجمل خطط المستقبل هي التي نجد أنفسنا فيها معاً."],
-["امتنان","شكراً لأنك تمنح أيامي معنى ألطف."],
-["امتنان","أقدّر كل مرة تحاول فيها أن تفهمني."],
-["امتنان","وجودك في حياتي نعمة أحب أن أحافظ عليها."],
-["امتنان","أشكرك على التفاصيل التي قد تبدو بسيطة لكنها تعني لي الكثير."],
-["أسئلة القلب","ما أكثر عادة صغيرة تحبها فيّ؟"],
-["أسئلة القلب","ما الشيء الذي تتمنى أن نجرّبه معاً قريباً؟"],
-["أسئلة القلب","متى شعرت أن المسافة صارت أصغر بيننا؟"],
-["أسئلة القلب","ما ذكرى بيننا تتمنى أن تعيشها مرة أخرى؟"],
-["أسئلة القلب","ما الطريقة التي تحب أن أساندك بها عندما تتعب؟"],
-["أسئلة القلب","ما اسم المكان الذي تتمنى أن نزوره أولاً؟"],
-["رسائل قصيرة","أنا هنا، وأفكر بك، وأتمنى لك يوماً جميلاً."],
-["رسائل قصيرة","أحبك أكثر مما تختصره هذه الكلمات."],
-["رسائل قصيرة","ابتسم، فهناك شخص يحب ابتسامتك كثيراً."],
-["رسائل قصيرة","أنت بخير؟ يكفيني أن أعرف ذلك لأطمئن."],
-["رسائل قصيرة","قلب واحد، مهما طالت المسافات."],
-["غزل وحب","أنت أجمل صدفة تحولت إلى أجمل اختيار."],
-["غزل وحب","في عينيك أجد ألف سبب لأحب الحياة."],
-["غزل وحب","كل يوم معك يضيف إلى قلبي حكاية جديدة."],
-["غزل وحب","أحب تفاصيلك التي قد لا تنتبه أنت إليها."],
-["غزل وحب","لو كان للطمأنينة اسم، لكان اسمك."],
-["غزل وحب","أنت قصيدتي التي لا أمل من قراءتها."],
-["غزل وحب","أحبك ببساطة، وبعمق، وبكل ما في قلبي."],
-["غزل وحب","ضحكتك مكافأة جميلة بعد يوم طويل."],
-["غزل وحب","معك تصبح أبسط اللحظات ذكرى لا تُنسى."],
-["غزل وحب","أنت مكاني المفضل مهما تغيّرت الأماكن."],
-["اشتياق","أشتاق إليك حتى وأنا أتحدث معك."],
-["اشتياق","كل دقيقة بعيدة عنك تجعلني أقدّر قربك أكثر."],
-["اشتياق","أبحث عنك في الأغاني والأماكن والتفاصيل."],
-["اشتياق","ليت المسافات تختصر نفسها حين نشتاق."],
-["اشتياق","غيابك يجعل الوقت أطول مما ينبغي."],
-["اشتياق","أريد لقاءً يختصر كل كلمات الاشتياق."],
-["اشتياق","أفتقد صوتك الذي يجعل قلبي أهدأ."],
-["اشتياق","كل ما أريده الآن لحظة قرب منك."],
-["حنان","لا تحمل همّ كل شيء وحدك، أنا معك."],
-["حنان","أتمنى أن أكون لك راحة لا عبئاً."],
-["حنان","مشاعرك مهمة عندي، حتى الأشياء الصغيرة منها."],
-["حنان","إذا أتعبك العالم، تعال نتقاسم الهدوء."],
-["حنان","لا تحتاج أن تكون قوياً طوال الوقت."],
-["حنان","أنا هنا لأسمعك، لا لأحكم عليك."],
-["حنان","أتمنى أن يمنحك يومك لطفاً يشبه قلبك."],
-["حنان","خذ نفساً عميقاً، وغداً فرصة جديدة."],
-["مصالحة واحتواء","خلّينا نفهم بعض بدل ما نبتعد."],
-["مصالحة واحتواء","قربك أهم عندي من الانتصار في أي نقاش."],
-["مصالحة واحتواء","نختلف أحياناً، لكن الود بيننا يستحق العناية."],
-["مصالحة واحتواء","أنا مستعد أسمعك بهدوء وأفهم وجهة نظرك."],
-["مصالحة واحتواء","لا أريد للصمت أن يكبر بيننا."],
-["مصالحة واحتواء","نبدأ من جديد بكلمة طيبة وقلب صافي."],
-["مصالحة واحتواء","إذا أخطأت بحقك، أريد أن أصلح لا أن أبرر."],
-["مرح ومشاكسات","تم رصد ابتسامة بسببك، يرجى تحمّل المسؤولية."],
-["مرح ومشاكسات","أنت إشعار السعادة المفضل عندي."],
-["مرح ومشاكسات","هل تسمح لقلبي أن يأخذ إجازة من التفكير فيك؟"],
-["مرح ومشاكسات","أحتاج جرعة منك، والجرعة تكون حضناً."],
-["مرح ومشاكسات","تنبيه: وجودك يسبب ابتسامة لا إرادية."],
-["مرح ومشاكسات","لو كنت تطبيقاً، لكنت التطبيق المثبت دائماً."],
-["مرح ومشاكسات","عندي موعد مهم معك… لا تقبل الاعتذار."],
-["مرح ومشاكسات","أنت السبب وراء تفقدي للهاتف كل دقيقة."],
-["صباح","صباحك حب وراحة وأخبار تفرح قلبك."],
-["صباح","أتمنى أن يحمل لك هذا الصباح بداية جميلة."],
-["صباح","صباح الخير لمن يجعل الأيام ألطف."],
-["صباح","ابدأ يومك بابتسامة، والباقي يهون."],
-["صباح","دع هذا اليوم يفاجئك بما يسعدك."],
-["قبل النوم","ليلة هادئة وقلب مطمئن وأحلام جميلة."],
-["قبل النوم","أتمنى أن تنام وكل ما يقلقك صار أخف."],
-["قبل النوم","أرسل لك سلاماً دافئاً قبل أن تغمض عينيك."],
-["قبل النوم","غداً يوم جديد، فلا تحمل تعب اليوم معك."],
-["قبل النوم","تصبح على قلب يعرف كم هو محبوب."],
-["رسائل قصيرة","وجودك فرق."],
-["رسائل قصيرة","أنت على بالي دائماً."],
-["رسائل قصيرة","اشتقت لك، وبس."],
-["رسائل قصيرة","أحب تفاصيلنا الصغيرة."],
-["رسائل قصيرة","قربك يكفيني."],
-["رسائل قصيرة","أنت فرحتي الهادئة."],
-["رسائل قصيرة","قلبي اختارك كل مرة."],
-["رسائل قصيرة","أنت أحلى خبر في يومي."],
-["تلميحات","هناك مفاجأة صغيرة تنتظر صاحب هذا القلب."],
-["تلميحات","لو عرفت ما أفكر به الآن لابتسمت."],
-["تلميحات","أظن أن شخصاً ما سرق قلبي… وأنت تعرفه."],
-["تلميحات","لدي كلام كثير، لكن حضنك يختصره."],
-["غموض وتلميح","قريباً ستعرف لماذا أبتسم كلما رأيتك."],
-["غموض وتلميح","احتفظ بمساحة صغيرة في يومك لمفاجأة مني."],
-["امتنان","شكراً لأنك تجعل الأشياء أسهل بمجرد وجودك."],
-["امتنان","أقدّر كل مرة حاولت فيها أن تفهمني."],
-["امتنان","وجودك في حياتي نعمة أمتن لها."],
-["امتنان","شكراً لكل لحظة جميلة صنعتها دون أن تشعر."],
-["امتنان","أحب أننا نستطيع أن نكون على طبيعتنا معاً."],
-["ذكريات","أحب استرجاع لحظاتنا وكأنها تحدث الآن."],
-["ذكريات","بعض الذكريات لا يبهت لونها مهما مر الوقت."],
-["ذكريات","أريد المزيد من الأيام التي نحكي عنها بابتسامة."],
-["ذكريات","كل صورة لنا تحمل شعوراً لا تلتقطه الكاميرا."],
-["وعود وأحلام","أتمنى أن نصنع معاً أياماً أجمل مما نتخيل."],
-["وعود وأحلام","سأظل أختار الحوار والاهتمام والصدق."],
-["وعود وأحلام","أحلم بأيام بسيطة تجمعنا وقلوب مرتاحة."],
-["وعود وأحلام","لنبحث دائماً عن أسباب صغيرة لنفرح معاً."],
-["غزل وحب","أحب الطريقة التي يصبح بها اسمي أجمل حين تنطقه."],
-["غزل وحب","أنت لست صدفة عابرة؛ أنت أجمل ما حدث في حكايتي."],
-["غزل وحب","لو خُيّرت بين ألف يوم جميل ويوم معك، لاخترت يومك."],
-["غزل وحب","في عينيك أجد هدوءاً لا تمنحني إياه كل الأماكن."],
-["غزل وحب","أحبك دون مناسبة، ودون سبب يحتاج إلى شرح."],
-["غزل وحب","كلما عرفتك أكثر، وجدت سبباً جديداً لأحبك."],
-["غزل وحب","أنت القصيدة التي لا أملّ من قراءتها."],
-["غزل وحب","ضحكتك عندي خبر جميل يستحق أن يتكرر."],
-["غزل وحب","أحب تفاصيلك التي لا تنتبه أنت إليها."],
-["غزل وحب","لو كان للطمأنينة صوت، لكان صوتك."],
-["اشتياق","أشتاق إليك في منتصف يوم عادي، فيتحول إلى يوم مختلف."],
-["اشتياق","أحتاج دقيقة قرب منك تعوّض ساعات الغياب."],
-["اشتياق","أحياناً لا أريد حديثاً طويلاً؛ أريد فقط أن أسمعك."],
-["اشتياق","كلما ابتعدنا، اكتشفت أن حضورك يسكن تفاصيل يومي."],
-["اشتياق","أرسل لك شوقاً لا يحتاج إلى شبكة إنترنت ليصل."],
-["اشتياق","ليت المسافة تختصر نفسها كلما اشتقنا."],
-["اشتياق","هناك مكان بجانبي لا يليق به إلا أنت."],
-["اشتياق","أفتقد حتى أحاديثنا العادية التي تبدو معك استثنائية."],
-["رسائل صباح","صباحك بداية لطيفة، وقلبك مليء بما تتمنى."],
-["رسائل صباح","أتمنى أن يبتسم لك اليوم كما تبتسم لي."],
-["رسائل صباح","صباح الخير يا أجمل فكرة تزور بالي."],
-["رسائل صباح","قبل أن يبدأ يومك، تذكّر أن هناك من يحبك كثيراً."],
-["رسائل صباح","أتمنى أن تجد اليوم سبباً صغيراً يجعلك سعيداً."],
-["رسائل صباح","أرسل لك قهوة افتراضية ووردة وحضناً من بعيد."],
-["رسائل مساء","مساؤك راحة تشبه حضناً طويلاً."],
-["رسائل مساء","انتهى اليوم، لكن حبي لك لا يعرف نهاية الدوام."],
-["رسائل مساء","أتمنى أن يكون المساء هادئاً على قلبك."],
-["رسائل مساء","أخبرني عن يومك؛ أحب أن أكون جزءاً من تفاصيله."],
-["رسائل مساء","لو كنت بجانبك الآن، لاخترت أن نجلس ونتحدث بلا استعجال."],
-["قبل النوم","ضع تعبك جانباً، فأنت تستحق ليلة هادئة."],
-["قبل النوم","أتمنى أن أكون آخر ابتسامة تزور وجهك الليلة."],
-["قبل النوم","نم وأنت تعرف أن مكانك في قلبي محفوظ."],
-["قبل النوم","أرسل لك حلماً جميلاً وبداية أجمل غداً."],
-["قبل النوم","لو استطعت، لغطيتك بالطمأنينة حتى الصباح."],
-["حنان واحتواء","لا أحتاج منك أن تكون مثالياً؛ يكفيني أن تكون أنت."],
-["حنان واحتواء","أنا هنا لأسمعك، لا لأحكم عليك."],
-["حنان واحتواء","إذا لم تجد الكلمات، يكفيني أن تبقى قريباً."],
-["حنان واحتواء","تعبك مهم عندي، ومشاعرك تستحق أن تُسمع."],
-["حنان واحتواء","لا بأس بيوم صعب؛ سنعبره بهدوء معاً."],
-["حنان واحتواء","أتمنى أن تشعر معي أنك في مكان آمن."],
-["حنان واحتواء","خذ نفساً عميقاً، ولا تحمل كل شيء وحدك."],
-["امتنان","شكراً لأنك تجعلني أشعر أنني لست وحدي."],
-["امتنان","أمتن لكل مرة اخترت فيها أن تفهمني."],
-["امتنان","وجودك يضيف إلى حياتي شيئاً لا يُقاس."],
-["امتنان","شكراً على لطفك حتى في التفاصيل الصغيرة."],
-["امتنان","أحب أننا نتعلم كيف نكون أفضل لبعضنا."],
-["امتنان","كل لحظة اهتمام منك تبقى في قلبي طويلاً."],
-["مصالحة واعتذار","أريد أن نفهم بعضنا أكثر، لا أن ينتصر أحدنا."],
-["مصالحة واعتذار","إذا أخطأت، أخبرني؛ قربك يستحق أن أتعلم."],
-["مصالحة واعتذار","آسف على ما أزعجك، لم يكن شعورك أمراً بسيطاً عندي."],
-["مصالحة واعتذار","دعنا نبدأ الحديث بهدوء ونترك العناد جانباً."],
-["مصالحة واعتذار","أحبك أكثر من رغبتي في أن أكون على حق."],
-["مصالحة واعتذار","لا أريد للصمت أن يكبر بيننا؛ تعال نتكلم."],
-["مرح ومشاكسات","قلبي رفع عليك بلاغاً بسبب احتلال أفكاري."],
-["مرح ومشاكسات","أطالب بحضن فوري، والاعتراض غير مقبول 😄"],
-["مرح ومشاكسات","هل أنت مغناطيس؟ لماذا أفكاري كلها تتجه إليك؟"],
-["مرح ومشاكسات","أنت السبب في أن بطارية هاتفي تنفد من كثرة فتح المحادثة."],
-["مرح ومشاكسات","أحتاج موعداً معك، وجدول المواعيد لا يقبل التأجيل."],
-["مرح ومشاكسات","لو كان الاشتياق رياضة، لحصلت على بطولة العالم."],
-["مرح ومشاكسات","أنت مشكلتي اللطيفة التي لا أريد حلها."],
-["وعود وأحلام","أعدك أن أسمعك بقلب مفتوح كلما احتجت."],
-["وعود وأحلام","لنصنع بيتاً من الطمأنينة قبل أن نصنع أي شيء آخر."],
-["وعود وأحلام","أحلم بيوم لا نحتاج فيه إلى عدّ المسافات."],
-["وعود وأحلام","أريد أن نكبر معاً وتكبر معنا ضحكاتنا."],
-["وعود وأحلام","لنحتفظ دائماً بمساحة للحلم والمفاجآت."],
-["وعود وأحلام","أجمل خططي هي الأيام التي تجمعنا."],
-["ذكريات","أريد أن نجمع لحظات صغيرة تصبح حكايات كبيرة."],
-["ذكريات","بعض التفاصيل لا تُصوّر، لكنها تبقى في القلب."],
-["ذكريات","كل مرة نضحك فيها معاً تصبح ذكرى أحبها."],
-["ذكريات","أتمنى أن يكون القادم مليئاً بلحظات نقول عنها: يا لها من أيام."],
-["ذكريات","أحب أن نعيد حكاياتنا ونضحك كأنها حدثت للتو."],
-["رسائل قصيرة","أنت بيتي حين يتعب العالم."],
-["رسائل قصيرة","قلبي يبتسم لك الآن."],
-["رسائل قصيرة","وجودك يكفيني وزيادة."],
-["رسائل قصيرة","أحبك أكثر مما أقول."],
-["رسائل قصيرة","تعال نسرق لحظة لنا."],
-["رسائل قصيرة","أنت أجمل إشعار."],
-["رسائل قصيرة","كلّي امتنان لأنك هنا."],
-["رسائل قصيرة","أرسل لك قلبي مع هذه الرسالة."],
-["اعترافات","أحياناً أبتسم وأنا أتذكر حديثاً قديماً بيننا."],
-["اعترافات","أحب أن أخبرك بأشياء لا أقولها لأي أحد."],
-["اعترافات","أنت أول شخص أفكر أن أشاركه الخبر الجميل."],
-["اعترافات","أشعر أنني أستطيع أن أكون على طبيعتي معك."],
-["اعترافات","أخاف أحياناً من المسافة، لكنني أؤمن بما نبنيه."],
-["اعترافات","أحب أن أراك سعيداً حتى لو لم أكن سبب ذلك اليوم."],
-["حميمية بالتراضي","أشتاق لقربك، وأحب أن يكون كل شيء بيننا براحة ورضا."],
-["حميمية بالتراضي","أحب دفء يدك وهدوء اللحظة حين نكون معاً."],
-["حميمية بالتراضي","أجمل القرب هو الذي يشعرنا بالأمان والاحترام."],
-["حميمية بالتراضي","أريد لحظاتنا الخاصة أن تبقى جميلة ومريحة لنا الاثنين."],
-["رسائل دعم","أنا أؤمن بك، حتى في الأيام التي تشك فيها بنفسك."],
-["رسائل دعم","خطوة صغيرة اليوم أفضل من انتظار يوم مثالي."],
-["رسائل دعم","سأفرح لنجاحك كأنه نجاحي."],
-["رسائل دعم","لا تنس كم تجاوزت من أشياء صعبة حتى وصلت هنا."],
-["رسائل دعم","أنا في صفك، وسأشجعك دائماً."],
-["أسئلة حب","ما التفصيل الصغير الذي يجعلك تشعر بأنك محبوب؟"],
-["أسئلة حب","ما الذكرى التي تريد أن نصنعها قريباً؟"],
-["أسئلة حب","ما الشيء الذي تتمنى أن نتعلمه معاً؟"],
-["أسئلة حب","ما الأغنية التي تذكرك بنا؟"],
-["أسئلة حب","ما أكثر شيء تحب أن نفعله في يوم عطلة؟"]
+["غزل وحب","أحبك بطريقة تجعل كل الأشياء العادية حولي تبدو أجمل."],["غزل وحب","أنت لست جزءاً من يومي، أنت الجزء الذي يجعل اليوم يستحق."],["غزل وحب","كل مرة أختارك فيها، أشعر أنني اخترت الحياة الأجمل."],["اشتياق","المسافة لا تقيس الشوق… قلبي يعرف طريقه إليك دائماً."],["اشتياق","أفتقد تفاصيلك الصغيرة التي لا يعرف قيمتها أحد غيري."],["اشتياق","ليت بيننا زرّاً أضغطه فأصبح بجانبك الآن."],["حنان","تعال أخبئ تعبك في حضني، ولا تفكر في شيء."],["حنان","أريد أن أكون المكان الذي ترتاح فيه روحك."],["حنان","خذ وقتك، أنا هنا، ولن تحتاج أن تشرح كل شيء."],["مباشرة","أريدك في تفاصيل أيامي، اليوم وغداً وكل الأيام."],["مباشرة","أنا أحبك، وهذه أكثر حقيقة أحب قولها."],["تلميحات","هناك شخص يجعل قلبي يبتسم كلما ظهر اسمه… تعرفه؟"],["تلميحات","لو كان الشوق رسالة، لوصلتك مني آلاف الرسائل."],["مرح ومشاكسات","عندي شكوى رسمية: أنت مسؤول عن كثرة ابتسامي للهاتف."],["مرح ومشاكسات","ممنوع تكون بهذا الجمال من دون تصريح مسبق."],["مصالحة واحتواء","لا أريد أن نكسب النقاش ونخسر قربنا. تعال نتفاهم."],["مصالحة واحتواء","أنا آسف إن جرحتك. يهمني شعورك أكثر من كبريائي."],["قبل النوم","نام مطمئناً، هناك قلب يتمنى لك أحلاماً تشبه لطفك."],["قبل النوم","آخر فكرة قبل النوم؟ أنت. وأول فكرة حين أصحو؟ أنت."],["صباح","صباح الخير لوجه أتمنى أن أراه قبل كل شيء."],["صباح","أتمنى أن يكون يومك خفيفاً وجميلاً مثل قلبك."],["حميمية بالتراضي","أشتاق لقربك ولمسة يدك، ولتلك اللحظة التي يهدأ فيها العالم حولنا."],["حميمية بالتراضي","أحب أن نقترب بالقدر الذي يريحنا نحن الاثنين، وبكل حب ورضا."],["غموض وتلميح","جهّز قلبك… لديّ لك مفاجأة لا تشبه أي شيء."],["مرح ومشاكسات","اختر: حضن طويل أم ألف قبلة؟ لا يوجد خيار ثالث."],["احتواء","حتى في أصعب أيامك، لا تنس أنك محبوب كما أنت."],["اشتياق","أحسب المسافة بالأيام، وأختصرها في كلمة: قريباً."],["غزل وحب","لو أعادوا ترتيب العالم، سأبحث عنك في كل نسخة منه."],["صباح","أتمنى أن تصلك ابتسامتي قبل قهوتك."],["قبل النوم","أرسل لك قبلة صغيرة لترافق أحلامك."]
+,
+['غزل وحب','في زحمة العالم، قلبي يعرف صوتك حتى قبل أن تنطق.'],
+['غزل وحب','أنت التفصيلة التي تجعل حكايتي المفضلة هي حياتي.'],
+['غزل وحب','كل الطرق التي أحبها تبدأ بفكرة أنني سأراك.'],
+['غزل وحب','وجودك لا يغيّر يومي فقط، بل يغيّر إحساسي بالحياة.'],
+['غزل وحب','أحبك في هدوئك، وفي ضحكتك، وحتى في لحظات صمتك.'],
+['غزل وحب','لو كان للحب عنوان، لكان أقرب مكان إلى قلبك.'],
+['غزل وحب','أنت اختياري الجميل، حتى في الأيام التي لا تكون سهلة.'],
+['اشتياق','أحياناً أفتح المحادثة فقط لأشعر أنك قريب.'],
+['اشتياق','كل دقيقة بعيدة تذكرني كم أحب وجودك بجانبي.'],
+['اشتياق','أريد أن أحكي لك أشياء صغيرة لا تكتمل إلا معك.'],
+['اشتياق','المسافة بيننا على الخريطة، وليست بين قلبينا.'],
+['اشتياق','أشتاق لصوتك أكثر مما أستطيع وصفه.'],
+['اشتياق','لو أستطيع إرسال حضن عبر الشاشة لفعلت الآن.'],
+['حنان','إذا أثقل عليك اليوم، تعال نخففه معاً بالكلام.'],
+['حنان','لا يلزم أن تكون قوياً طوال الوقت، أنا بجانبك.'],
+['حنان','أحب أن أسمع منك حتى لو لم يكن لديك شيء محدد لتقوله.'],
+['حنان','خذ نفساً عميقاً، وتذكر أن هناك من يهتم لأمرك.'],
+['حنان','أريد أن يكون وجودي راحة لا عبئاً عليك.'],
+['حنان','أنا معك في التفاصيل السهلة والصعبة.'],
+['مباشرة','أريد أن نصنع أياماً كثيرة نتذكرها بابتسامة.'],
+['مباشرة','أختارك اليوم، وأتمنى أن أختارك في كل غد.'],
+['مباشرة','أنت الشخص الذي أريد أن أشاركه الأخبار الصغيرة قبل الكبيرة.'],
+['مباشرة','مكانك في قلبي ثابت، مهما تغيّرت الظروف.'],
+['تلميحات','لو سألت قلبي عن أجمل إشعار، سيختار اسمك.'],
+['تلميحات','هناك ابتسامة لا تظهر إلا عندما تكون أنت السبب.'],
+['تلميحات','هل تعرف من الذي سرق انتباهي اليوم؟ أنت كالعادة.'],
+['تلميحات','لديّ موعد مع شخص مميز… وأتمنى أن يكون أنت.'],
+['مرح ومشاكسات','أطالب بتعويض عن كل مرة جعلتني أبتسم بلا سبب.'],
+['مرح ومشاكسات','أنت مشتبه به في قضية احتلال أفكاري.'],
+['مرح ومشاكسات','تنبيه: جرعة الدلال المطلوبة منك مرتفعة اليوم.'],
+['مرح ومشاكسات','هل تسمح لي بسرقة خمس دقائق من وقتك؟ وقد تصبح ساعة.'],
+['مرح ومشاكسات','أنت محظوظ لأنني أحبك، وإلا لرفعت عليك قضية شوق.'],
+['مصالحة واحتواء','خلينا نفهم بعض بدل ما نفترض أشياء عن بعض.'],
+['مصالحة واحتواء','مشاعرك مهمة عندي، وأريد أن أسمعها بهدوء.'],
+['مصالحة واحتواء','نحن في نفس الفريق، حتى عندما نختلف.'],
+['مصالحة واحتواء','أفضّل حديثاً صادقاً يعيد قربنا على صمت يبعدنا.'],
+['مصالحة واحتواء','إذا أخطأت، أريد فرصة لأفهم وأصلح.'],
+['قبل النوم','أتمنى أن يزورك حلم لطيف يشبه قلبك.'],
+['قبل النوم','ضع تعب اليوم جانباً، وغداً فرصة جديدة.'],
+['قبل النوم','ليلة هادئة لقلب أتمنى له كل الطمأنينة.'],
+['قبل النوم','لو كنت بجانبك الآن، لقلت لك: تصبح على خير يا أجمل أقداري.'],
+['صباح','صباحك رضا وراحة وخبر جميل يفرح قلبك.'],
+['صباح','أتمنى أن تجد اليوم سبباً جديداً للضحك.'],
+['صباح','أرسل لك بداية يوم مليئة بالمحبة والتفاؤل.'],
+['صباح','صباحي أحلى عندما أعرف أنك بخير.'],
+['حميمية بالتراضي','أحب قربك حين يكون مريحاً وجميلاً لنا معاً.'],
+['حميمية بالتراضي','أجمل لحظاتنا هي التي نختارها برغبة وراحة من الطرفين.'],
+['حميمية بالتراضي','أشتاق ليدك في يدي ولطمأنينة وجودك.'],
+['غموض وتلميح','احتفظ بقليل من الفضول… هناك شيء جميل أعدّه لك.'],
+['غموض وتلميح','هذه الليلة لديّ سؤال واحد: هل أنت مستعد للدلال؟'],
+['احتواء','لا تقارن نفسك بأحد؛ أنت مميز بطريقتك.'],
+['احتواء','أنا فخور بك وبكل خطوة تحاول أن تخطوها.'],
+['احتواء','حتى لو لم يكن يومك مثالياً، أنت تستحق الحب.'],
+['احتواء','لا تحمل كل شيء وحدك، شاركني ما في قلبك.'],
+['ذكريات','أريد أن نجمع صوراً ومواقف تجعلنا نضحك بعد سنوات.'],
+['ذكريات','ما زلت أحب تذكّر أول مرة جعلتني أبتسم.'],
+['ذكريات','بعض اللحظات قصيرة، لكنها تبقى في القلب طويلاً.'],
+['أحلامنا','أحلم بيوم عادي جداً، لكنه يبدأ وينتهي بقربك.'],
+['أحلامنا','لنخطط لأشياء صغيرة ونحققها واحدة تلو الأخرى.'],
+['أحلامنا','أجمل خطط المستقبل هي التي نجد أنفسنا فيها معاً.'],
+['امتنان','شكراً لأنك تمنح أيامي معنى ألطف.'],
+['امتنان','أقدّر كل مرة تحاول فيها أن تفهمني.'],
+['امتنان','وجودك في حياتي نعمة أحب أن أحافظ عليها.'],
+['امتنان','أشكرك على التفاصيل التي قد تبدو بسيطة لكنها تعني لي الكثير.'],
+['أسئلة القلب','ما أكثر عادة صغيرة تحبها فيّ؟'],
+['أسئلة القلب','ما الشيء الذي تتمنى أن نجرّبه معاً قريباً؟'],
+['أسئلة القلب','متى شعرت أن المسافة صارت أصغر بيننا؟'],
+['أسئلة القلب','ما ذكرى بيننا تتمنى أن تعيشها مرة أخرى؟'],
+['أسئلة القلب','ما الطريقة التي تحب أن أساندك بها عندما تتعب؟'],
+['أسئلة القلب','ما اسم المكان الذي تتمنى أن نزوره أولاً؟'],
+['رسائل قصيرة','أنا هنا، وأفكر بك، وأتمنى لك يوماً جميلاً.'],
+['رسائل قصيرة','أحبك أكثر مما تختصره هذه الكلمات.'],
+['رسائل قصيرة','ابتسم، فهناك شخص يحب ابتسامتك كثيراً.'],
+['رسائل قصيرة','أنت بخير؟ يكفيني أن أعرف ذلك لأطمئن.'],
+['رسائل قصيرة','قلب واحد، مهما طالت المسافات.'],
+['غزل وحب','أنت أجمل صدفة تحولت إلى أجمل اختيار.'],
+['غزل وحب','في عينيك أجد ألف سبب لأحب الحياة.'],
+['غزل وحب','كل يوم معك يضيف إلى قلبي حكاية جديدة.'],
+['غزل وحب','أحب تفاصيلك التي قد لا تنتبه أنت إليها.'],
+['غزل وحب','لو كان للطمأنينة اسم، لكان اسمك.'],
+['غزل وحب','أنت قصيدتي التي لا أمل من قراءتها.'],
+['غزل وحب','أحبك ببساطة، وبعمق، وبكل ما في قلبي.'],
+['غزل وحب','ضحكتك مكافأة جميلة بعد يوم طويل.'],
+['غزل وحب','معك تصبح أبسط اللحظات ذكرى لا تُنسى.'],
+['غزل وحب','أنت مكاني المفضل مهما تغيّرت الأماكن.'],
+['اشتياق','أشتاق إليك حتى وأنا أتحدث معك.'],
+['اشتياق','كل دقيقة بعيدة عنك تجعلني أقدّر قربك أكثر.'],
+['اشتياق','أبحث عنك في الأغاني والأماكن والتفاصيل.'],
+['اشتياق','ليت المسافات تختصر نفسها حين نشتاق.'],
+['اشتياق','غيابك يجعل الوقت أطول مما ينبغي.'],
+['اشتياق','أريد لقاءً يختصر كل كلمات الاشتياق.'],
+['اشتياق','أفتقد صوتك الذي يجعل قلبي أهدأ.'],
+['اشتياق','كل ما أريده الآن لحظة قرب منك.'],
+['حنان','لا تحمل همّ كل شيء وحدك، أنا معك.'],
+['حنان','أتمنى أن أكون لك راحة لا عبئاً.'],
+['حنان','مشاعرك مهمة عندي، حتى الأشياء الصغيرة منها.'],
+['حنان','إذا أتعبك العالم، تعال نتقاسم الهدوء.'],
+['حنان','لا تحتاج أن تكون قوياً طوال الوقت.'],
+['حنان','أنا هنا لأسمعك، لا لأحكم عليك.'],
+['حنان','أتمنى أن يمنحك يومك لطفاً يشبه قلبك.'],
+['حنان','خذ نفساً عميقاً، وغداً فرصة جديدة.'],
+['مصالحة واحتواء','خلّينا نفهم بعض بدل ما نبتعد.'],
+['مصالحة واحتواء','قربك أهم عندي من الانتصار في أي نقاش.'],
+['مصالحة واحتواء','نختلف أحياناً، لكن الود بيننا يستحق العناية.'],
+['مصالحة واحتواء','أنا مستعد أسمعك بهدوء وأفهم وجهة نظرك.'],
+['مصالحة واحتواء','لا أريد للصمت أن يكبر بيننا.'],
+['مصالحة واحتواء','نبدأ من جديد بكلمة طيبة وقلب صافي.'],
+['مصالحة واحتواء','إذا أخطأت بحقك، أريد أن أصلح لا أن أبرر.'],
+['مرح ومشاكسات','تم رصد ابتسامة بسببك، يرجى تحمّل المسؤولية.'],
+['مرح ومشاكسات','أنت إشعار السعادة المفضل عندي.'],
+['مرح ومشاكسات','هل تسمح لقلبي أن يأخذ إجازة من التفكير فيك؟'],
+['مرح ومشاكسات','أحتاج جرعة منك، والجرعة تكون حضناً.'],
+['مرح ومشاكسات','تنبيه: وجودك يسبب ابتسامة لا إرادية.'],
+['مرح ومشاكسات','لو كنت تطبيقاً، لكنت التطبيق المثبت دائماً.'],
+['مرح ومشاكسات','عندي موعد مهم معك… لا تقبل الاعتذار.'],
+['مرح ومشاكسات','أنت السبب وراء تفقدي للهاتف كل دقيقة.'],
+['صباح','صباحك حب وراحة وأخبار تفرح قلبك.'],
+['صباح','أتمنى أن يحمل لك هذا الصباح بداية جميلة.'],
+['صباح','صباح الخير لمن يجعل الأيام ألطف.'],
+['صباح','ابدأ يومك بابتسامة، والباقي يهون.'],
+['صباح','دع هذا اليوم يفاجئك بما يسعدك.'],
+['قبل النوم','ليلة هادئة وقلب مطمئن وأحلام جميلة.'],
+['قبل النوم','أتمنى أن تنام وكل ما يقلقك صار أخف.'],
+['قبل النوم','أرسل لك سلاماً دافئاً قبل أن تغمض عينيك.'],
+['قبل النوم','غداً يوم جديد، فلا تحمل تعب اليوم معك.'],
+['قبل النوم','تصبح على قلب يعرف كم هو محبوب.'],
+['رسائل قصيرة','وجودك فرق.'],
+['رسائل قصيرة','أنت على بالي دائماً.'],
+['رسائل قصيرة','اشتقت لك، وبس.'],
+['رسائل قصيرة','أحب تفاصيلنا الصغيرة.'],
+['رسائل قصيرة','قربك يكفيني.'],
+['رسائل قصيرة','أنت فرحتي الهادئة.'],
+['رسائل قصيرة','قلبي اختارك كل مرة.'],
+['رسائل قصيرة','أنت أحلى خبر في يومي.'],
+['تلميحات','هناك مفاجأة صغيرة تنتظر صاحب هذا القلب.'],
+['تلميحات','لو عرفت ما أفكر به الآن لابتسمت.'],
+['تلميحات','أظن أن شخصاً ما سرق قلبي… وأنت تعرفه.'],
+['تلميحات','لدي كلام كثير، لكن حضنك يختصره.'],
+['غموض وتلميح','قريباً ستعرف لماذا أبتسم كلما رأيتك.'],
+['غموض وتلميح','احتفظ بمساحة صغيرة في يومك لمفاجأة مني.'],
+['امتنان','شكراً لأنك تجعل الأشياء أسهل بمجرد وجودك.'],
+['امتنان','أقدّر كل مرة حاولت فيها أن تفهمني.'],
+['امتنان','وجودك في حياتي نعمة أمتن لها.'],
+['امتنان','شكراً لكل لحظة جميلة صنعتها دون أن تشعر.'],
+['امتنان','أحب أننا نستطيع أن نكون على طبيعتنا معاً.'],
+['ذكريات','أحب استرجاع لحظاتنا وكأنها تحدث الآن.'],
+['ذكريات','بعض الذكريات لا يبهت لونها مهما مر الوقت.'],
+['ذكريات','أريد المزيد من الأيام التي نحكي عنها بابتسامة.'],
+['ذكريات','كل صورة لنا تحمل شعوراً لا تلتقطه الكاميرا.'],
+['وعود وأحلام','أتمنى أن نصنع معاً أياماً أجمل مما نتخيل.'],
+['وعود وأحلام','سأظل أختار الحوار والاهتمام والصدق.'],
+['وعود وأحلام','أحلم بأيام بسيطة تجمعنا وقلوب مرتاحة.'],
+['وعود وأحلام','لنبحث دائماً عن أسباب صغيرة لنفرح معاً.'],
+['غزل وحب','أحب الطريقة التي يصبح بها اسمي أجمل حين تنطقه.'],
+['غزل وحب','أنت لست صدفة عابرة؛ أنت أجمل ما حدث في حكايتي.'],
+['غزل وحب','لو خُيّرت بين ألف يوم جميل ويوم معك، لاخترت يومك.'],
+['غزل وحب','في عينيك أجد هدوءاً لا تمنحني إياه كل الأماكن.'],
+['غزل وحب','أحبك دون مناسبة، ودون سبب يحتاج إلى شرح.'],
+['غزل وحب','كلما عرفتك أكثر، وجدت سبباً جديداً لأحبك.'],
+['غزل وحب','أنت القصيدة التي لا أملّ من قراءتها.'],
+['غزل وحب','ضحكتك عندي خبر جميل يستحق أن يتكرر.'],
+['غزل وحب','أحب تفاصيلك التي لا تنتبه أنت إليها.'],
+['غزل وحب','لو كان للطمأنينة صوت، لكان صوتك.'],
+['اشتياق','أشتاق إليك في منتصف يوم عادي، فيتحول إلى يوم مختلف.'],
+['اشتياق','أحتاج دقيقة قرب منك تعوّض ساعات الغياب.'],
+['اشتياق','أحياناً لا أريد حديثاً طويلاً؛ أريد فقط أن أسمعك.'],
+['اشتياق','كلما ابتعدنا، اكتشفت أن حضورك يسكن تفاصيل يومي.'],
+['اشتياق','أرسل لك شوقاً لا يحتاج إلى شبكة إنترنت ليصل.'],
+['اشتياق','ليت المسافة تختصر نفسها كلما اشتقنا.'],
+['اشتياق','هناك مكان بجانبي لا يليق به إلا أنت.'],
+['اشتياق','أفتقد حتى أحاديثنا العادية التي تبدو معك استثنائية.'],
+['رسائل صباح','صباحك بداية لطيفة، وقلبك مليء بما تتمنى.'],
+['رسائل صباح','أتمنى أن يبتسم لك اليوم كما تبتسم لي.'],
+['رسائل صباح','صباح الخير يا أجمل فكرة تزور بالي.'],
+['رسائل صباح','قبل أن يبدأ يومك، تذكّر أن هناك من يحبك كثيراً.'],
+['رسائل صباح','أتمنى أن تجد اليوم سبباً صغيراً يجعلك سعيداً.'],
+['رسائل صباح','أرسل لك قهوة افتراضية ووردة وحضناً من بعيد.'],
+['رسائل مساء','مساؤك راحة تشبه حضناً طويلاً.'],
+['رسائل مساء','انتهى اليوم، لكن حبي لك لا يعرف نهاية الدوام.'],
+['رسائل مساء','أتمنى أن يكون المساء هادئاً على قلبك.'],
+['رسائل مساء','أخبرني عن يومك؛ أحب أن أكون جزءاً من تفاصيله.'],
+['رسائل مساء','لو كنت بجانبك الآن، لاخترت أن نجلس ونتحدث بلا استعجال.'],
+['قبل النوم','ضع تعبك جانباً، فأنت تستحق ليلة هادئة.'],
+['قبل النوم','أتمنى أن أكون آخر ابتسامة تزور وجهك الليلة.'],
+['قبل النوم','نم وأنت تعرف أن مكانك في قلبي محفوظ.'],
+['قبل النوم','أرسل لك حلماً جميلاً وبداية أجمل غداً.'],
+['قبل النوم','لو استطعت، لغطيتك بالطمأنينة حتى الصباح.'],
+['حنان واحتواء','لا أحتاج منك أن تكون مثالياً؛ يكفيني أن تكون أنت.'],
+['حنان واحتواء','أنا هنا لأسمعك، لا لأحكم عليك.'],
+['حنان واحتواء','إذا لم تجد الكلمات، يكفيني أن تبقى قريباً.'],
+['حنان واحتواء','تعبك مهم عندي، ومشاعرك تستحق أن تُسمع.'],
+['حنان واحتواء','لا بأس بيوم صعب؛ سنعبره بهدوء معاً.'],
+['حنان واحتواء','أتمنى أن تشعر معي أنك في مكان آمن.'],
+['حنان واحتواء','خذ نفساً عميقاً، ولا تحمل كل شيء وحدك.'],
+['امتنان','شكراً لأنك تجعلني أشعر أنني لست وحدي.'],
+['امتنان','أمتن لكل مرة اخترت فيها أن تفهمني.'],
+['امتنان','وجودك يضيف إلى حياتي شيئاً لا يُقاس.'],
+['امتنان','شكراً على لطفك حتى في التفاصيل الصغيرة.'],
+['امتنان','أحب أننا نتعلم كيف نكون أفضل لبعضنا.'],
+['امتنان','كل لحظة اهتمام منك تبقى في قلبي طويلاً.'],
+['مصالحة واعتذار','أريد أن نفهم بعضنا أكثر، لا أن ينتصر أحدنا.'],
+['مصالحة واعتذار','إذا أخطأت، أخبرني؛ قربك يستحق أن أتعلم.'],
+['مصالحة واعتذار','آسف على ما أزعجك، لم يكن شعورك أمراً بسيطاً عندي.'],
+['مصالحة واعتذار','دعنا نبدأ الحديث بهدوء ونترك العناد جانباً.'],
+['مصالحة واعتذار','أحبك أكثر من رغبتي في أن أكون على حق.'],
+['مصالحة واعتذار','لا أريد للصمت أن يكبر بيننا؛ تعال نتكلم.'],
+['مرح ومشاكسات','قلبي رفع عليك بلاغاً بسبب احتلال أفكاري.'],
+['مرح ومشاكسات','أطالب بحضن فوري، والاعتراض غير مقبول 😄'],
+['مرح ومشاكسات','هل أنت مغناطيس؟ لماذا أفكاري كلها تتجه إليك؟'],
+['مرح ومشاكسات','أنت السبب في أن بطارية هاتفي تنفد من كثرة فتح المحادثة.'],
+['مرح ومشاكسات','أحتاج موعداً معك، وجدول المواعيد لا يقبل التأجيل.'],
+['مرح ومشاكسات','لو كان الاشتياق رياضة، لحصلت على بطولة العالم.'],
+['مرح ومشاكسات','أنت مشكلتي اللطيفة التي لا أريد حلها.'],
+['وعود وأحلام','أعدك أن أسمعك بقلب مفتوح كلما احتجت.'],
+['وعود وأحلام','لنصنع بيتاً من الطمأنينة قبل أن نصنع أي شيء آخر.'],
+['وعود وأحلام','أحلم بيوم لا نحتاج فيه إلى عدّ المسافات.'],
+['وعود وأحلام','أريد أن نكبر معاً وتكبر معنا ضحكاتنا.'],
+['وعود وأحلام','لنحتفظ دائماً بمساحة للحلم والمفاجآت.'],
+['وعود وأحلام','أجمل خططي هي الأيام التي تجمعنا.'],
+['ذكريات','أريد أن نجمع لحظات صغيرة تصبح حكايات كبيرة.'],
+['ذكريات','بعض التفاصيل لا تُصوّر، لكنها تبقى في القلب.'],
+['ذكريات','كل مرة نضحك فيها معاً تصبح ذكرى أحبها.'],
+['ذكريات','أتمنى أن يكون القادم مليئاً بلحظات نقول عنها: يا لها من أيام.'],
+['ذكريات','أحب أن نعيد حكاياتنا ونضحك كأنها حدثت للتو.'],
+['رسائل قصيرة','أنت بيتي حين يتعب العالم.'],
+['رسائل قصيرة','قلبي يبتسم لك الآن.'],
+['رسائل قصيرة','وجودك يكفيني وزيادة.'],
+['رسائل قصيرة','أحبك أكثر مما أقول.'],
+['رسائل قصيرة','تعال نسرق لحظة لنا.'],
+['رسائل قصيرة','أنت أجمل إشعار.'],
+['رسائل قصيرة','كلّي امتنان لأنك هنا.'],
+['رسائل قصيرة','أرسل لك قلبي مع هذه الرسالة.'],
+['اعترافات','أحياناً أبتسم وأنا أتذكر حديثاً قديماً بيننا.'],
+['اعترافات','أحب أن أخبرك بأشياء لا أقولها لأي أحد.'],
+['اعترافات','أنت أول شخص أفكر أن أشاركه الخبر الجميل.'],
+['اعترافات','أشعر أنني أستطيع أن أكون على طبيعتي معك.'],
+['اعترافات','أخاف أحياناً من المسافة، لكنني أؤمن بما نبنيه.'],
+['اعترافات','أحب أن أراك سعيداً حتى لو لم أكن سبب ذلك اليوم.'],
+['حميمية بالتراضي','أشتاق لقربك، وأحب أن يكون كل شيء بيننا براحة ورضا.'],
+['حميمية بالتراضي','أحب دفء يدك وهدوء اللحظة حين نكون معاً.'],
+['حميمية بالتراضي','أجمل القرب هو الذي يشعرنا بالأمان والاحترام.'],
+['حميمية بالتراضي','أريد لحظاتنا الخاصة أن تبقى جميلة ومريحة لنا الاثنين.'],
+['رسائل دعم','أنا أؤمن بك، حتى في الأيام التي تشك فيها بنفسك.'],
+['رسائل دعم','خطوة صغيرة اليوم أفضل من انتظار يوم مثالي.'],
+['رسائل دعم','سأفرح لنجاحك كأنه نجاحي.'],
+['رسائل دعم','لا تنس كم تجاوزت من أشياء صعبة حتى وصلت هنا.'],
+['رسائل دعم','أنا في صفك، وسأشجعك دائماً.'],
+['أسئلة حب','ما التفصيل الصغير الذي يجعلك تشعر بأنك محبوب؟'],
+['أسئلة حب','ما الذكرى التي تريد أن نصنعها قريباً؟'],
+['أسئلة حب','ما الشيء الذي تتمنى أن نتعلمه معاً؟'],
+['أسئلة حب','ما الأغنية التي تذكرك بنا؟'],
+['أسئلة حب','ما أكثر شيء تحب أن نفعله في يوم عطلة؟']
 ];
 const categories=[...new Set(phrases.map(x=>x[0]))];
-
-function toast(t){
-  $("toast").textContent=t;
-  $("toast").classList.remove("hidden");
-  setTimeout(()=>$("toast").classList.add("hidden"),2600);
-}
-
-function esc(s=""){
-  return String(s).replace(/[&<>"']/g,c=>({
-    "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
-  }[c]));
-}
-
-function modal(title,body){
-  $("modalTitle").textContent=title;
-  $("modalBody").innerHTML=body;
-  $("modalWrap").classList.remove("hidden");
-}
+function toast(t){$("toast").textContent=t;$("toast").classList.remove("hidden");setTimeout(()=>$("toast").classList.add("hidden"),2600)}
+function esc(s=""){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+function modal(title,body){$("modalTitle").textContent=title;$("modalBody").innerHTML=body;$("modalWrap").classList.remove("hidden")}
 function closeModal(){$("modalWrap").classList.add("hidden")}
 $("modalClose").onclick=closeModal;
-
-function initNav(){
-  for(const id of ["sideNav","mobileNav"]){
-    $(id).innerHTML=navItems.map(([key,ico,label])=>
-      `<button data-page="${key}"><span class="ico">${ico}</span><span>${label}</span></button>`
-    ).join("");
-    $(id).querySelectorAll("button").forEach(b=>
-      b.onclick=()=>showPage(b.dataset.page)
-    );
-  }
-}
-
-function showPage(page){
-  document.querySelectorAll(".page").forEach(x=>x.classList.add("hidden"));
-  $("page-"+page)?.classList.remove("hidden");
-  document.querySelectorAll("[data-page]").forEach(b=>
-    b.classList.toggle("active",b.dataset.page===page)
-  );
-  $("pageTitle").textContent=titles[page]||"DAVIN";
-  $("pageSub").textContent=page==="chat"
-    ?"رسالة منك… وابتسامة مني ♡"
-    :"كل شيء جميل يبدأ بنا ♡";
-  window.scrollTo({top:0,behavior:"smooth"});
-  if(page==="chat"){
-    requestAnimationFrame(()=>$("messages").scrollTop=$("messages").scrollHeight);
-  }
-}
-
-document.querySelectorAll("[data-go]").forEach(b=>
-  b.onclick=()=>showPage(b.dataset.go)
-);
-
-function playTone(){
-  if(!$("soundToggle")?.checked)return;
-  try{
-    const c=new AudioContext(),o=c.createOscillator(),g=c.createGain();
-    o.connect(g);g.connect(c.destination);
-    o.frequency.value=660;g.gain.value=.04;
-    o.start();o.stop(c.currentTime+.12);
-  }catch{}
-}
-
-function setTheme(t){
-  document.documentElement.dataset.theme=t==="dark"?"":t;
-  localStorage.setItem("davinTheme",t);
-  $("themeSelect").value=t;
-}
-function toggleTheme(){
-  const vals=["dark","light","rose","ocean"];
-  const cur=localStorage.getItem("davinTheme")||"dark";
-  setTheme(vals[(vals.indexOf(cur)+1)%vals.length]);
-}
-$("themeBtn").onclick=$("themeBtnMobile").onclick=toggleTheme;
-$("themeSelect").onchange=e=>setTheme(e.target.value);
-setTheme(localStorage.getItem("davinTheme")||"dark");
-
+function initNav(){for(const id of ["sideNav","mobileNav"]){$(id).innerHTML=navItems.map(([key,ico,label])=>`<button data-page="${key}"><span class="ico">${ico}</span><span>${label}</span></button>`).join("");$(id).querySelectorAll("button").forEach(b=>b.onclick=()=>showPage(b.dataset.page))}}
+function showPage(page){document.querySelectorAll(".page").forEach(x=>x.classList.add("hidden"));$("page-"+page)?.classList.remove("hidden");document.querySelectorAll("[data-page]").forEach(b=>b.classList.toggle("active",b.dataset.page===page));$("pageTitle").textContent=titles[page]||"DAVIN";$("pageSub").textContent=page==="chat"?"رسالة منك… وابتسامة مني ♡":"كل شيء جميل يبدأ بنا ♡";window.scrollTo({top:0,behavior:"smooth"});if(page==="chat"){requestAnimationFrame(()=>{$("messages").scrollTop=$("messages").scrollHeight})}}
+document.querySelectorAll("[data-go]").forEach(b=>b.onclick=()=>showPage(b.dataset.go));
+function playTone(){if(!$("soundToggle")?.checked)return;try{const c=new AudioContext(),o=c.createOscillator(),g=c.createGain();o.connect(g);g.connect(c.destination);o.frequency.value=660;g.gain.value=.04;o.start();o.stop(c.currentTime+.12)}catch{}}
+function setTheme(t){document.documentElement.dataset.theme=t==="dark"?"":t;localStorage.setItem("davinTheme",t);$("themeSelect").value=t}
+function toggleTheme(){const vals=["dark","light","rose","ocean"],cur=localStorage.getItem("davinTheme")||"dark";setTheme(vals[(vals.indexOf(cur)+1)%vals.length])}
+$("themeBtn").onclick=$("themeBtnMobile").onclick=toggleTheme;$("themeSelect").onchange=e=>setTheme(e.target.value);setTheme(localStorage.getItem("davinTheme")||"dark");
 $("logoutBtn").onclick=$("logoutBtn2").onclick=()=>signOut(auth);
-
-function firebaseReady(){
-  if(!validConfig){
-    $("loginError").textContent="أكمل إعدادات Firebase وموضعي UID داخل الملف أولاً، ثم أعد تحميل الصفحة.";
-    return false;
-  }
-  return true;
-}
-
+function firebaseReady(){if(!validConfig){$("loginError").textContent="أكمل Firebase Config وموضعي UID داخل الملف أولاً، ثم أعد تحميل الصفحة.";return false}return true}
 if(validConfig){
-  try{
-    app=initializeApp(firebaseConfig);
-    auth=getAuth(app);
-    db=getFirestore(app);
-    $("loginError").textContent="Firebase جاهز. أدخل بيانات الحساب للمتابعة.";
-
-    onAuthStateChanged(auth,user=>{
-      if(user){
-        if(!ALLOWED_UIDS.includes(user.uid)){
-          signOut(auth).catch(console.error);
-          $("loginError").textContent="هذا الحساب غير موجود ضمن الحسابين المصرح لهما.";
-          return;
-        }
-        currentUser=user;
-        enterApp();
-      }else{
-        currentUser=null;
-        leaveApp();
-      }
-    },error=>{
-      console.error("Firebase auth state error:",error);
-      $("loginError").textContent="تعذر التحقق من حالة الحساب: "+
-        (error.code||error.message||"خطأ غير معروف");
-    });
-  }catch(e){
-    console.error("Firebase initialization error:",e);
-    $("loginError").textContent="تعذر تهيئة Firebase: "+
-      (e.code||e.message||"خطأ غير معروف");
-  }
-}else{
-  $("loginError").textContent="إعدادات Firebase غير مكتملة داخل الملف.";
+ try{
+  app=initializeApp(firebaseConfig);auth=getAuth(app);db=getFirestore(app);
+  $("loginError").textContent="Firebase جاهز. أدخل بيانات الحساب للمتابعة.";
+  onAuthStateChanged(auth,user=>{
+   if(user){
+    if(!ALLOWED_UIDS.includes(user.uid)){
+     signOut(auth).catch(console.error);
+     $("loginError").textContent="تم تسجيل الدخول، لكن UID هذا الحساب غير موجود ضمن الحسابين المصرح لهما.";
+     return;
+    }
+    currentUser=user;enterApp();
+   }else{currentUser=null;leaveApp();}
+  },error=>{
+   console.error("Firebase auth state error:",error);
+   $("loginError").textContent="تعذر التحقق من حالة الحساب: "+(error.code||error.message||"خطأ غير معروف");
+  });
+ }catch(e){
+  console.error("Firebase initialization error:",e);
+  $("loginError").textContent="تعذر تهيئة Firebase: "+(e.code||e.message||"خطأ غير معروف");
+ }
+} else {
+ $("loginError").textContent="إعدادات Firebase غير مكتملة داخل الملف.";
 }
-
-$("loginBtn").onclick=async()=>{
-  if(!firebaseReady())return;
-  const email=$("email").value.trim();
-  const password=$("password").value;
-  if(!email||!password){
-    $("loginError").textContent="أدخل البريد الإلكتروني وكلمة المرور.";
-    return;
-  }
-  $("loginBtn").disabled=true;
-  $("loginError").textContent="جارٍ تسجيل الدخول…";
-  try{
-    await signInWithEmailAndPassword(auth,email,password);
-  }catch(e){
-    $("loginError").textContent=authError(e.code);
-  }finally{
-    $("loginBtn").disabled=false;
-  }
-};
-
-$("password").addEventListener("keydown",e=>{
-  if(e.key==="Enter")$("loginBtn").click();
-});
-
+$("loginBtn").onclick=async()=>{if(!firebaseReady())return;const email=$("email").value.trim(),password=$("password").value;if(!email||!password){$("loginError").textContent="أدخل البريد الإلكتروني وكلمة المرور.";return} $("loginBtn").disabled=true;$("loginError").textContent="جارٍ تسجيل الدخول…";try{await signInWithEmailAndPassword(auth,email,password)}catch(e){$("loginError").textContent=authError(e.code)}finally{$("loginBtn").disabled=false}};
+$("password").addEventListener("keydown",e=>{if(e.key==="Enter")$("loginBtn").click()});
 function authError(code){
-  const messages={
-    "auth/invalid-credential":"البريد الإلكتروني أو كلمة المرور غير صحيحة.",
-    "auth/wrong-password":"كلمة المرور غير صحيحة.",
-    "auth/user-not-found":"لا يوجد حساب بهذا البريد في مشروع Firebase الحالي.",
-    "auth/user-disabled":"هذا الحساب معطّل من Firebase Authentication.",
-    "auth/too-many-requests":"محاولات دخول كثيرة. انتظر قليلاً ثم حاول مرة أخرى.",
-    "auth/network-request-failed":"تعذر الاتصال بـ Firebase. تحقق من الإنترنت وافتح الموقع عبر HTTPS.",
-    "auth/invalid-email":"صيغة البريد الإلكتروني غير صحيحة.",
-    "auth/operation-not-allowed":"تسجيل الدخول بالبريد وكلمة المرور غير مفعّل في Firebase.",
-    "auth/unauthorized-domain":"أضف نطاق الموقع إلى Authorized domains في Firebase.",
-    "auth/invalid-api-key":"مفتاح Firebase API غير صحيح أو لا يخص هذا المشروع.",
-    "auth/app-not-authorized":"هذا النطاق غير مخوّل لاستخدام Firebase Authentication."
-  };
-  return messages[code]||
-    "تعذر تسجيل الدخول. رمز الخطأ: "+(code||"غير معروف")+
-    ". افتح أدوات المطور F12 ثم Console لمعرفة التفاصيل.";
+ const messages={
+  "auth/invalid-credential":"البريد الإلكتروني أو كلمة المرور غير صحيحة. تأكد من بيانات الحساب.",
+  "auth/wrong-password":"كلمة المرور غير صحيحة.",
+  "auth/user-not-found":"لا يوجد حساب بهذا البريد الإلكتروني في مشروع Firebase الحالي.",
+  "auth/user-disabled":"هذا الحساب معطّل من Firebase Authentication.",
+  "auth/too-many-requests":"محاولات دخول كثيرة. انتظر قليلاً ثم حاول مرة أخرى.",
+  "auth/network-request-failed":"تعذر الاتصال بخدمة Firebase. تحقق من الإنترنت وافتح الموقع عبر HTTPS.",
+  "auth/invalid-email":"صيغة البريد الإلكتروني غير صحيحة.",
+  "auth/operation-not-allowed":"تسجيل الدخول بالبريد وكلمة المرور غير مفعّل. فعّله من Firebase Authentication > Sign-in method.",
+  "auth/unauthorized-domain":"نطاق الموقع غير مسموح به. أضف الدومين إلى Firebase Authentication > Settings > Authorized domains.",
+  "auth/invalid-api-key":"مفتاح Firebase API غير صحيح أو لا يخص هذا المشروع.",
+  "auth/app-not-authorized":"هذا التطبيق أو النطاق غير مخوّل لاستخدام Firebase Authentication. راجع إعدادات المشروع والنطاقات المصرح بها."
+ };
+ return (messages[code]||"تعذر تسجيل الدخول. رمز الخطأ: "+(code||"غير معروف")+". افتح أدوات المطور F12 ثم Console لمعرفة التفاصيل.");
 }
-
-function enterApp(){
-  $("loginView").classList.add("hidden");
-  $("appView").classList.remove("hidden");
-  $("mobileNav").classList.remove("hidden");
-  $("whoami").textContent="متصل: "+currentUser.email;
-  $("uidInfo").textContent="UID الحالي: "+currentUser.uid;
-  initNav();
-  showPage("home");
-  subscribeAll();
-  loadSettings();
-}
-
-function leaveApp(){
-  if(unsubMessages)unsubMessages();
-  if(unsubMemories)unsubMemories();
-  if(unsubDreams)unsubDreams();
-  $("appView").classList.add("hidden");
-  $("mobileNav").classList.add("hidden");
-  $("loginView").classList.remove("hidden");
-}
-
-function reportError(e){
-  console.error(e);
-  toast("تعذر تنفيذ العملية. تحقق من الاتصال وقواعد Firestore.");
-}
-
-async function sendMessage(payload){
-  if(!currentUser)return;
-  try{
-    await addDoc(collection(db,PATH,"messages"),{
-      ...payload,
-      senderUid:currentUser.uid,
-      createdAt:serverTimestamp()
-    });
-    playTone();
-  }catch(e){
-    reportError(e);
-  }
-}
+function enterApp(){$("loginView").classList.add("hidden");$("appView").classList.remove("hidden");$("mobileNav").classList.remove("hidden");$("whoami").textContent="متصل: "+currentUser.email;$("uidInfo").textContent="UID الحالي: "+currentUser.uid;initNav();showPage("home");subscribeAll();loadSettings()}
+function leaveApp(){if(unsubMessages)unsubMessages();if(unsubMemories)unsubMemories();if(unsubDreams)unsubDreams();$("appView").classList.add("hidden");$("mobileNav").classList.add("hidden");$("loginView").classList.remove("hidden")}
+function reportError(e){console.error(e);toast("تعذر تنفيذ العملية. تحقق من الاتصال وقواعد Firestore.");}
+async function sendMessage(payload){if(!currentUser)return;try{await addDoc(collection(db,PATH,"messages"),{...payload,senderUid:currentUser.uid,createdAt:serverTimestamp()});playTone()}catch(e){reportError(e)}}
 function subscribeAll(){
-  messagesCache=[];
-  oldestMessageDoc=null;
-  hasMoreMessages=false;
-  loadingOlderMessages=false;
-  messagesInitialized=false;
-  hasLoadedOlderMessages=false;
-
-  const loadBtn=$("loadOlderMessages");
-  if(loadBtn){
-    loadBtn.disabled=true;
-    loadBtn.textContent="جارٍ تحميل الرسائل…";
-  }
-
-  const mq=query(
-    collection(db,PATH,"messages"),
-    orderBy("createdAt","desc"),
-    limit(40)
-  );
-
-  unsubMessages=onSnapshot(mq,s=>{
-    const box=$("messages");
-    const wasNearBottom=!messagesInitialized ||
-      (box.scrollHeight-box.scrollTop-box.clientHeight<140);
-
-    const incoming=s.docs.map(d=>({id:d.id,...d.data()}));
-    const merged=new Map(messagesCache.map(m=>[m.id,m]));
-    incoming.forEach(m=>merged.set(m.id,m));
-
-    messagesCache=Array.from(merged.values()).sort(
-      (a,b)=>messageMillis(a.createdAt)-messageMillis(b.createdAt)
-    );
-
-    if(s.docs.length&&!hasLoadedOlderMessages){
-      oldestMessageDoc=s.docs[s.docs.length-1];
-      hasMoreMessages=s.docs.length===40;
-    }
-
-    messagesInitialized=true;
-    renderMessages({scrollToBottom:wasNearBottom});
-    $("statMessages").textContent=messagesCache.length;
-    $("connectionStatus").textContent="متصلان عند توفر الإنترنت";
-    updateChatHistoryControls();
-
-  },e=>{
-    $("connectionStatus").textContent="مشكلة اتصال";
-    reportError(e);
-  });
-
-  unsubMemories=onSnapshot(
-    query(collection(db,PATH,"memories"),orderBy("date","desc")),
-    s=>{
-      memoryCache=s.docs.map(d=>({id:d.id,...d.data()}));
-      renderMemories();
-      $("statMemories").textContent=memoryCache.length;
-    },
-    reportError
-  );
-
-  unsubDreams=onSnapshot(
-    query(collection(db,PATH,"dreams"),orderBy("createdAt","desc")),
-    s=>{
-      dreamCache=s.docs.map(d=>({id:d.id,...d.data()}));
-      renderDreams();
-      $("statDreams").textContent=dreamCache.length;
-    },
-    reportError
-  );
-}
-
-function messageMillis(ts){
-  try{
-    return ts?.toMillis?ts.toMillis():ts?.seconds?ts.seconds*1000:0;
-  }catch{
-    return 0;
-  }
-}
-
-function updateChatHistoryControls(){
-  const b=$("loadOlderMessages");
-  const info=$("chatLoadInfo");
-  if(!b)return;
-
-  b.disabled=loadingOlderMessages||!hasMoreMessages||!oldestMessageDoc;
-  b.textContent=loadingOlderMessages
-    ?"جارٍ التحميل…"
-    :hasMoreMessages
-      ?"↑ تحميل الرسائل الأقدم"
-      :"لا توجد رسائل أقدم";
-
-  if(info){
-    info.textContent=`المعروض حالياً: ${messagesCache.length} رسالة · تحميل تدريجي لتخفيف المتصفح`;
-  }
-}
-
-async function loadOlderMessages(){
-  if(loadingOlderMessages||!hasMoreMessages||!oldestMessageDoc)return;
-
-  loadingOlderMessages=true;
+ messagesCache=[];oldestMessageDoc=null;hasMoreMessages=false;loadingOlderMessages=false;messagesInitialized=false;hasLoadedOlderMessages=false;
+ const loadBtn=$("loadOlderMessages");if(loadBtn){loadBtn.disabled=true;loadBtn.textContent="جارٍ تحميل الرسائل…"}
+ const mq=query(collection(db,PATH,"messages"),orderBy("createdAt","desc"),limit(40));
+ unsubMessages=onSnapshot(mq,s=>{
+  const box=$("messages"),wasNearBottom=!messagesInitialized||(box.scrollHeight-box.scrollTop-box.clientHeight<140);
+  const incoming=s.docs.map(d=>({id:d.id,...d.data()}));
+  const merged=new Map(messagesCache.map(m=>[m.id,m]));incoming.forEach(m=>merged.set(m.id,m));
+  messagesCache=Array.from(merged.values()).sort((a,b)=>messageMillis(a.createdAt)-messageMillis(b.createdAt));
+  if(s.docs.length&&!hasLoadedOlderMessages){oldestMessageDoc=s.docs[s.docs.length-1];hasMoreMessages=s.docs.length===40;}
+  messagesInitialized=true;renderMessages({scrollToBottom:wasNearBottom});
+  $("statMessages").textContent=messagesCache.length;
+  $("connectionStatus").textContent="متصلان عند توفر الإنترنت";
   updateChatHistoryControls();
-
-  const box=$("messages");
-  const oldHeight=box.scrollHeight;
-  const oldTop=box.scrollTop;
-
-  try{
-    const q=query(
-      collection(db,PATH,"messages"),
-      orderBy("createdAt","desc"),
-      startAfter(oldestMessageDoc),
-      limit(40)
-    );
-
-    const snap=await getDocs(q);
-
-    if(snap.empty){
-      hasMoreMessages=false;
-    }else{
-      const older=snap.docs.map(d=>({id:d.id,...d.data()}));
-      const merged=new Map(messagesCache.map(m=>[m.id,m]));
-      older.forEach(m=>merged.set(m.id,m));
-
-      messagesCache=Array.from(merged.values()).sort(
-        (a,b)=>messageMillis(a.createdAt)-messageMillis(b.createdAt)
-      );
-
-      oldestMessageDoc=snap.docs[snap.docs.length-1];
-      hasMoreMessages=snap.docs.length===40;
-      hasLoadedOlderMessages=true;
-
-      renderMessages({preserveScroll:true,oldHeight,oldTop});
-    }
-  }catch(e){
-    console.error(e);
-    toast("تعذر تحميل الرسائل الأقدم. تحقق من الاتصال.");
-  }finally{
-    loadingOlderMessages=false;
-    updateChatHistoryControls();
-  }
+ },e=>{$("connectionStatus").textContent="مشكلة اتصال";reportError(e)});
+ unsubMemories=onSnapshot(query(collection(db,PATH,"memories"),orderBy("date","desc")),s=>{memoryCache=s.docs.map(d=>({id:d.id,...d.data()}));renderMemories();$("statMemories").textContent=memoryCache.length},reportError);
+ unsubDreams=onSnapshot(query(collection(db,PATH,"dreams"),orderBy("createdAt","desc")),s=>{dreamCache=s.docs.map(d=>({id:d.id,...d.data()}));renderDreams();$("statDreams").textContent=dreamCache.length},reportError);
 }
-
+function messageMillis(ts){try{return ts?.toMillis?ts.toMillis():ts?.seconds?ts.seconds*1000:0}catch{return 0}}
+function updateChatHistoryControls(){
+ const b=$("loadOlderMessages"),info=$("chatLoadInfo");if(!b)return;
+ b.disabled=loadingOlderMessages||!hasMoreMessages||!oldestMessageDoc;
+ b.textContent=loadingOlderMessages?"جارٍ التحميل…":hasMoreMessages?"↑ تحميل الرسائل الأقدم":"لا توجد رسائل أقدم";
+ if(info)info.textContent=`المعروض حالياً: ${messagesCache.length} رسالة · تحميل تدريجي لتخفيف المتصفح`;
+}
+async function loadOlderMessages(){
+ if(loadingOlderMessages||!hasMoreMessages||!oldestMessageDoc)return;
+ loadingOlderMessages=true;updateChatHistoryControls();
+ const box=$("messages"),oldHeight=box.scrollHeight,oldTop=box.scrollTop;
+ try{
+  const q=query(collection(db,PATH,"messages"),orderBy("createdAt","desc"),startAfter(oldestMessageDoc),limit(40));
+  const snap=await getDocs(q);
+  if(snap.empty){hasMoreMessages=false;}
+  else{
+   const older=snap.docs.map(d=>({id:d.id,...d.data()}));
+   const merged=new Map(messagesCache.map(m=>[m.id,m]));older.forEach(m=>merged.set(m.id,m));
+   messagesCache=Array.from(merged.values()).sort((a,b)=>messageMillis(a.createdAt)-messageMillis(b.createdAt));
+   oldestMessageDoc=snap.docs[snap.docs.length-1];hasMoreMessages=snap.docs.length===40;hasLoadedOlderMessages=true;
+   renderMessages({preserveScroll:true,oldHeight,oldTop});
+  }
+ }catch(e){console.error(e);toast("تعذر تحميل الرسائل الأقدم. تحقق من الاتصال.")}
+ finally{loadingOlderMessages=false;updateChatHistoryControls()}
+}
 $("loadOlderMessages").addEventListener("click",loadOlderMessages);
+$("jumpLatestMessages").addEventListener("click",()=>{$("messages").scrollTo({top:$("messages").scrollHeight,behavior:"smooth"})});
 
-$("jumpLatestMessages").addEventListener("click",()=>{
-  $("messages").scrollTo({
-    top:$("messages").scrollHeight,
-    behavior:"smooth"
-  });
-});
-function timeLabel(ts){
-  try{
-    return ts?.toDate
-      ?ts.toDate().toLocaleString("ar-KW",{dateStyle:"short",timeStyle:"short"})
-      :"الآن";
-  }catch{
-    return "الآن";
-  }
-}
-
+function timeLabel(ts){try{return ts?.toDate?ts.toDate().toLocaleString("ar-KW",{dateStyle:"short",timeStyle:"short"}):"الآن"}catch{return"الآن"}}
 const GAME_PREFIX="[[DAVIN_GAME]]";
-
-function readGame(text=""){
-  if(!String(text).startsWith(GAME_PREFIX))return null;
-  try{
-    return JSON.parse(String(text).slice(GAME_PREFIX.length));
-  }catch{
-    return null;
-  }
-}
-
+function readGame(text=""){if(!String(text).startsWith(GAME_PREFIX))return null;try{return JSON.parse(String(text).slice(GAME_PREFIX.length))}catch{return null}}
 function renderGameMessage(m){
-  const g=readGame(m.text);
-  if(!g)return esc(m.text||"").replace(/\n/g,"<br>");
-
-  if(g.kind==="answer"){
-    return `<div class="game-card">
-      <h4>🎲 إجابة: ${esc(g.title||"لعبة")}</h4>
-      <div>${esc(g.prompt||"")}</div>
-      <div class="game-answer">اختياري: <strong>${esc(g.choice||"")}</strong></div>
-    </div>`;
-  }
-
-  const options=Array.isArray(g.options)?g.options:[];
-  const alreadyAnswered=messagesCache.some(x=>
-    x.senderUid===currentUser.uid &&
-    readGame(x.text)?.kind==="answer" &&
-    readGame(x.text)?.gameId===g.gameId
-  );
-
-  const controls=m.senderUid!==currentUser.uid&&options.length&&!alreadyAnswered
-    ?`<div class="game-options">${options.map((x,i)=>
-      `<button class="btn primary" data-game-answer="${esc(m.id)}" data-option="${i}">${esc(x)}</button>`
-    ).join("")}</div>`
-    :`<div class="small muted" style="margin-top:9px">${
-      alreadyAnswered
-        ?"✓ أرسلت إجابتك لهذا التحدي ♡"
-        :"⏳ التحدي عند الطرف الآخر — ننتظر الإجابة ♡"
-    }</div>`;
-
-  return `<div class="game-card">
-    <h4>🎲 ${esc(g.title||"تحدي بيننا")}</h4>
-    <div>${esc(g.prompt||"")}</div>
-    ${controls}
-  </div>`;
+ const g=readGame(m.text);if(!g)return esc(m.text||"").replace(/\n/g,"<br>");
+ if(g.kind==="answer")return `<div class="game-card"><h4>🎲 إجابة: ${esc(g.title||"لعبة")}</h4><div>${esc(g.prompt||"")}</div><div class="game-answer">اختياري: <strong>${esc(g.choice||"")}</strong></div></div>`;
+ const options=Array.isArray(g.options)?g.options:[];
+ const alreadyAnswered=messagesCache.some(x=>x.senderUid===currentUser.uid&&readGame(x.text)?.kind==="answer"&&readGame(x.text)?.gameId===g.gameId);
+ const controls=m.senderUid!==currentUser.uid&&options.length&&!alreadyAnswered
+  ?`<div class="game-options">${options.map((x,i)=>`<button class="btn primary" data-game-answer="${esc(m.id)}" data-option="${i}">${esc(x)}</button>`).join("")}</div>`
+  :`<div class="small muted" style="margin-top:9px">${alreadyAnswered?"✓ أرسلت إجابتك لهذا التحدي ♡":"⏳ التحدي عند الطرف الآخر — ننتظر الإجابة ♡"}</div>`;
+ return `<div class="game-card"><h4>🎲 ${esc(g.title||"تحدي بيننا")}</h4><div>${esc(g.prompt||"")}</div>${controls}</div>`;
 }
-
 function renderMediaMessage(m){
-  const raw=String(m.url||"");
-  let parsed=null;
-  try{parsed=new URL(raw)}catch{}
-
-  const isGiphyImage=!!parsed &&
-    parsed.protocol==="https:" &&
-    /^media\d*\.giphy\.com$/i.test(parsed.hostname) &&
-    parsed.pathname.includes("/media/");
-
-  if(isGiphyImage){
-    return `<button type="button" class="shared-gif-link"
-      data-lightbox="${esc(m.id)}"
-      aria-label="معاينة الصورة داخل المحادثة"
-      style="padding:0;border:0;background:transparent;text-align:inherit">
-      <img class="shared-gif" src="${esc(raw)}"
-        alt="${esc(m.label||"GIF")}" loading="lazy">
-    </button>
-    <div class="small muted">🎞️ ${esc(m.label||"GIF من GIPHY")} · اضغط للمعاينة</div>`;
-  }
-
-  return `<a href="${esc(raw||"#")}" target="_blank"
-    rel="noopener noreferrer">🎞️ ${esc(m.label||"افتح الوسيط")}</a>`;
+ const raw=String(m.url||"");
+ let parsed=null;
+ try{parsed=new URL(raw)}catch{}
+ const isGiphyImage=!!parsed&&parsed.protocol==="https:"&&/^media\d*\.giphy\.com$/i.test(parsed.hostname)&&parsed.pathname.includes("/media/");
+ if(isGiphyImage){
+  return `<button type="button" class="shared-gif-link" data-lightbox="${esc(m.id)}" aria-label="معاينة الصورة داخل المحادثة" style="padding:0;border:0;background:transparent;text-align:inherit"><img class="shared-gif" src="${esc(raw)}" alt="${esc(m.label||"GIF")}" loading="lazy"></button><div class="small muted">🎞️ ${esc(m.label||"GIF من GIPHY")} · اضغط للمعاينة</div>`;
+ }
+ return `<a href="${esc(raw||"#")}" target="_blank" rel="noopener noreferrer">🎞️ ${esc(m.label||"افتح الوسيط")}</a>`;
 }
-
 let lightboxItems=[],lightboxIndex=0;
-
 function showLightboxAt(index){
-  if(!lightboxItems.length)return;
-
-  lightboxIndex=(index+lightboxItems.length)%lightboxItems.length;
-  const item=lightboxItems[lightboxIndex];
-
-  $("mediaLightboxImage").src=item.url;
-  $("mediaLightboxImage").alt=item.label||"GIF";
-  $("mediaLightboxLabel").textContent=item.label||"GIF من GIPHY";
-  $("mediaLightboxCount").textContent=
-    (lightboxIndex+1)+" / "+lightboxItems.length;
-
-  $("mediaLightboxPrev").disabled=lightboxItems.length<2;
-  $("mediaLightboxNext").disabled=lightboxItems.length<2;
-  $("mediaLightbox").classList.remove("hidden");
+ if(!lightboxItems.length)return;
+ lightboxIndex=(index+lightboxItems.length)%lightboxItems.length;
+ const item=lightboxItems[lightboxIndex];
+ $("mediaLightboxImage").src=item.url;
+ $("mediaLightboxImage").alt=item.label||"GIF";
+ $("mediaLightboxLabel").textContent=item.label||"GIF من GIPHY";
+ $("mediaLightboxCount").textContent=(lightboxIndex+1)+" / "+lightboxItems.length;
+ $("mediaLightboxPrev").disabled=lightboxItems.length<2;
+ $("mediaLightboxNext").disabled=lightboxItems.length<2;
+ $("mediaLightbox").classList.remove("hidden");
 }
-
 function openMediaLightbox(messageId){
-  lightboxItems=messagesCache
-    .filter(m=>m.type==="media" &&
-      /^https:\/\/media\d*\.giphy\.com\/media\//i.test(String(m.url||"")))
-    .map(m=>({
-      id:m.id,
-      url:m.url,
-      label:m.label||"GIF من GIPHY"
-    }));
-
-  const index=lightboxItems.findIndex(x=>x.id===messageId);
-  if(index>=0)showLightboxAt(index);
+ lightboxItems=messagesCache.filter(m=>m.type==="media"&&/^https:\/\/media\d*\.giphy\.com\/media\//i.test(String(m.url||""))).map(m=>({id:m.id,url:m.url,label:m.label||"GIF من GIPHY"}));
+ const index=lightboxItems.findIndex(x=>x.id===messageId);
+ if(index>=0)showLightboxAt(index);
 }
-
-function closeMediaLightbox(){
-  $("mediaLightbox").classList.add("hidden");
-  $("mediaLightboxImage").src="";
-}
-
+function closeMediaLightbox(){$("mediaLightbox").classList.add("hidden");$("mediaLightboxImage").src=""}
 $("mediaLightboxClose").onclick=closeMediaLightbox;
-
-$("mediaLightbox").addEventListener("click",e=>{
-  if(e.target===$("mediaLightbox"))closeMediaLightbox();
-});
-
+$("mediaLightbox").addEventListener("click",e=>{if(e.target===$("mediaLightbox"))closeMediaLightbox()});
 $("mediaLightboxPrev").onclick=()=>showLightboxAt(lightboxIndex-1);
 $("mediaLightboxNext").onclick=()=>showLightboxAt(lightboxIndex+1);
-
-document.addEventListener("keydown",e=>{
-  if($("mediaLightbox").classList.contains("hidden"))return;
-  if(e.key==="Escape")closeMediaLightbox();
-  if(e.key==="ArrowLeft")showLightboxAt(lightboxIndex+1);
-  if(e.key==="ArrowRight")showLightboxAt(lightboxIndex-1);
-});
-
-function renderMessages(opts={}){
-  const box=$("messages");
-
-  if(!messagesCache.length){
-    box.innerHTML='<div class="empty">أول رسالة تنتظر أن تُكتب… ♡</div>';
-    return;
-  }
-
-  box.innerHTML=messagesCache.map(m=>{
-    const mine=m.senderUid===currentUser.uid;
-    let body="";
-
-    if(m.type==="secret"){
-      body=`<button class="btn" data-open-secret="${esc(m.id)}">🔒 رسالة سرية — اضغط لفتحها</button>`;
-    }else if(m.type==="media"){
-      body=renderMediaMessage(m);
-    }else if(m.type==="game"){
-      body=renderGameMessage(m);
-    }else{
-      body=esc(m.text||"").replace(/\n/g,"<br>");
-    }
-
-    return `<article class="msg ${mine?"mine":""}" data-msg="${esc(m.id)}">
-      ${m.replyText?`<div class="bubble-reply">${esc(m.replyText)}</div>`:""}
-      ${body}
-      <div class="meta">
-        <span>${timeLabel(m.createdAt)}</span>
-        <button data-reply="${esc(m.id)}" class="btn">رد</button>
-        <button data-react="${esc(m.id)}" class="btn">♡</button>
-        <button data-copy="${esc(m.id)}" class="btn">نسخ</button>
-      </div>
-      ${m.reaction?`<div class="small">${esc(m.reaction)}</div>`:""}
-    </article>`;
-  }).join("");
-
-  box.querySelectorAll("[data-lightbox]").forEach(b=>
-    b.onclick=()=>openMediaLightbox(b.dataset.lightbox)
-  );
-
-  box.querySelectorAll("[data-reply]").forEach(b=>{
-    b.onclick=()=>{
-      replyTarget=messagesCache.find(m=>m.id===b.dataset.reply);
-      $("replyBar").textContent="رد على: "+(replyTarget?.text||"رسالة");
-      $("replyBar").classList.remove("hidden");
-      $("messageInput").focus();
-    };
-  });
-
-  box.querySelectorAll("[data-react]").forEach(b=>
-    b.onclick=()=>react(b.dataset.react)
-  );
-
-  box.querySelectorAll("[data-copy]").forEach(b=>{
-    b.onclick=()=>{
-      const m=messagesCache.find(x=>x.id===b.dataset.copy);
-      navigator.clipboard?.writeText(m?.text||m?.url||"");
-      toast("تم النسخ");
-    };
-  });
-
-  box.querySelectorAll("[data-open-secret]").forEach(b=>
-    b.onclick=()=>openSecret(b.dataset.openSecret)
-  );
-
-  box.querySelectorAll("[data-game-answer]").forEach(b=>
-    b.onclick=()=>answerGame(b.dataset.gameAnswer,+b.dataset.option)
-  );
-
-  if(opts.preserveScroll){
-    box.scrollTop=opts.oldTop+(box.scrollHeight-opts.oldHeight);
-  }else if(opts.scrollToBottom){
-    box.scrollTop=box.scrollHeight;
-  }
-}
-
-async function answerGame(messageId,index){
-  const original=messagesCache.find(m=>m.id===messageId);
-  const g=readGame(original?.text);
-
-  if(!g||g.kind!=="challenge"||original.senderUid===currentUser.uid)return;
-
-  if(messagesCache.some(x=>
-    x.senderUid===currentUser.uid &&
-    readGame(x.text)?.kind==="answer" &&
-    readGame(x.text)?.gameId===g.gameId
-  ))return;
-
-  const choice=g.options?.[index];
-  if(typeof choice!=="string")return;
-
-  document.querySelectorAll(`[data-game-answer="${messageId}"]`)
-    .forEach(b=>b.disabled=true);
-
-  await sendMessage({
-    type:"game",
-    text:GAME_PREFIX+JSON.stringify({
-      kind:"answer",
-      gameId:g.gameId,
-      title:g.title,
-      prompt:g.prompt,
-      choice
-    })
-  });
-
-  toast("وصلت إجابتك للطرف الآخر ♡");
-}
-
-async function react(id){
-  const r=["❤️","😘","😂","🥰","🤗"][Math.floor(Math.random()*5)];
-  try{
-    await updateDoc(doc(db,PATH,"messages",id),{reaction:r});
-  }catch(e){
-    reportError(e);
-  }
-}
-
-async function openSecret(id){
-  const m=messagesCache.find(x=>x.id===id);
-  if(!m)return;
-
-  modal("رسالة سرية 💌",
-    `<p style="line-height:2">${esc(m.text||"")}</p>
-     <button class="btn primary" id="secretOk">أغلقت الرسالة ♡</button>`
-  );
-
-  $("secretOk").onclick=closeModal;
-}
-
-$("sendBtn").onclick=async()=>{
-  const text=$("messageInput").value.trim();
-  if(!text)return;
-
-  const payload={type:"text",text};
-
-  if(replyTarget){
-    payload.replyTo=replyTarget.id;
-    payload.replyText=(replyTarget.text||"").slice(0,180);
-  }
-
-  await sendMessage(payload);
-  $("messageInput").value="";
-  replyTarget=null;
-  $("replyBar").classList.add("hidden");
-};
-
-$("messageInput").addEventListener("keydown",e=>{
-  if(e.key==="Enter"&&!e.shiftKey){
-    e.preventDefault();
-    $("sendBtn").click();
-  }
-});
-
-/* منتقي الإيموجي الحالي — سنطوره في الجزء الخاص به */
-$("emojiBtn").onclick=()=>{
-  modal("اختر إيموجي",`
-    <div class="actions">
-      ${["❤️","😘","🥰","😍","💋","🫂","😂","🌹","✨","💌","🔥","💕","🥺","🤍","🌙","☀️"]
-        .map(x=>`<button class="btn" data-emoji="${x}" style="font-size:22px">${x}</button>`)
-        .join("")}
-    </div>
-  `);
-
-  $("modalBody").querySelectorAll("[data-emoji]").forEach(b=>{
-    b.onclick=()=>{
-      $("messageInput").value+=$("messageInput").value ? b.dataset.emoji : b.dataset.emoji;
-      closeModal();
-      $("messageInput").focus();
-    };
-  });
-};
+document.addEventListener("keydown",e=>{if($("mediaLightbox").classList.contains("hidden"))return;if(e.key==="Escape")closeMediaLightbox();if(e.key==="ArrowLeft")showLightboxAt(lightboxIndex+1);if(e.key==="ArrowRight")showLightboxAt(lightboxIndex-1)});
+function renderMessages(opts={}){const box=$("messages");if(!messagesCache.length){box.innerHTML='<div class="empty">أول رسالة تنتظر أن تُكتب… ♡</div>';return}box.innerHTML=messagesCache.map(m=>{const mine=m.senderUid===currentUser.uid;let body="";if(m.type==="secret")body=`<button class="btn" data-open-secret="${esc(m.id)}">🔒 رسالة سرية — اضغط لفتحها</button>`;else if(m.type==="media")body=renderMediaMessage(m);else if(m.type==="game")body=renderGameMessage(m);else body=esc(m.text||"").replace(/\n/g,"<br>");return `<article class="msg ${mine?"mine":""}" data-msg="${esc(m.id)}">${m.replyText?`<div class="bubble-reply">${esc(m.replyText)}</div>`:""}${body}<div class="meta"><span>${timeLabel(m.createdAt)}</span><button data-reply="${esc(m.id)}" class="btn">رد</button><button data-react="${esc(m.id)}" class="btn">♡</button><button data-copy="${esc(m.id)}" class="btn">نسخ</button></div>${m.reaction?`<div class="small">${esc(m.reaction)}</div>`:""}</article>`}).join("");box.querySelectorAll("[data-lightbox]").forEach(b=>b.onclick=()=>openMediaLightbox(b.dataset.lightbox));box.querySelectorAll("[data-reply]").forEach(b=>b.onclick=()=>{replyTarget=messagesCache.find(m=>m.id===b.dataset.reply);$("replyBar").textContent="رد على: "+(replyTarget?.text||"رسالة");$("replyBar").classList.remove("hidden");$("messageInput").focus()});box.querySelectorAll("[data-react]").forEach(b=>b.onclick=()=>react(b.dataset.react));box.querySelectorAll("[data-copy]").forEach(b=>b.onclick=()=>{const m=messagesCache.find(x=>x.id===b.dataset.copy);navigator.clipboard?.writeText(m?.text||m?.url||"");toast("تم النسخ")});box.querySelectorAll("[data-open-secret]").forEach(b=>b.onclick=()=>openSecret(b.dataset.openSecret));box.querySelectorAll("[data-game-answer]").forEach(b=>b.onclick=()=>answerGame(b.dataset.gameAnswer,+b.dataset.option));if(opts.preserveScroll){box.scrollTop=opts.oldTop+(box.scrollHeight-opts.oldHeight)}else if(opts.scrollToBottom){box.scrollTop=box.scrollHeight}}
+async function answerGame(messageId,index){const original=messagesCache.find(m=>m.id===messageId),g=readGame(original?.text);if(!g||g.kind!=="challenge"||original.senderUid===currentUser.uid)return;if(messagesCache.some(x=>x.senderUid===currentUser.uid&&readGame(x.text)?.kind==="answer"&&readGame(x.text)?.gameId===g.gameId))return;const choice=g.options?.[index];if(typeof choice!=="string")return;document.querySelectorAll(`[data-game-answer="${messageId}"]`).forEach(b=>b.disabled=true);await sendMessage({type:"game",text:GAME_PREFIX+JSON.stringify({kind:"answer",gameId:g.gameId,title:g.title,prompt:g.prompt,choice})});toast("وصلت إجابتك للطرف الآخر ♡")}
+async function react(id){const m=messagesCache.find(x=>x.id===id);const r=["❤️","😘","😂","🥰","🤗"][Math.floor(Math.random()*5)];try{await updateDoc(doc(db,PATH,"messages",id),{reaction:r})}catch(e){reportError(e)}}
+async function openSecret(id){const m=messagesCache.find(x=>x.id===id);if(!m)return;modal("رسالة سرية 💌",`<p style="line-height:2">${esc(m.text||"")}</p><button class="btn primary" id="secretOk">أغلقت الرسالة ♡</button>`);$("secretOk").onclick=closeModal}
+$("sendBtn").onclick=async()=>{const text=$("messageInput").value.trim();if(!text)return;const payload={type:"text",text};if(replyTarget){payload.replyTo=replyTarget.id;payload.replyText=(replyTarget.text||"").slice(0,180)}await sendMessage(payload);$("messageInput").value="";replyTarget=null;$("replyBar").classList.add("hidden")};
+$("messageInput").addEventListener("keydown",e=>{if(e.key==="Enter"&&!e.shiftKey){e.preventDefault();$("sendBtn").click()}});
+$("emojiBtn").onclick=()=>{modal("اختر إيموجي",`<div class="actions">${["❤️","😘","🥰","😍","💋","🫂","😂","🌹","✨","💌","🔥","💕","🥺","🤍","🌙","☀️"].map(x=>`<button class="btn" data-emoji="${x}" style="font-size:22px">${x}</button>`).join("")}</div>`);$("modalBody").querySelectorAll("[data-emoji]").forEach(b=>b.onclick=()=>{$("messageInput").value+=b.dataset.emoji;closeModal();$("messageInput").focus()})};
 /* مكتبة العبارات */
-const catSel=$("libraryCategory");
-categories.forEach(c=>catSel.add(new Option(c,c)));
-
-function normalizeSearch(v=""){
-  return String(v).toLowerCase()
-    .replace(/[ًٌٍَُِّْـ]/g,"")
-    .replace(/[أإآ]/g,"ا")
-    .replace(/ى/g,"ي")
-    .replace(/ة/g,"ه")
-    .trim();
-}
-
-function renderLibrary(){
-  const q=normalizeSearch($("librarySearch").value);
-  const cat=catSel.value;
-
-  const rows=phrases.map((p,i)=>({p,i})).filter(({p,i})=>
-    (cat==="all"||p[0]===cat) &&
-    (!q||normalizeSearch(p.join(" ")).includes(q)) &&
-    (!favOnly||libraryFavs.has(i))
-  );
-
-  $("libraryItems").innerHTML=rows.map(({p,i})=>
-    `<div class="phrase">
-      <span class="pill">${esc(p[0])}</span>
-      <p>${esc(p[1])}</p>
-      <div class="actions">
-        <button class="btn primary" data-phrase-send="${i}">إرسال</button>
-        <button class="btn" data-fav="${i}">${libraryFavs.has(i)?"♥":"♡"}</button>
-        <button class="btn" data-phrase-edit="${i}">تعديل</button>
-      </div>
-    </div>`
-  ).join("")||'<div class="empty">لا توجد عبارات مطابقة.</div>';
-
-  document.querySelectorAll("[data-phrase-send]").forEach(b=>{
-    b.onclick=()=>sendMessage({
-      type:"text",
-      text:phrases[+b.dataset.phraseSend][1]
-    });
-  });
-
-  document.querySelectorAll("[data-fav]").forEach(b=>{
-    b.onclick=()=>{
-      const i=+b.dataset.fav;
-      libraryFavs.has(i)?libraryFavs.delete(i):libraryFavs.add(i);
-      localStorage.setItem("davinFavs",JSON.stringify([...libraryFavs]));
-      renderLibrary();
-    };
-  });
-
-  document.querySelectorAll("[data-phrase-edit]").forEach(b=>{
-    b.onclick=()=>{
-      const i=+b.dataset.phraseEdit;
-      $("composeText").value=phrases[i][1];
-      $("composeText").focus();
-    };
-  });
-}
-
-$("librarySearch").oninput=renderLibrary;
-catSel.onchange=renderLibrary;
-
-$("favoritesOnly").onclick=()=>{
-  favOnly=!favOnly;
-  $("favoritesOnly").textContent=favOnly?"عرض الكل":"♡ المفضلة";
-  renderLibrary();
-};
-
-renderLibrary();
-
-$("composeSend").onclick=()=>{
-  const t=$("composeText").value.trim();
-  if(t){
-    sendMessage({type:"text",text:t});
-    $("composeText").value="";
-  }
-};
-
-/* الوسائط: بحث GIPHY */
-$("giphyKey").value=localStorage.getItem("davinGiphyKey")||"";
-
-let mediaOffset=0;
-let mediaBusy=false;
-
-$("saveGiphy").onclick=()=>{
-  const key=$("giphyKey").value.trim();
-  if(!key)return toast("الصق مفتاح GIPHY أولاً");
-  localStorage.setItem("davinGiphyKey",key);
-  toast("حُفظ المفتاح على هذا الجهاز");
-};
-
-$("toggleGiphyKey").onclick=()=>{
-  const f=$("giphyKey");
-  const show=f.type==="password";
-  f.type=show?"text":"password";
-  $("toggleGiphyKey").textContent=show?"إخفاء":"إظهار";
-};
-
-$("mediaKeyTest").onclick=async()=>{
-  const key=$("giphyKey").value.trim();
-  const status=$("mediaStatus");
-
-  if(!key){
-    status.textContent="الصق مفتاح GIPHY أولاً.";
-    return;
-  }
-
-  status.textContent="جارٍ اختبار المفتاح…";
-  $("mediaKeyTest").disabled=true;
-
-  try{
-    const u=new URL("https://api.giphy.com/v1/gifs/trending");
-    u.search=new URLSearchParams({
-      api_key:key,
-      limit:"1",
-      rating:"pg-13"
-    });
-
-    const r=await fetch(u,{headers:{Accept:"application/json"}});
-    const d=await r.json().catch(()=>({}));
-
-    if(!r.ok){
-      throw Object.assign(
-        new Error(d?.meta?.msg||d?.message||""),
-        {status:r.status}
-      );
-    }
-
-    localStorage.setItem("davinGiphyKey",key);
-    status.textContent="ممتاز! المفتاح يعمل وتم حفظه على هذا الجهاز. ♡";
-    toast("مفتاح GIPHY صالح");
-
-  }catch(e){
-    status.textContent=mediaErrorMessage(e.status||0,e.message)+
-      " راجع أن المفتاح من تطبيق API وليس SDK.";
-  }finally{
-    $("mediaKeyTest").disabled=false;
-  }
-};
-
+const catSel=$("libraryCategory");categories.forEach(c=>catSel.add(new Option(c,c)));
+function normalizeSearch(v=""){return String(v).toLowerCase().replace(/[ًٌٍَُِّْـ]/g,"").replace(/[أإآ]/g,"ا").replace(/ى/g,"ي").replace(/ة/g,"ه").trim()}
+function renderLibrary(){const q=normalizeSearch($("librarySearch").value),cat=catSel.value;const rows=phrases.map((p,i)=>({p,i})).filter(({p,i})=>(cat==="all"||p[0]===cat)&&(!q||normalizeSearch(p.join(" ")).includes(q))&&(!favOnly||libraryFavs.has(i)));$("libraryItems").innerHTML=rows.map(({p,i})=>`<div class="phrase"><span class="pill">${esc(p[0])}</span><p>${esc(p[1])}</p><div class="actions"><button class="btn primary" data-phrase-send="${i}">إرسال</button><button class="btn" data-fav="${i}">${libraryFavs.has(i)?"♥":"♡"}</button><button class="btn" data-phrase-edit="${i}">تعديل</button></div></div>`).join("")||'<div class="empty">لا توجد عبارات مطابقة.</div>';document.querySelectorAll("[data-phrase-send]").forEach(b=>b.onclick=()=>sendMessage({type:"text",text:phrases[+b.dataset.phraseSend][1]}));document.querySelectorAll("[data-fav]").forEach(b=>b.onclick=()=>{const i=+b.dataset.fav;libraryFavs.has(i)?libraryFavs.delete(i):libraryFavs.add(i);localStorage.setItem("davinFavs",JSON.stringify([...libraryFavs]));renderLibrary()});document.querySelectorAll("[data-phrase-edit]").forEach(b=>{const i=+b.dataset.phraseEdit;$("composeText").value=phrases[i][1];$("composeText").focus()})}
+$("librarySearch").oninput=renderLibrary;catSel.onchange=renderLibrary;$("favoritesOnly").onclick=()=>{favOnly=!favOnly;$("favoritesOnly").textContent=favOnly?"عرض الكل":"♡ المفضلة";renderLibrary()};renderLibrary();
+$("composeSend").onclick=()=>{const t=$("composeText").value.trim();if(t){sendMessage({type:"text",text:t});$("composeText").value=""}};
+/* الوسائط: بحث GIPHY مع تشخيص الأخطاء، مهلة اتصال، نتائج شائعة وتحميل المزيد. */
+const GIPHY_DEFAULT_API_KEY="zNaeDaLt9G9lAinwKU086P4vMWs2ut79";
+$("giphyKey").value=localStorage.getItem("davinGiphyKey")||(GIPHY_DEFAULT_API_KEY.startsWith("PUT_")?"":GIPHY_DEFAULT_API_KEY);
+let mediaOffset=0,mediaBusy=false;
+$("saveGiphy").onclick=()=>{const key=$("giphyKey").value.trim();if(!key)return toast("الصق مفتاح GIPHY أولاً");localStorage.setItem("davinGiphyKey",key);toast("حُفظ المفتاح على هذا الجهاز")};
+$("toggleGiphyKey").onclick=()=>{const f=$("giphyKey"),show=f.type==="password";f.type=show?"text":"password";$("toggleGiphyKey").textContent=show?"إخفاء":"إظهار"};
+$("mediaKeyTest").onclick=async()=>{const key=$("giphyKey").value.trim(),status=$("mediaStatus");if(!key){status.textContent="الصق مفتاح GIPHY أولاً.";return}status.textContent="جارٍ اختبار المفتاح…";$("mediaKeyTest").disabled=true;try{const u=new URL("https://api.giphy.com/v1/gifs/trending");u.search=new URLSearchParams({api_key:key,limit:"1",rating:"pg-13"});const r=await fetch(u,{headers:{Accept:"application/json"}});const d=await r.json().catch(()=>({}));if(!r.ok)throw Object.assign(new Error(d?.meta?.msg||d?.message||""),{status:r.status});localStorage.setItem("davinGiphyKey",key);status.textContent="ممتاز! المفتاح يعمل وتم حفظه على هذا الجهاز. يمكنك الآن البحث عن GIF والملصقات. ♡";toast("مفتاح GIPHY صالح") }catch(e){status.textContent=mediaErrorMessage(e.status||0,e.message)+" راجع أن المفتاح من تطبيق API وليس SDK."}finally{$("mediaKeyTest").disabled=false}};
 function mediaErrorMessage(status,detail=""){
-  if(status===401)return "مفتاح GIPHY غير صحيح أو غير مفعّل (401).";
-  if(status===403)return "GIPHY رفض الطلب (403). تحقق من صلاحية المفتاح.";
-  if(status===414)return "عبارة البحث طويلة جداً. اختصرها إلى 50 حرفاً.";
-  if(status===429)return "تم تجاوز حد الطلبات المسموح به مؤقتاً (429). انتظر قليلاً.";
-  if(status===0)return "تعذر الوصول إلى GIPHY. تحقق من الإنترنت أو إعدادات الحجب.";
-  return `تعذر البحث في GIPHY${status?" (HTTP "+status+")":""}. ${detail}`.trim();
+ if(status===401)return "مفتاح GIPHY غير صحيح أو غير مفعّل (401). راجع المفتاح من لوحة GIPHY.";
+ if(status===403)return "GIPHY رفض الطلب (403). تحقق من صلاحية المفتاح وإعدادات التطبيق.";
+ if(status===414)return "عبارة البحث طويلة جداً. اختصرها إلى 50 حرفاً.";
+ if(status===429)return "تم تجاوز حد الطلبات المسموح به مؤقتاً (429). انتظر قليلاً ثم حاول.";
+ if(status===0)return "تعذر الوصول إلى GIPHY. تحقق من الإنترنت أو إعدادات حجب الطلبات.";
+ return `تعذر البحث في GIPHY${status?" (HTTP "+status+")":""}. ${detail}`.trim();
 }
-
 async function searchMedia({trending=false,append=false}={}){
-  const term=$("mediaQuery").value.trim();
-  const key=$("giphyKey").value.trim();
-  const type=$("mediaType").value;
-  const out=$("mediaResults");
-  const status=$("mediaStatus");
-
-  if(!key){
-    status.textContent="أضف مفتاح GIPHY API أولاً ثم اضغط حفظ.";
-    return;
-  }
-
-  if(!trending&&!term){
-    status.textContent="اكتب كلمة للبحث أو اختر الأكثر تداولاً.";
-    return;
-  }
-
-  if(term.length>50){
-    status.textContent="اختصر عبارة البحث إلى 50 حرفاً كحد أقصى.";
-    return;
-  }
-
-  if(mediaBusy)return;
-
-  if(!append){
-    mediaOffset=0;
-    out.innerHTML="";
-  }
-
-  mediaBusy=true;
-  $("mediaSearch").disabled=true;
-  $("mediaTrending").disabled=true;
-  $("mediaMore").disabled=true;
-
-  status.textContent=trending
-    ?"جارٍ تحميل الوسائط الأكثر تداولاً…"
-    :"جارٍ البحث عن "+term+"…";
-
-  const offset=append?mediaOffset:0;
-  const endpoint=trending?"trending":"search";
-  const searchLang=/[\u0600-\u06FF]/.test(term)?"ar":"en";
-
-  const params=new URLSearchParams({
-    api_key:key,
-    limit:"18",
-    offset:String(offset),
-    rating:"pg-13",
-    lang:searchLang
-  });
-
-  if(!trending)params.set("q",term);
-
-  const controller=new AbortController();
-  const timeout=setTimeout(()=>controller.abort(),16000);
-
-  try{
-    const response=await fetch(
-      `https://api.giphy.com/v1/${type}/${endpoint}?${params.toString()}`,
-      {
-        signal:controller.signal,
-        headers:{Accept:"application/json"}
-      }
-    );
-
-    let data;
-    try{
-      data=await response.json();
-    }catch{
-      throw Object.assign(
-        new Error("استجابة غير مفهومة من GIPHY."),
-        {status:response.status}
-      );
-    }
-
-    if(!response.ok){
-      throw Object.assign(
-        new Error(data?.message||data?.meta?.msg||""),
-        {status:response.status}
-      );
-    }
-
-    if(data?.meta?.status&&data.meta.status!==200){
-      throw Object.assign(
-        new Error(data.meta.msg||""),
-        {status:data.meta.status}
-      );
-    }
-
-    const items=Array.isArray(data?.data)?data.data:[];
-
-    const cards=items.map(x=>{
-      const src=x.images?.fixed_width?.url||
-        x.images?.downsized?.url||
-        x.images?.original?.url;
-
-      if(!src)return "";
-
-      return `<div class="media-item">
-        <img src="${esc(src)}" loading="lazy" alt="${esc(x.title||"GIPHY media")}">
-        <div class="small">${esc(x.title||"وسيط من GIPHY")}</div>
-        <button class="btn primary"
-          data-media-url="${esc(src)}"
-          data-media-label="${esc(x.title||"GIPHY GIF")}">
-          إرسال للمحادثة ♡
-        </button>
-      </div>`;
-    }).filter(Boolean).join("");
-
-    if(!append)out.innerHTML=cards;
-    else out.insertAdjacentHTML("beforeend",cards);
-
-    if(!items.length&&!append){
-      status.textContent=trending
-        ?"لا توجد وسائط شائعة حالياً. حاول لاحقاً."
-        :"لم نجد نتائج. جرّب كلمات مثل love أو cute أو hug.";
-    }else{
-      status.textContent=`تم العثور على ${items.length} نتيجة${append?" إضافية":""}. اختر ما تريد إرساله.`;
-    }
-
-    mediaOffset=offset+items.length;
-    $("mediaMore").disabled=items.length<18;
-
-    out.querySelectorAll("[data-media-url]").forEach(b=>{
-      if(!b.dataset.bound){
-        b.dataset.bound="1";
-        b.onclick=()=>sendMessage({
-          type:"media",
-          url:b.dataset.mediaUrl,
-          label:b.dataset.mediaLabel||
-            (type==="stickers"?"GIPHY Sticker":"GIPHY GIF")
-        });
-      }
-    });
-
-  }catch(e){
-    console.error("GIPHY search error:",e);
-    status.textContent=e.name==="AbortError"
-      ?"انتهت مهلة الاتصال بـ GIPHY. تحقق من الإنترنت ثم أعد المحاولة."
-      :mediaErrorMessage(e.status||0,e.message);
-
-  }finally{
-    clearTimeout(timeout);
-    mediaBusy=false;
-    $("mediaSearch").disabled=false;
-    $("mediaTrending").disabled=false;
-    $("mediaMore").disabled=mediaOffset===0;
-  }
+ const term=$("mediaQuery").value.trim(),key=$("giphyKey").value.trim(),type=$("mediaType").value,out=$("mediaResults"),status=$("mediaStatus");
+ if(!key){status.textContent="أضف مفتاح GIPHY API العام أولاً ثم اضغط حفظ.";return}
+ if(!trending&&!term){status.textContent="اكتب كلمة للبحث أو اختر الأكثر تداولاً.";return}
+ if(term.length>50){status.textContent="اختصر عبارة البحث إلى 50 حرفاً كحد أقصى.";return}
+ if(mediaBusy)return;
+ if(!append){mediaOffset=0;out.innerHTML=""}
+ mediaBusy=true;$("mediaSearch").disabled=true;$("mediaTrending").disabled=true;$("mediaMore").disabled=true;
+ status.textContent=trending?"جارٍ تحميل الوسائط الأكثر تداولاً…":"جارٍ البحث عن "+term+"…";
+ const offset=append?mediaOffset:0,endpoint=trending?"trending":"search";
+ const searchLang=/[\u0600-\u06FF]/.test(term)?"ar":"en";
+ const params=new URLSearchParams({api_key:key,limit:"18",offset:String(offset),rating:"pg-13",lang:searchLang});
+ if(!trending)params.set("q",term);
+ const controller=new AbortController(),timeout=setTimeout(()=>controller.abort(),16000);
+ try{
+  const response=await fetch(`https://api.giphy.com/v1/${type}/${endpoint}?${params.toString()}`,{signal:controller.signal,headers:{Accept:"application/json"}});
+  let data;try{data=await response.json()}catch{throw Object.assign(new Error("استجابة غير مفهومة من GIPHY."),{status:response.status})}
+  if(!response.ok)throw Object.assign(new Error(data?.message||data?.meta?.msg||""),{status:response.status});
+  if(data?.meta?.status&&data.meta.status!==200)throw Object.assign(new Error(data.meta.msg||""),{status:data.meta.status});
+  const items=Array.isArray(data?.data)?data.data:[];
+  const cards=items.map(x=>{const src=x.images?.fixed_width?.url||x.images?.downsized?.url||x.images?.original?.url;if(!src)return "";return `<div class="media-item"><img src="${esc(src)}" loading="lazy" alt="${esc(x.title||"GIPHY media")}"><div class="small">${esc(x.title||"وسيط من GIPHY")}</div><button class="btn primary" data-media-url="${esc(src)}" data-media-label="${esc(x.title||"GIPHY GIF")}">إرسال للمحادثة ♡</button></div>`}).filter(Boolean).join("");
+  if(!append)out.innerHTML=cards;else out.insertAdjacentHTML("beforeend",cards);
+  if(!items.length&&!append)status.textContent=trending?"لا توجد وسائط شائعة حالياً. حاول لاحقاً.":"لم نجد نتائج. جرّب كلمة إنجليزية مثل love أو cute أو hug؛ بعض كلمات البحث العربية لا تتوفر لها نتائج كافية في GIPHY.";
+  else status.textContent=`تم العثور على ${items.length} نتيجة${append?" إضافية":""}. اختر ما تريد إرساله.`;
+  mediaOffset=offset+items.length;$("mediaMore").disabled=items.length<18;
+  out.querySelectorAll("[data-media-url]").forEach(b=>{if(!b.dataset.bound){b.dataset.bound="1";b.onclick=()=>sendMessage({type:"media",url:b.dataset.mediaUrl,label:b.dataset.mediaLabel||(type==="stickers"?"GIPHY Sticker":"GIPHY GIF")})}});
+ }catch(e){
+  console.error("GIPHY search error:",e);
+  status.textContent=e.name==="AbortError"?"انتهت مهلة الاتصال بـ GIPHY. تحقق من الإنترنت ثم أعد المحاولة.":mediaErrorMessage(e.status||0,e.message);
+ }finally{clearTimeout(timeout);mediaBusy=false;$("mediaSearch").disabled=false;$("mediaTrending").disabled=false;$("mediaMore").disabled=mediaOffset===0}
 }
-
 $("mediaSearch").onclick=()=>searchMedia();
 $("mediaTrending").onclick=()=>searchMedia({trending:true});
 $("mediaMore").onclick=()=>searchMedia({append:true});
-
-$("mediaQuery").addEventListener("keydown",e=>{
-  if(e.key==="Enter")searchMedia();
-});
-
-$("mediaType").onchange=()=>{
-  mediaOffset=0;
-  $("mediaResults").innerHTML="";
-  $("mediaStatus").textContent="نوع الوسائط تغير. ابدأ بحثاً جديداً.";
-  $("mediaMore").disabled=true;
-};
-
-$("imageSearchLink").onclick=()=>window.open(
-  "https://www.google.com/search?tbm=isch&q="+
-  encodeURIComponent($("mediaQuery").value||"romantic couple"),
-  "_blank","noopener"
-);
-
-$("videoSearchLink").onclick=()=>window.open(
-  "https://www.youtube.com/results?search_query="+
-  encodeURIComponent($("mediaQuery").value||"romantic couple"),
-  "_blank","noopener"
-);
-
-$("stickerSearchLink").onclick=()=>{
-  $("mediaType").value="stickers";
-  $("mediaSearch").click();
-};
-/* ألعاب ثنائية: التحدي والإجابة يظهران داخل المحادثة نفسها */
+$("mediaQuery").addEventListener("keydown",e=>{if(e.key==="Enter")searchMedia()});
+$("mediaType").onchange=()=>{mediaOffset=0;$("mediaResults").innerHTML="";$("mediaStatus").textContent="نوع الوسائط تغير. ابدأ بحثاً جديداً.";$("mediaMore").disabled=true};
+$("imageSearchLink").onclick=()=>window.open("https://www.google.com/search?tbm=isch&q="+encodeURIComponent($("mediaQuery").value||"romantic couple"),"_blank","noopener");
+$("videoSearchLink").onclick=()=>window.open("https://www.youtube.com/results?search_query="+encodeURIComponent($("mediaQuery").value||"romantic couple"),"_blank","noopener");
+$("stickerSearchLink").onclick=()=>{$("mediaType").value="stickers";$("mediaSearch").click()};
+/* ألعاب ثنائية: التحدي والإجابة يظهران داخل المحادثة نفسها، دون مجموعة Firestore إضافية. */
 const games=[
  ["صراحة أم جرأة","اختاروا سؤالاً صريحاً أو تحدياً لطيفاً.",[
   {q:"ما أول شيء لفت انتباهك فيّ؟",a:["ابتسامتك","أسلوبك","اهتمامك","شيء آخر"]},
@@ -1415,361 +691,41 @@ const games=[
   {q:"اختر بداية موعدنا:",a:["قهوة ومشي","عشاء هادئ","فيلم ووجبة خفيفة","رحلة قصيرة"]},
   {q:"ما اللمسة التي تكمل الموعد؟",a:["موسيقى هادئة","صور تذكارية","حلوى نحبها","مفاجأة صغيرة"]}
  ]],
- ["اختبار سرعة البديهة","أجب بسرعة وبعفوية، ثم ناقشا الإجابتين.",[
-  {q:"لو ربحنا تذكرة سفر الآن، أين نذهب؟",a:["البحر","مدينة جديدة","مكان هادئ","أي مكان معك"]},
-  {q:"اختر كلمة تصفنا اليوم.",a:["مغامرة","حنان","ضحك","اشتياق"]},
-  {q:"ما أول شيء ستفعله لو التقينا الآن؟",a:["حضن","ابتسامة","حديث طويل","لن أترك يدك"]}
- ]],
- ["من الأكثر؟","اختارا من تنطبق عليه العبارة أكثر.",[
-  {q:"من يرسل رسالة أولاً غالباً؟",a:["أنا","أنت","بالتساوي","حسب الاشتياق"]},
-  {q:"من يضحك أسرع؟",a:["أنا","أنت","نضحك معاً","لا أحد يعترف"]},
-  {q:"من يخطط للمفاجآت؟",a:["أنا","أنت","كلانا","نحتاج أن نتعلم"]}
- ]],
- ["أكمل الجملة","أرسل بداية جملة ودع الطرف الآخر يكملها.",[
-  {q:"أجمل شيء في يومي هو…",a:["رسالتك","صوتك","ضحكتك","وجودك"]},
-  {q:"أشعر بالأمان عندما…",a:["تسمعني","تطمئن عليّ","تكون صريحاً","تكون قريباً"]},
-  {q:"أتمنى أن نفعل قريباً…",a:["نسافر","نلتقي","نحتفل","نصنع ذكرى"]}
- ]],
- ["تحدي الإيموجي","عبّر عن شعورك بثلاثة رموز فقط.",[
-  {q:"صف اشتياقك بثلاثة إيموجي.",a:["🥺❤️🌙","💌✨🫂","😍🌹💗","😢✈️❤️"]},
-  {q:"صف موعدنا المثالي.",a:["🌅☕💑","🌊🌴📸","🍿🎬❤️","🍽️🕯️🌹"]},
-  {q:"صف مزاجك تجاهي الآن.",a:["🥰💕","😘🔥","🤗🤍","😜💋"]}
- ]],
- ["محقق الذكريات","اختبروا من يتذكر التفاصيل أكثر.",[
-  {q:"ما أول موضوع طويل تحدثنا عنه؟",a:["أحلامنا","السفر","اليوميات","لا أتذكر بدقة"]},
-  {q:"أي لحظة جعلتنا نضحك كثيراً؟",a:["موقف عفوي","رسالة مضحكة","مكالمة","مفاجأة"]},
-  {q:"ما تفصيل صغير لا تريد نسيانه؟",a:["كلمة","تاريخ","صورة","مكان"]}
- ]],
- ["اختيار صعب","اختياران لطيفان، لا توجد إجابة خاطئة.",[
-  {q:"أسبوع معاً أم مكالمة طويلة كل ليلة؟",a:["أسبوع معاً","مكالمة كل ليلة","الاثنان","أريد المزيد"]},
-  {q:"رسالة حب طويلة أم مفاجأة؟",a:["رسالة","مفاجأة","رسالة ومفاجأة","لحظة صادقة"]},
-  {q:"موعد مخطط أم مغامرة مفاجئة؟",a:["مخطط","مفاجأة","مزيج","أنت اختر"]}
- ]],
- ["بطاقة امتنان","شارك شيئاً تقدّره في الطرف الآخر.",[
-  {q:"شيء أقدّره فيك أكثر هو…",a:["صبرك","صدقك","اهتمامك","روحك المرحة"]},
-  {q:"موقف لن أنساه لك…",a:["وقفتك معي","كلامك الطيب","مفاجأتك","تفهمك"]},
-  {q:"رسالة شكر أريد قولها…",a:["شكراً لأنك تسمعني","شكراً لوجودك","شكراً لصبرك","شكراً لحبك"]}
- ]],
- ["خطط المستقبل","اختاروا أحلاماً صغيرة قابلة للتحقيق.",[
-  {q:"ما أول نشاط نخطط له؟",a:["عشاء","رحلة قصيرة","يوم بلا هواتف","تجربة جديدة"]},
-  {q:"ما عادة جميلة نبدأها؟",a:["رسالة صباحية","مكالمة أسبوعية","صورة يومية","موعد ثابت"]},
-  {q:"ما مهارة نتعلمها معاً؟",a:["طبخ","لغة","تصوير","رقصة"]}
- ]],
- ["تحدي الضحك","اختاروا مهمة خفيفة تنفذونها في المحادثة.",[
-  {q:"نفّذ الآن…",a:["اكتب جملة غزل مضحكة","اختر لقباً لطيفاً","أرسل 4 إيموجي تصفني","قلّد مذيعاً في رسالة"]},
-  {q:"أرسل للطرف الآخر…",a:["نكتة قصيرة","صورة شيء يضحك","تسجيل صوتي مرح","قصة من طفولتك"]},
-  {q:"اختر عقوبة لطيفة للخاسر.",a:["يرسل قصيدة","يختار موعداً","يكتب 5 مجاملات","يرسل أغنية"]}
- ]],
- ["لغة الحب","اكتشفوا ما يجعل كل واحد يشعر بالتقدير.",[
-  {q:"ما الذي يعني لك الاهتمام أكثر؟",a:["الكلمات","الوقت","المساعدة","اللمسات والاحتضان"]},
-  {q:"متى تشعر أنني قريب منك؟",a:["عندما أسمعك","عندما أسأل عنك","عندما أشارك يومي","عندما أخصص وقتاً"]},
-  {q:"ما اللفتة التي تسعدك؟",a:["رسالة مفاجئة","اتصال","هدية بسيطة","تذكر التفاصيل"]}
- ]],
- ["تحدي التخمين","أرسل السؤال وخمّن إجابة شريكك قبل أن يجيب.",[
-  {q:"ما أكثر شيء أطلبه في المقهى؟",a:["قهوة","شاي","عصير","شيء مختلف"]},
-  {q:"أي لون أختار غالباً؟",a:["أسود","أبيض","وردي","أزرق"]},
-  {q:"ما نوع الهدية الأقرب لقلبي؟",a:["شيء عملي","شيء شخصي","تجربة","رسالة مكتوبة"]}
- ]],
- ["موعد من ثلاث خطوات","ابنوا سهرة كاملة باختيارات متتابعة.",[
-  {q:"البداية؟",a:["قهوة","مشي","عشاء","مكالمة"]},
-  {q:"النشاط الرئيسي؟",a:["فيلم","لعبة","حديث","موسيقى"]},
-  {q:"النهاية؟",a:["رسالة حب","صورة ذكرى","وعد جديد","حضن طويل"]}
- ]]
+ ['اختبار سرعة البديهة','أجب بسرعة وبعفوية، ثم ناقشا الإجابتين.',[ {q:'لو ربحنا تذكرة سفر الآن، أين نذهب؟',a:['البحر', 'مدينة جديدة', 'مكان هادئ', 'أي مكان معك']}, {q:'اختر كلمة تصفنا اليوم.',a:['مغامرة', 'حنان', 'ضحك', 'اشتياق']}, {q:'ما أول شيء ستفعله لو التقينا الآن؟',a:['حضن', 'ابتسامة', 'حديث طويل', 'لن أترك يدك']} ]],
+ ['من الأكثر؟','اختارا من تنطبق عليه العبارة أكثر.',[ {q:'من يرسل رسالة أولاً غالباً؟',a:['أنا', 'أنت', 'بالتساوي', 'حسب الاشتياق']}, {q:'من يضحك أسرع؟',a:['أنا', 'أنت', 'نضحك معاً', 'لا أحد يعترف']}, {q:'من يخطط للمفاجآت؟',a:['أنا', 'أنت', 'كلانا', 'نحتاج أن نتعلم']} ]],
+ ['أكمل الجملة','أرسل بداية جملة ودع الطرف الآخر يكملها.',[ {q:'أجمل شيء في يومي هو…',a:['رسالتك', 'صوتك', 'ضحكتك', 'وجودك']}, {q:'أشعر بالأمان عندما…',a:['تسمعني', 'تطمئن عليّ', 'تكون صريحاً', 'تكون قريباً']}, {q:'أتمنى أن نفعل قريباً…',a:['نسافر', 'نلتقي', 'نحتفل', 'نصنع ذكرى']} ]],
+ ['تحدي الإيموجي','عبّر عن شعورك بثلاثة رموز فقط.',[ {q:'صف اشتياقك بثلاثة إيموجي.',a:['🥺❤️🌙', '💌✨🫂', '😍🌹💗', '😢✈️❤️']}, {q:'صف موعدنا المثالي.',a:['🌅☕💑', '🌊🌴📸', '🍿🎬❤️', '🍽️🕯️🌹']}, {q:'صف مزاجك تجاهي الآن.',a:['🥰💕', '😘🔥', '🤗🤍', '😜💋']} ]],
+ ['محقق الذكريات','اختبروا من يتذكر التفاصيل أكثر.',[ {q:'ما أول موضوع طويل تحدثنا عنه؟',a:['أحلامنا', 'السفر', 'اليوميات', 'لا أتذكر بدقة']}, {q:'أي لحظة جعلتنا نضحك كثيراً؟',a:['موقف عفوي', 'رسالة مضحكة', 'مكالمة', 'مفاجأة']}, {q:'ما تفصيل صغير لا تريد نسيانه؟',a:['كلمة', 'تاريخ', 'صورة', 'مكان']} ]],
+ ['اختيار صعب','اختياران لطيفان، لا توجد إجابة خاطئة.',[ {q:'أسبوع معاً أم مكالمة طويلة كل ليلة؟',a:['أسبوع معاً', 'مكالمة كل ليلة', 'الاثنان', 'أريد المزيد']}, {q:'رسالة حب طويلة أم مفاجأة؟',a:['رسالة', 'مفاجأة', 'رسالة ومفاجأة', 'لحظة صادقة']}, {q:'موعد مخطط أم مغامرة مفاجئة؟',a:['مخطط', 'مفاجأة', 'مزيج', 'أنت اختر']} ]],
+ ['بطاقة امتنان','شارك شيئاً تقدّره في الطرف الآخر.',[ {q:'شيء أقدّره فيك أكثر هو…',a:['صبرك', 'صدقك', 'اهتمامك', 'روحك المرحة']}, {q:'موقف لن أنساه لك…',a:['وقفتك معي', 'كلامك الطيب', 'مفاجأتك', 'تفهمك']}, {q:'رسالة شكر أريد قولها…',a:['شكراً لأنك تسمعني', 'شكراً لوجودك', 'شكراً لصبرك', 'شكراً لحبك']} ]],
+ ['خطط المستقبل','اختاروا أحلاماً صغيرة قابلة للتحقيق.',[ {q:'ما أول نشاط نخطط له؟',a:['عشاء', 'رحلة قصيرة', 'يوم بلا هواتف', 'تجربة جديدة']}, {q:'ما عادة جميلة نبدأها؟',a:['رسالة صباحية', 'مكالمة أسبوعية', 'صورة يومية', 'موعد ثابت']}, {q:'ما مهارة نتعلمها معاً؟',a:['طبخ', 'لغة', 'تصوير', 'رقصة']} ]],
+ ['تحدي الضحك','اختاروا مهمة خفيفة تنفذونها في المحادثة.',[ {q:'نفّذ الآن…',a:['اكتب جملة غزل مضحكة', 'اختر لقباً لطيفاً', 'أرسل 4 إيموجي تصفني', 'قلّد مذيعاً في رسالة']}, {q:'أرسل للطرف الآخر…',a:['نكتة قصيرة', 'صورة شيء يضحك', 'تسجيل صوتي مرح', 'قصة من طفولتك']}, {q:'اختر عقوبة لطيفة للخاسر.',a:['يرسل قصيدة', 'يختار موعداً', 'يكتب 5 مجاملات', 'يرسل أغنية']} ]],
+ ['لغة الحب','اكتشفوا ما يجعل كل واحد يشعر بالتقدير.',[ {q:'ما الذي يعني لك الاهتمام أكثر؟',a:['الكلمات', 'الوقت', 'المساعدة', 'اللمسات والاحتضان']}, {q:'متى تشعر أنني قريب منك؟',a:['عندما أسمعك', 'عندما أسأل عنك', 'عندما أشارك يومي', 'عندما أخصص وقتاً']}, {q:'ما اللفتة التي تسعدك؟',a:['رسالة مفاجئة', 'اتصال', 'هدية بسيطة', 'تذكر التفاصيل']} ]],
+ ['تحدي التخمين','أرسل السؤال وخمّن إجابة شريكك قبل أن يجيب.',[ {q:'ما أكثر شيء أطلبه في المقهى؟',a:['قهوة', 'شاي', 'عصير', 'شيء مختلف']}, {q:'أي لون أختار غالباً؟',a:['أسود', 'أبيض', 'وردي', 'أزرق']}, {q:'ما نوع الهدية الأقرب لقلبي؟',a:['شيء عملي', 'شيء شخصي', 'تجربة', 'رسالة مكتوبة']} ]],
+ ['موعد من ثلاث خطوات','ابنوا سهرة كاملة باختيارات متتابعة.',[ {q:'البداية؟',a:['قهوة', 'مشي', 'عشاء', 'مكالمة']}, {q:'النشاط الرئيسي؟',a:['فيلم', 'لعبة', 'حديث', 'موسيقى']}, {q:'النهاية؟',a:['رسالة حب', 'صورة ذكرى', 'وعد جديد', 'حضن طويل']} ]]
 ];
-
-$("gameArea").innerHTML=games.map((g,i)=>
-  `<div class="tile">
-    <h3>${esc(g[0])}</h3>
-    <p class="muted small">${esc(g[1])}</p>
-    <button class="btn primary" data-game="${i}">أرسل تحدياً ♡</button>
-  </div>`
-).join("");
-
-$("gameArea").querySelectorAll("[data-game]").forEach(b=>{
-  b.onclick=()=>{
-    const g=games[+b.dataset.game];
-
-    modal(g[0],`
-      <p>${esc(g[1])}</p>
-      <p class="small muted">اختر سؤالاً لإرساله للطرف الآخر:</p>
-      <div class="actions">
-        ${g[2].map((x,i)=>
-          `<button class="btn" data-challenge="${i}">${esc(x.q)}</button>`
-        ).join("")}
-      </div>
-    `);
-
-    $("modalBody").querySelectorAll("[data-challenge]").forEach(c=>{
-      c.onclick=()=>{
-        const item=g[2][+c.dataset.challenge];
-        const payload={
-          kind:"challenge",
-          gameId:Date.now().toString(36)+"-"+Math.random().toString(36).slice(2,8),
-          title:g[0],
-          prompt:item.q,
-          options:item.a
-        };
-
-        sendMessage({
-          type:"game",
-          text:GAME_PREFIX+JSON.stringify(payload)
-        });
-
-        closeModal();
-        toast("أُرسل التحدي إلى محادثتنا ♡");
-      };
-    });
-  };
-});
-/* المفاجآت */
-async function special(text,type="text"){
-  await sendMessage({type,text});
-}
-
-$("quickHeart").onclick=$("pulseBtn").onclick=()=>
-  special("💗 نبضة حب! أنا أفكر بك الآن.");
-
-$("hugBtn").onclick=()=>
-  special("🫂 عناق طويل ودافئ… لا أريد أن أفلتك.");
-
-$("kissBtn").onclick=()=>
-  special("💋 قبلة وصلت إليك مع كل الشوق.");
-
-const gifts=[
-  "🌹 وردة حمراء",
-  "🍫 شوكولاتة",
-  "💍 وعد جميل",
-  "🧸 دبدوب",
-  "💌 رسالة حب",
-  "⭐ نجمة باسمك"
-];
-
-$("giftChoices").innerHTML=gifts.map(x=>
-  `<button class="btn" data-gift="${x}">${x}</button>`
-).join("");
-
-$("giftChoices").querySelectorAll("button").forEach(b=>{
-  b.onclick=()=>special("🎁 أرسل لك هدية افتراضية: "+b.dataset.gift);
-});
-
-const activities=[
-  "نشاهد فيلماً في نفس الوقت",
-  "نطلب نفس الحلوى ونتذوقها معاً",
-  "نلعب لعبة أسئلة لمدة 10 دقائق",
-  "نخطط لرحلتنا القادمة",
-  "نتبادل 5 صور من يومنا",
-  "مكالمة هادئة بلا استعجال",
-  "نكتب قائمة أشياء نحبها في بعضنا"
-];
-
-$("chooseUs").onclick=()=>{
-  const a=activities[Math.floor(Math.random()*activities.length)];
-  $("activityResult").textContent=a;
-  special("🎡 اختر لنا: "+a);
-};
-
-function secretDialog(){
-  modal("رسالة سرية 🔒",`
-    <p class="muted small">
-      ستُحفظ الرسالة في Firestore كنص عادي مع صلاحيات قراءة للحسابين المسموحين.
-      ليست تشفيراً طرفياً.
-    </p>
-    <textarea id="secretText" class="field" rows="4"
-      placeholder="اكتب سرك الجميل…"></textarea>
-    <button id="sendSecret" class="btn primary" style="margin-top:10px">
-      إرسال الرسالة السرية
-    </button>
-  `);
-
-  $("sendSecret").onclick=()=>{
-    const t=$("secretText").value.trim();
-    if(t){
-      sendMessage({type:"secret",text:t});
-      closeModal();
-    }
-  };
-}
-
+$("gameArea").innerHTML=games.map((g,i)=>`<div class="tile"><h3>${esc(g[0])}</h3><p class="muted small">${esc(g[1])}</p><button class="btn primary" data-game="${i}">أرسل تحدياً ♡</button></div>`).join("");
+$("gameArea").querySelectorAll("[data-game]").forEach(b=>b.onclick=()=>{const g=games[+b.dataset.game];modal(g[0],`<p>${esc(g[1])}</p><p class="small muted">اختر سؤالاً لإرساله للطرف الآخر:</p><div class="actions">${g[2].map((x,i)=>`<button class="btn" data-challenge="${i}">${esc(x.q)}</button>`).join("")}</div>`);$("modalBody").querySelectorAll("[data-challenge]").forEach(c=>c.onclick=()=>{const item=g[2][+c.dataset.challenge],payload={kind:"challenge",gameId:Date.now().toString(36)+"-"+Math.random().toString(36).slice(2,8),title:g[0],prompt:item.q,options:item.a};sendMessage({type:"game",text:GAME_PREFIX+JSON.stringify(payload)});closeModal();toast("أُرسل التحدي إلى محادثتنا ♡")})});
+/* مفاجآت */
+async function special(text,type="text"){await sendMessage({type,text});}
+$("quickHeart").onclick=$("pulseBtn").onclick=()=>special("💗 نبضة حب! أنا أفكر بك الآن.");$("hugBtn").onclick=()=>special("🫂 عناق طويل ودافئ… لا أريد أن أفلتك.");$("kissBtn").onclick=()=>special("💋 قبلة وصلت إليك مع كل الشوق.");
+const gifts=["🌹 وردة حمراء","🍫 شوكولاتة","💍 وعد جميل","🧸 دبدوب","💌 رسالة حب","⭐ نجمة باسمك"];
+$("giftChoices").innerHTML=gifts.map(x=>`<button class="btn" data-gift="${x}">${x}</button>`).join("");$("giftChoices").querySelectorAll("button").forEach(b=>b.onclick=()=>special("🎁 أرسل لك هدية افتراضية: "+b.dataset.gift));
+const activities=["نشاهد فيلماً في نفس الوقت","نطلب نفس الحلوى ونتذوقها معاً","نلعب لعبة أسئلة لمدة 10 دقائق","نخطط لرحلتنا القادمة","نتبادل 5 صور من يومنا","مكالمة هادئة بلا استعجال","نكتب قائمة أشياء نحبها في بعضنا"];
+$("chooseUs").onclick=()=>{const a=activities[Math.floor(Math.random()*activities.length)];$("activityResult").textContent=a;special("🎡 اختر لنا: "+a)};
+function secretDialog(){modal("رسالة سرية 🔒",`<p class="muted small">ستُحفظ الرسالة في Firestore كنص عادي مع صلاحيات قراءة للحسابين المسموحين. ليست تشفيراً طرفياً.</p><textarea id="secretText" class="field" rows="4" placeholder="اكتب سرك الجميل…"></textarea><button id="sendSecret" class="btn primary" style="margin-top:10px">إرسال الرسالة السرية</button>`);$("sendSecret").onclick=()=>{const t=$("secretText").value.trim();if(t){sendMessage({type:"secret",text:t});closeModal()}}}
 $("secretBtn").onclick=$("secretCompose").onclick=secretDialog;
 $("giftBtn").onclick=()=>showPage("surprises");
-
-/* الذكريات */
-$("addMemory").onclick=async()=>{
-  const title=$("memoryTitle").value.trim();
-  const note=$("memoryNote").value.trim();
-  const date=$("memoryDate").value||new Date().toISOString().slice(0,10);
-
-  if(!title)return toast("أضف عنوان الذكرى");
-
-  try{
-    await addDoc(collection(db,PATH,"memories"),{
-      title,
-      note,
-      date,
-      createdBy:currentUser.uid,
-      createdAt:serverTimestamp()
-    });
-
-    $("memoryTitle").value="";
-    $("memoryNote").value="";
-    toast("حُفظت الذكرى ♡");
-  }catch(e){
-    reportError(e);
-  }
-};
-
-function renderMemories(){
-  $("memoryList").innerHTML=memoryCache.map(m=>
-    `<div class="tile">
-      <span class="pill">${esc(m.date||"")}</span>
-      <h3>${esc(m.title||"")}</h3>
-      <p>${esc(m.note||"")}</p>
-      <button class="btn danger" data-del-memory="${esc(m.id)}">حذف</button>
-    </div>`
-  ).join("")||'<div class="empty">ذكرياتنا الجميلة ستبدأ من هنا.</div>';
-
-  $("memoryList").querySelectorAll("[data-del-memory]").forEach(b=>{
-    b.onclick=async()=>{
-      if(confirm("حذف هذه الذكرى؟")){
-        try{
-          await deleteDoc(doc(db,PATH,"memories",b.dataset.delMemory));
-        }catch(e){
-          reportError(e);
-        }
-      }
-    };
-  });
-}
-
-/* الأحلام */
-$("addDream").onclick=async()=>{
-  const t=$("dreamInput").value.trim();
-  if(!t)return;
-
-  try{
-    await addDoc(collection(db,PATH,"dreams"),{
-      text:t,
-      done:false,
-      createdBy:currentUser.uid,
-      createdAt:serverTimestamp()
-    });
-    $("dreamInput").value="";
-  }catch(e){
-    reportError(e);
-  }
-};
-
-function renderDreams(){
-  $("dreamList").innerHTML=dreamCache.map(d=>
-    `<div class="list-row">
-      <label>
-        <input type="checkbox" data-done="${esc(d.id)}" ${d.done?"checked":""}>
-        <span style="${d.done?"text-decoration:line-through":""}">
-          ${esc(d.text)}
-        </span>
-      </label>
-      <button class="btn danger" data-del-dream="${esc(d.id)}">×</button>
-    </div>`
-  ).join("")||'<div class="muted small">أحلامنا تبدأ بفكرة…</div>';
-
-  $("dreamList").querySelectorAll("[data-done]").forEach(b=>{
-    b.onchange=()=>{
-      updateDoc(
-        doc(db,PATH,"dreams",b.dataset.done),
-        {done:b.checked}
-      ).catch(reportError);
-    };
-  });
-
-  $("dreamList").querySelectorAll("[data-del-dream]").forEach(b=>{
-    b.onclick=()=>{
-      deleteDoc(
-        doc(db,PATH,"dreams",b.dataset.delDream)
-      ).catch(reportError);
-    };
-  });
-}
-
-/* تحميل الإعدادات المشتركة */
-async function loadSettings(){
-  try{
-    const s=await getDoc(doc(db,PATH,"state","shared"));
-
-    if(s.exists()){
-      const d=s.data();
-
-      if(d.meetDate){
-        $("meetDate").value=d.meetDate;
-        updateCountdown(d.meetDate);
-      }
-
-      if(d.mood){
-        $("moodDisplay").textContent=d.mood;
-      }
-    }
-  }catch(e){
-    reportError(e);
-  }
-}
-
-$("saveMeet").onclick=async()=>{
-  const v=$("meetDate").value;
-  if(!v)return;
-
-  try{
-    await setDoc(
-      doc(db,PATH,"state","shared"),
-      {meetDate:v},
-      {merge:true}
-    );
-
-    updateCountdown(v);
-    toast("حُفظ موعدنا ♡");
-  }catch(e){
-    reportError(e);
-  }
-};
-
-function updateCountdown(v){
-  const el=$("meetCountdown");
-  const diff=new Date(v).getTime()-Date.now();
-
-  if(diff<=0){
-    el.textContent="حان وقت اللقاء! ♡";
-    return;
-  }
-
-  const d=Math.floor(diff/86400000);
-  const h=Math.floor(diff%86400000/3600000);
-  const m=Math.floor(diff%3600000/60000);
-
-  el.textContent=`${d} يوم · ${h} ساعة · ${m} دقيقة`;
-}
-
-$("saveMood").onclick=async()=>{
-  const mood=$("moodSelect").value;
-
-  try{
-    await setDoc(
-      doc(db,PATH,"state","shared"),
-      {
-        mood,
-        moodBy:currentUser.uid,
-        moodAt:serverTimestamp()
-      },
-      {merge:true}
-    );
-
-    $("moodDisplay").textContent="مزاجنا: "+mood;
-    special("🌈 مزاجي اليوم: "+mood);
-  }catch(e){
-    reportError(e);
-  }
-};
-
-/* تهيئة القوائم */
+/* ذكريات وأحلام */
+$("addMemory").onclick=async()=>{const title=$("memoryTitle").value.trim(),note=$("memoryNote").value.trim(),date=$("memoryDate").value||new Date().toISOString().slice(0,10);if(!title)return toast("أضف عنوان الذكرى");try{await addDoc(collection(db,PATH,"memories"),{title,note,date,createdBy:currentUser.uid,createdAt:serverTimestamp()});$("memoryTitle").value=$("memoryNote").value="";toast("حُفظت الذكرى ♡")}catch(e){reportError(e)}};
+function renderMemories(){$("memoryList").innerHTML=memoryCache.map(m=>`<div class="tile"><span class="pill">${esc(m.date||"")}</span><h3>${esc(m.title||"")}</h3><p>${esc(m.note||"")}</p><button class="btn danger" data-del-memory="${esc(m.id)}">حذف</button></div>`).join("")||'<div class="empty">ذكرياتنا الجميلة ستبدأ من هنا.</div>';$("memoryList").querySelectorAll("[data-del-memory]").forEach(b=>b.onclick=async()=>{if(confirm("حذف هذه الذكرى؟"))try{await deleteDoc(doc(db,PATH,"memories",b.dataset.delMemory))}catch(e){reportError(e)}})}
+$("addDream").onclick=async()=>{const t=$("dreamInput").value.trim();if(!t)return;try{await addDoc(collection(db,PATH,"dreams"),{text:t,done:false,createdBy:currentUser.uid,createdAt:serverTimestamp()});$("dreamInput").value=""}catch(e){reportError(e)}};
+function renderDreams(){$("dreamList").innerHTML=dreamCache.map(d=>`<div class="list-row"><label><input type="checkbox" data-done="${esc(d.id)}" ${d.done?"checked":""}> <span style="${d.done?"text-decoration:line-through":""}">${esc(d.text)}</span></label><button class="btn danger" data-del-dream="${esc(d.id)}">×</button></div>`).join("")||'<div class="muted small">أحلامنا تبدأ بفكرة…</div>';$("dreamList").querySelectorAll("[data-done]").forEach(b=>b.onchange=()=>updateDoc(doc(db,PATH,"dreams",b.dataset.done),{done:b.checked}));$("dreamList").querySelectorAll("[data-del-dream]").forEach(b=>b.onclick=()=>deleteDoc(doc(db,PATH,"dreams",b.dataset.delDream)))}
+async function loadSettings(){try{const s=await getDoc(doc(db,PATH,"state","shared"));if(s.exists()){const d=s.data();if(d.meetDate){$("meetDate").value=d.meetDate;updateCountdown(d.meetDate)}if(d.mood)$("moodDisplay").textContent=d.mood}}catch(e){reportError(e)}}
+$("saveMeet").onclick=async()=>{const v=$("meetDate").value;if(!v)return;try{await setDoc(doc(db,PATH,"state","shared"),{meetDate:v},{merge:true});updateCountdown(v);toast("حُفظ موعدنا ♡")}catch(e){reportError(e)}};
+function updateCountdown(v){const el=$("meetCountdown");const diff=new Date(v).getTime()-Date.now();if(diff<=0){el.textContent="حان وقت اللقاء! ♡";return}const d=Math.floor(diff/86400000),h=Math.floor(diff%86400000/3600000),m=Math.floor(diff%3600000/60000);el.textContent=`${d} يوم · ${h} ساعة · ${m} دقيقة`}
+$("saveMood").onclick=async()=>{const mood=$("moodSelect").value;try{await setDoc(doc(db,PATH,"state","shared"),{mood,moodBy:currentUser.uid,moodAt:serverTimestamp()},{merge:true});$("moodDisplay").textContent="مزاجنا: "+mood;special("🌈 مزاجي اليوم: "+mood)}catch(e){reportError(e)}};
 initNav();
-
 </script>
 </body>
 </html>
