@@ -291,7 +291,7 @@ body{background-image:radial-gradient(ellipse at 8% 0%,color-mix(in srgb,var(--a
    <div class="card span-6"><h2>🎨 المظهر</h2><select id="themeSelect" class="field"><option value="dark">ليلي فاخر</option><option value="light">نهاري ناعم</option><option value="rose">وردي عميق</option><option value="ocean">أزرق هادئ</option><option value="aurora">أورورا — ألوان جديدة</option><option value="velvet">Velvet — بنفسجي وذهبي</option></select><p class="muted small">يُحفظ اختيار المظهر على هذا الجهاز.</p></div>
    <div class="card span-6"><h2>🔊 الأصوات</h2><label><input type="checkbox" id="soundToggle"> تفعيل صوت التنبيه الاختياري</label><p class="muted small">الصوت يصدر عند استخدام بعض المفاجآت فقط.</p></div>
    <div class="card span-6"><h2>🔗 معاينة الروابط</h2><label><input type="checkbox" id="linkPreviewToggle" checked> إظهار معاينة الروابط في المحادثة</label><p class="muted small">تظهر بطاقة وصورة الفيديو أو المنشور عند توفرها. يمكنك إيقافها في أي وقت؛ ويُحفظ الاختيار على هذا الجهاز.</p></div>
-   <div class="card span-12"><h2>🔔 إشعارات DAVIN</h2><p class="muted small">تصل الإشعارات الخارجية فقط عندما يكون الطرف الآخر غير متصل. عند وجوده داخل الموقع، لن يصله إشعار Push. الإشعار لا يعرض نص الرسالة حفاظاً على الخصوصية.</p><div class="push-settings"><button class="btn primary" id="enablePushBtn" type="button">تفعيل الإشعارات على هذا الجهاز</button> <button class="btn" id="disablePushBtn" type="button">إيقاف هذا الجهاز</button><div id="pushStatus" class="push-status" role="status">لم يتم إعداد الإشعارات على هذا الجهاز بعد.</div></div></div>
+   <div class="card span-12"><h2>🔔 إشعارات DAVIN</h2><p class="muted small">يُرسل الإشعار إلى مستلم الرسالة فقط إذا كان غير متصل. إذا كنت أنت المستلم وغير متصل، يمكن أن يصلك الإشعار على هذا الجهاز بعد تفعيله. عند اتصال المستلم بالموقع لا يُرسل له Push. لا يعرض الإشعار نص الرسالة حفاظاً على الخصوصية.</p><div class="push-settings"><button class="btn primary" id="enablePushBtn" type="button">تفعيل الإشعارات على هذا الجهاز</button> <button class="btn" id="disablePushBtn" type="button">إيقاف هذا الجهاز</button><div id="pushStatus" class="push-status" role="status">لم يتم إعداد الإشعارات على هذا الجهاز بعد.</div></div></div>
    <div class="card span-12"><h2>حول الخصوصية والاتصال</h2><p class="muted">المشروع يستخدم Firebase Authentication وCloud Firestore. لا توجد صلاحيات إدارية أو مفاتيح سرية داخل الصفحة. قواعد Firestore هي الحاجز الأمني الأساسي. ميزة متصل الآن وآخر ظهور تحتاج السماح للحسابين بالقراءة والكتابة داخل المسار presence؛ أرفقنا قاعدة إضافية جاهزة للدمج مع قواعدك الحالية.</p><p id="uidInfo" class="small"></p><button class="btn danger" id="logoutBtn2">تسجيل الخروج</button></div>
   </div></section>
  </main>
@@ -302,7 +302,7 @@ body{background-image:radial-gradient(ellipse at 8% 0%,color-mix(in srgb,var(--a
 <div id="globalIncomingNotice" class="global-incoming-notice hidden" role="status"><div><strong>رسالة جديدة ♡</strong><div id="globalIncomingText" class="small"></div></div><button type="button" class="btn primary" id="openIncomingChat">فتح المحادثة</button><button type="button" class="notice-close" id="closeIncomingNotice" aria-label="إغلاق">×</button></div><div id="toast" class="toast hidden" role="status"></div>
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js";
-import { getMessaging, getToken, onMessage, isSupported } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-messaging.js";
+import { getMessaging, getToken, deleteToken, onMessage, isSupported } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-messaging.js";
 import { getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-auth.js";
 import { getFirestore, collection, addDoc, query, orderBy, onSnapshot, serverTimestamp, doc, setDoc, getDoc, updateDoc, deleteDoc, limit, getDocs, startAfter } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-firestore.js";
 
@@ -329,7 +329,7 @@ const PRESENCE_ONLINE_WINDOW_MS = 60000;
 const $ = id => document.getElementById(id);
 const validConfig = !JSON.stringify(firebaseConfig).includes("PUT_") && !ALLOWED_UIDS.some(x=>x.includes("PUT_"));
 let app,auth,db,currentUser=null,unsubMessages=null,unsubMemories=null,unsubDreams=null,unsubPresence=null,presenceHeartbeat=null,presenceRefresh=null,presenceWriteFailed=false,replyTarget=null,unreadIncomingCount=0,messagesCache=[],oldestMessageDoc=null,hasMoreMessages=false,loadingOlderMessages=false,messagesInitialized=false,hasLoadedOlderMessages=false,memoryCache=[],dreamCache=[],favOnly=false;
-let messagingInstance=null, pushDeviceToken="", pushServiceWorker=null;
+let messagingInstance=null, pushDeviceToken="", pushServiceWorker=null, pushMessageUnsubscribe=null;
 let libraryFavs=new Set();
 try{const savedFavs=JSON.parse(localStorage.getItem("davinFavs")||"[]");if(Array.isArray(savedFavs))libraryFavs=new Set(savedFavs)}catch{localStorage.removeItem("davinFavs")}
 const navItems=[["home","⌂","الرئيسية"],["chat","♡","المحادثة"],["library","✉","المكتبة"],["media","▧","الوسائط"],["games","♧","الألعاب"],["surprises","✧","المفاجآت"],["memories","◷","ذكرياتنا"],["settings","⚙","الإعدادات"]];
@@ -664,67 +664,56 @@ async function notifyPeerIfOffline(messageId,payload){
   const g=readGame(payload.text||"");
   if(!g||!["xo_invite","rps_invite","challenge"].includes(g.kind))return;
  }
- try{const idToken=await currentUser.getIdToken();await fetch(DAVIN_WORKER_URL.replace(/\/$/,"")+"/notify",{method:"POST",headers:{"Authorization":"Bearer "+idToken,"Content-Type":"application/json"},body:JSON.stringify({messageId})})}catch(e){console.warn("Push request could not be completed",e)}
+ try{const idToken=await currentUser.getIdToken();const response=await fetch(DAVIN_WORKER_URL.replace(/\/$/,"")+"/notify",{method:"POST",headers:{"Authorization":"Bearer "+idToken,"Content-Type":"application/json"},body:JSON.stringify({messageId})});const result=await response.json().catch(()=>({}));if(!response.ok||result.error)console.warn("DAVIN notification Worker error:",response.status,result);else if(!result.sent)console.info("DAVIN notification not sent:",result.reason||"not sent")}catch(e){console.warn("Push request could not be completed",e)}
 }
 function pushConfigured(){return DAVIN_WORKER_URL.startsWith("https://")&&!DAVIN_WORKER_URL.includes("REPLACE-WITH")&&DAVIN_VAPID_PUBLIC_KEY.length>30&&!DAVIN_VAPID_PUBLIC_KEY.includes("REPLACE_")}
 function setPushStatus(message){const el=$("pushStatus");if(el)el.textContent=message}
-async function enablePush(){
-  if(!currentUser)return;
-  if(!pushConfigured()){setPushStatus("قبل التفعيل: تحقق من رابط Cloudflare Worker ومفتاح VAPID العام.");return}
-  if(!window.isSecureContext){setPushStatus("الإشعارات تحتاج HTTPS. افتح الموقع عبر GitHub Pages وليس file://.");return}
-  if(!("Notification" in window)||!("serviceWorker" in navigator)){setPushStatus("هذا المتصفح لا يدعم إشعارات الويب.");return}
-  try{
-    const supported=await isSupported();
-    if(!supported)throw new Error("خدمة Firebase Messaging غير مدعومة في هذا المتصفح.");
-    const permission=await Notification.requestPermission();
-    if(permission!=="granted"){setPushStatus("لم يتم منح إذن الإشعارات. اسمح به من إعدادات المتصفح.");return}
-
-    // GitHub Pages project sites live in a subfolder; derive both paths from this page.
-    const swUrl=new URL("firebase-messaging-sw.js",document.baseURI);
-    const scopeUrl=new URL("./",document.baseURI);
-    pushServiceWorker=await navigator.serviceWorker.register(swUrl.href,{scope:scopeUrl.pathname,updateViaCache:"none"});
-
-    // Wait for the newly registered worker to become active before asking FCM for a token.
-    const installing=pushServiceWorker.installing||pushServiceWorker.waiting;
-    if(installing){
-      await new Promise((resolve,reject)=>{
-        const finish=()=>{
-          if(installing.state==="activated"){installing.removeEventListener("statechange",changed);resolve();}
-          else if(installing.state==="redundant"){installing.removeEventListener("statechange",changed);reject(new Error("فشل تثبيت Service Worker. تحقق من مسار firebase-messaging-sw.js."));}
-        };
-        const changed=()=>finish();
-        installing.addEventListener("statechange",changed);finish();
-      });
-    }
-    await navigator.serviceWorker.ready;
-    const activeRegistration=await navigator.serviceWorker.getRegistration(scopeUrl.pathname);
-    if(!activeRegistration||!activeRegistration.active||activeRegistration.active.state!=="activated"){
-      throw new Error("لا يوجد Service Worker نشط لهذا المسار. تأكد أن الملف موجود بجانب index.html على GitHub Pages.");
-    }
-    pushServiceWorker=activeRegistration;
-    messagingInstance=getMessaging(app);
-    const token=await getToken(messagingInstance,{vapidKey:DAVIN_VAPID_PUBLIC_KEY,serviceWorkerRegistration:pushServiceWorker});
-    if(!token)throw new Error("لم يتم إنشاء رمز الإشعارات من Firebase.");
-    pushDeviceToken=token;
-    const deviceId=await stableDeviceId();
-    await setDoc(doc(db,PUSH_TOKEN_COLLECTION,currentUser.uid,"devices",deviceId),{
-      uid:currentUser.uid,token,deviceId,platform:navigator.userAgent.slice(0,180),
-      createdAt:serverTimestamp(),updatedAt:serverTimestamp(),enabled:true
-    },{merge:true});
-    if(!window.davinForegroundMessageHandler){
-      window.davinForegroundMessageHandler=onMessage(messagingInstance,()=>{
-        if(document.visibilityState==="visible")toast("وصلتك رسالة جديدة 💌");
-      });
-    }
-    setPushStatus("تم تفعيل الإشعارات على هذا الجهاز ♡");
-  }catch(e){
-    console.error("DAVIN Push Error:",e);
-    setPushStatus("تعذر التفعيل: "+(e.message||e.code||"تحقق من إعداد VAPID وService Worker وقواعد Firestore."));
-  }
-} async function stableDeviceId(){let id=localStorage.getItem("davinPushDeviceId");if(!id){id="dv-"+crypto.randomUUID();localStorage.setItem("davinPushDeviceId",id)}return id}
-async function disablePush(){
- try{const deviceId=await stableDeviceId();await deleteDoc(doc(db,PUSH_TOKEN_COLLECTION,currentUser.uid,"devices",deviceId)).catch(()=>{});if(pushServiceWorker)await pushServiceWorker.unregister().catch(()=>{});pushDeviceToken="";setPushStatus("تم إيقاف هذا الجهاز. يمكنك تفعيل الإشعارات لاحقاً.")}catch(e){setPushStatus("تعذر إيقاف الجهاز: "+(e.message||"خطأ غير معروف"))}
+async function waitForActiveServiceWorker(registration){
+ const worker=registration.installing||registration.waiting;
+ if(worker&&worker.state!=="activated"){
+  await new Promise((resolve,reject)=>{const timer=setTimeout(()=>reject(new Error("انتهت مهلة تفعيل Service Worker. تأكد من رفع firebase-messaging-sw.js في المجلد الرئيسي.")),15000);const done=()=>{if(worker.state==="activated"){clearTimeout(timer);resolve()}else if(worker.state==="redundant"){clearTimeout(timer);reject(new Error("فشل تثبيت Service Worker. راجع ملف firebase-messaging-sw.js"))}};worker.addEventListener("statechange",done);done()});
+ }
+ if(registration.active)return registration;
+ const ready=await navigator.serviceWorker.ready;
+ if(ready.scope===registration.scope&&ready.active)return ready;
+ throw new Error("لم يتم تفعيل Service Worker الخاص بملف firebase-messaging-sw.js.");
 }
+async function enablePush(){
+ if(!currentUser)return;
+ if(!pushConfigured()){setPushStatus("قبل التفعيل: تأكد من رابط Cloudflare Worker ومفتاح VAPID العام في أعلى الملف.");return}
+ if(!window.isSecureContext||!("Notification" in window)||!("serviceWorker" in navigator)){setPushStatus("الإشعارات تحتاج متصفحاً يدعم Service Worker وموقعاً آمناً عبر HTTPS.");return}
+ try{
+  const supported=await isSupported();if(!supported){setPushStatus("خدمة Firebase Messaging غير مدعومة في هذا المتصفح.");return}
+  const permission=await Notification.requestPermission();if(permission!=="granted"){setPushStatus("لم يتم منح إذن الإشعارات. اسمح بها من إعدادات المتصفح ثم أعد المحاولة.");return}
+  const swUrl=new URL("./firebase-messaging-sw.js",document.baseURI);
+  const swScope=new URL("./",document.baseURI).pathname;
+  const registration=await navigator.serviceWorker.register(swUrl.href,{scope:swScope,updateViaCache:"none"});
+  await registration.update().catch(()=>{});
+  pushServiceWorker=await waitForActiveServiceWorker(registration);
+  if(!pushServiceWorker.active)throw new Error("ملف Service Worker لم يصبح نشطاً.");
+  messagingInstance=getMessaging(app);
+  const token=await getToken(messagingInstance,{vapidKey:DAVIN_VAPID_PUBLIC_KEY,serviceWorkerRegistration:pushServiceWorker});
+  if(!token)throw new Error("لم يتم إنشاء رمز الإشعارات من Firebase.");
+  pushDeviceToken=token;
+  const deviceId=await stableDeviceId();
+  await setDoc(doc(db,PUSH_TOKEN_COLLECTION,currentUser.uid,"devices",deviceId),{uid:currentUser.uid,token,deviceId,platform:navigator.userAgent.slice(0,180),createdAt:serverTimestamp(),updatedAt:serverTimestamp(),enabled:true},{merge:true});
+  if(pushMessageUnsubscribe)pushMessageUnsubscribe();
+  pushMessageUnsubscribe=onMessage(messagingInstance,()=>{if(document.visibilityState==="visible")toast("وصلتك رسالة جديدة 💌")});
+  setPushStatus("تم تفعيل الإشعارات وتسجيل هذا الجهاز. سيصل إشعار عند ورود رسالة وأنت غير متصل، بعد اختبار الإرسال.");
+ }catch(e){console.error("Push setup failed",e);setPushStatus("تعذر التفعيل: "+(e.message||e.code||"راجع ملف Service Worker وإعدادات Firebase."))}
+}
+async function stableDeviceId(){let id=localStorage.getItem("davinPushDeviceId");if(!id){id="dv-"+crypto.randomUUID();localStorage.setItem("davinPushDeviceId",id)}return id}
+async function disablePush(){
+ try{
+  const deviceId=await stableDeviceId();
+  await deleteDoc(doc(db,PUSH_TOKEN_COLLECTION,currentUser.uid,"devices",deviceId)).catch(()=>{});
+  if(messagingInstance)await deleteToken(messagingInstance).catch(()=>{});
+  if(pushMessageUnsubscribe){pushMessageUnsubscribe();pushMessageUnsubscribe=null}
+  pushDeviceToken="";
+  setPushStatus("تم إيقاف اشتراك الإشعارات لهذا الجهاز. يمكنك تفعيله لاحقاً.");
+ }catch(e){setPushStatus("تعذر إيقاف الجهاز: "+(e.message||"خطأ غير معروف"))}
+}
+
 $("enablePushBtn")?.addEventListener("click",enablePush);$("disablePushBtn")?.addEventListener("click",disablePush);
 function showIncomingNotice(m){const el=$("globalIncomingNotice");if(!el)return;const content=m?.text||m?.label||"أرسل لك رسالة جديدة";$("globalIncomingText").textContent=content.length>90?content.slice(0,87)+"…":content;el.classList.remove("hidden");updateIncomingNotice()}
 function updateIncomingNotice(){const el=$("globalIncomingNotice");if(!el)return;const strong=el.querySelector("strong");if(unreadIncomingCount){if(strong)strong.textContent=unreadIncomingCount>1?`لديك ${unreadIncomingCount} رسائل جديدة ♡`:"رسالة جديدة ♡"}else el.classList.add("hidden");document.querySelectorAll(".mobile-nav [data-page='chat'],#sideNav [data-page='chat']").forEach(b=>{let dot=b.querySelector(".nav-unread-dot");if(unreadIncomingCount&&!dot){dot=document.createElement("span");dot.className="nav-unread-dot";b.appendChild(dot)}if(dot){dot.textContent=unreadIncomingCount>9?"9+":String(unreadIncomingCount);dot.classList.toggle("hidden",!unreadIncomingCount)}})}
@@ -842,6 +831,7 @@ $("mediaLightboxClose").onclick=closeMediaLightbox;
 $("mediaLightbox").addEventListener("click",e=>{if(e.target===$("mediaLightbox"))closeMediaLightbox()});
 $("mediaLightboxPrev").onclick=()=>showLightboxAt(lightboxIndex-1);
 $("mediaLightboxNext").onclick=()=>showLightboxAt(lightboxIndex+1);
+
 document.addEventListener("keydown",e=>{if($("mediaLightbox").classList.contains("hidden"))return;if(e.key==="Escape")closeMediaLightbox();if(e.key==="ArrowLeft")showLightboxAt(lightboxIndex+1);if(e.key==="ArrowRight")showLightboxAt(lightboxIndex-1)});
 function chatCutoffKey(){return "davinChatCutoff:"+(currentUser?.uid||"guest")}
 function chatCutoff(){try{return Number(localStorage.getItem(chatCutoffKey())||0)}catch{return 0}}
@@ -849,40 +839,30 @@ function visibleChatMessages(){const cutoff=chatCutoff(),term=normalizeSearch($(
 function updateNewChatNotice(){const n=$("newChatNotice"),cut=chatCutoff();if(!n)return;if(cut){n.classList.remove("hidden");n.textContent="أنت تعرض محادثة جديدة على هذا الجهاز. السجل السابق محفوظ للطرفين ويمكن إظهاره من زر «عرض السجل السابق»."}else{n.classList.add("hidden");n.textContent=""}}
 const previewCache=new Map();
 function linkPreviewEnabled(){try{return localStorage.getItem("davinLinkPreviewEnabled")!=="false"}catch{return true}}
-function setLinkPreviewEnabled(enabled){try{localStorage.setItem("davinLinkPreviewEnabled",enabled?"true":"false")}catch{}const box=$("messages");if(!box)return;if(!enabled){box.querySelectorAll(".link-preview").forEach(card=>card.remove());return}previewCache.clear();box.querySelectorAll("[data-preview-url]").forEach(a=>loadLinkPreview(a.dataset.previewUrl,a.closest(".msg")))}
+function appendPreviewCard(url,data,article){
+ if(!article||!article.isConnected||!data||article.querySelector('.link-preview'))return;
+ const card=document.createElement("a");card.className="link-preview";card.href=url;card.target="_blank";card.rel="noopener noreferrer";
+ if(data.image&&/^https:\/\//i.test(data.image)){const img=document.createElement("img");img.loading="lazy";img.referrerPolicy="no-referrer";img.src=data.image;img.alt="";img.onerror=()=>img.remove();card.append(img)}
+ const copy=document.createElement("div");copy.className="link-preview-copy";
+ const title=document.createElement("div");title.className="link-preview-title";title.textContent=data.title||new URL(url).hostname;copy.append(title);
+ if(data.description){const desc=document.createElement("div");desc.className="link-preview-desc";desc.textContent=data.description;copy.append(desc)}
+ const domain=document.createElement("div");domain.className="link-preview-domain";domain.textContent=data.domain||new URL(url).hostname;copy.append(domain);card.append(copy);
+ const meta=article.querySelector(".meta");if(meta)article.insertBefore(card,meta);else article.append(card);
+}
+function setLinkPreviewEnabled(enabled){try{localStorage.setItem("davinLinkPreviewEnabled",enabled?"true":"false")}catch{}const box=$("messages");if(!box)return;if(!enabled){box.querySelectorAll(".link-preview").forEach(card=>card.remove());return}for(const [url,value] of previewCache)if(value===null)previewCache.delete(url);box.querySelectorAll("[data-preview-url]").forEach(a=>loadLinkPreview(a.dataset.previewUrl,a.closest(".msg")))}
 function renderTextWithLinks(value){const raw=String(value||"");const re=/(https?:\/\/[^\s<>{}]+)/gi;let out="",last=0,m;while((m=re.exec(raw))){const url=m[0].replace(/[),.!?؛،]+$/g,"");if(!url)continue;out+=esc(raw.slice(last,m.index)).replace(/\n/g,"<br>");out+=`<a href="${esc(url)}" target="_blank" rel="noopener noreferrer" data-preview-url="${esc(url)}">${esc(url)}</a>`;last=m.index+url.length}out+=esc(raw.slice(last)).replace(/\n/g,"<br>");return out}
 async function loadLinkPreview(url,article){
-  if(!article||!linkPreviewEnabled()||previewCache.has(url)||!DAVIN_WORKER_URL.startsWith("https://")||DAVIN_WORKER_URL.includes("REPLACE-WITH")||!currentUser)return;
-  previewCache.set(url,{loading:true});
-  try{
-    const idToken=await currentUser.getIdToken();
-    const endpoint=DAVIN_WORKER_URL.replace(/\/$/,"")+"/preview?url="+encodeURIComponent(url);
-    const controller=new AbortController();
-    const timer=setTimeout(()=>controller.abort(),12000);
-    let res;
-    try{res=await fetch(endpoint,{headers:{"Authorization":"Bearer "+idToken},signal:controller.signal});}
-    finally{clearTimeout(timer);}
-    if(!res.ok)throw new Error("Preview HTTP "+res.status);
-    const data=await res.json();
-    if(!linkPreviewEnabled())return;
-    if(!data?.title&&!data?.description&&!data?.image){previewCache.set(url,null);return;}
-    previewCache.set(url,data);
-    if(!article.isConnected||article.querySelector('.link-preview'))return;
-    const card=document.createElement("a");
-    card.className="link-preview";card.href=url;card.target="_blank";card.rel="noopener noreferrer";
-    if(data.image&&/^https:\/\//i.test(data.image)){
-      const img=document.createElement("img");img.loading="lazy";img.referrerPolicy="no-referrer";img.src=data.image;img.alt="";
-      img.onerror=()=>img.remove();card.append(img);
-    }
-    const copy=document.createElement("div");copy.className="link-preview-copy";
-    const title=document.createElement("div");title.className="link-preview-title";title.textContent=data.title||new URL(url).hostname;copy.append(title);
-    if(data.description){const desc=document.createElement("div");desc.className="link-preview-desc";desc.textContent=data.description;copy.append(desc);}
-    const domain=document.createElement("div");domain.className="link-preview-domain";domain.textContent=data.domain||new URL(url).hostname;copy.append(domain);
-    card.append(copy);const meta=article.querySelector(".meta");if(meta)article.insertBefore(card,meta);else article.append(card);
-  }catch(e){
-    previewCache.delete(url); // Allow retry after a temporary Worker/network failure.
-    console.warn("DAVIN link preview failed:",url,e);
-  }
+ if(!article||!linkPreviewEnabled()||!DAVIN_WORKER_URL.startsWith("https://")||DAVIN_WORKER_URL.includes("REPLACE-WITH")||!currentUser)return;
+ if(previewCache.has(url)){const cached=previewCache.get(url);if(cached&&cached!=="loading")appendPreviewCard(url,cached,article);return}
+ previewCache.set(url,"loading");
+ try{
+  const idToken=await currentUser.getIdToken();const endpoint=DAVIN_WORKER_URL.replace(/\/$/,"")+"/preview?url="+encodeURIComponent(url);
+  const res=await fetch(endpoint,{headers:{"Authorization":"Bearer "+idToken}});if(!res.ok){const detail=await res.json().catch(()=>({}));throw new Error(detail.error||("Preview HTTP "+res.status))}
+  const data=await res.json();
+  if(!data?.title&&!data?.description&&!data?.image){previewCache.set(url,null);return}
+  previewCache.set(url,data);if(!linkPreviewEnabled())return;
+  document.querySelectorAll("[data-preview-url]").forEach(link=>{if(link.dataset.previewUrl===url)appendPreviewCard(url,data,link.closest(".msg"))});
+ }catch(e){previewCache.set(url,null);console.warn("DAVIN link preview failed:",url,e)}
 }
 function renderMessages(opts={}){renderSharedGames();const box=$("messages"),visible=visibleChatMessages();if(!visible.length){box.innerHTML='<div class="empty">'+(messagesCache.length?'لا توجد رسائل تطابق البحث أو تاريخ بداية المحادثة. ♡':'أول رسالة تنتظر أن تُكتب… ♡')+'</div>';updateNewChatNotice();return}box.innerHTML=visible.map(m=>{const mine=m.senderUid===currentUser.uid;let body="";if(m.type==="secret")body=`<button class="btn" data-open-secret="${esc(m.id)}">🔒 رسالة سرية — اضغط لفتحها</button>`;else if(m.type==="media")body=renderMediaMessage(m);else if(m.type==="game")body=renderGameMessage(m);else body=renderTextWithLinks(m.text||"");return `<article class="msg ${mine?"mine":""}" data-msg="${esc(m.id)}">${m.replyText?`<div class="bubble-reply">${esc(m.replyText)}</div>`:""}${body}<div class="meta"><span>${timeLabel(m.createdAt)}</span><button data-reply="${esc(m.id)}" class="btn">رد</button><button data-react="${esc(m.id)}" class="btn">♡</button><button data-copy="${esc(m.id)}" class="btn">نسخ</button></div>${m.reaction?`<div class="small">${esc(m.reaction)}</div>`:""}</article>`}).join("");box.querySelectorAll("[data-lightbox]").forEach(b=>b.onclick=()=>openMediaLightbox(b.dataset.lightbox));box.querySelectorAll("[data-preview-url]").forEach(a=>loadLinkPreview(a.dataset.previewUrl,a.closest(".msg")));box.querySelectorAll("[data-reply]").forEach(b=>b.onclick=()=>{replyTarget=messagesCache.find(m=>m.id===b.dataset.reply);$("replyBar").textContent="رد على: "+(replyTarget?.text||"رسالة");$("replyBar").classList.remove("hidden");$("messageInput").focus()});box.querySelectorAll("[data-react]").forEach(b=>b.onclick=()=>react(b.dataset.react));box.querySelectorAll("[data-copy]").forEach(b=>b.onclick=()=>{const m=messagesCache.find(x=>x.id===b.dataset.copy);navigator.clipboard?.writeText(m?.text||m?.url||"");toast("تم النسخ")});box.querySelectorAll("[data-open-secret]").forEach(b=>b.onclick=()=>openSecret(b.dataset.openSecret));box.querySelectorAll("[data-game-answer]").forEach(b=>b.onclick=()=>answerGame(b.dataset.gameAnswer,+b.dataset.option));box.querySelectorAll("[data-open-games]").forEach(b=>b.onclick=()=>showPage("games"));box.querySelectorAll("[data-challenge-reply]").forEach(b=>b.onclick=()=>answerSharedChallenge(b.dataset.challengeReply));if(opts.preserveScroll){box.scrollTop=opts.oldTop+(box.scrollHeight-opts.oldHeight)}else if(opts.scrollToBottom||opts.forceLatest){box.scrollTop=box.scrollHeight}}
 async function answerGame(messageId,index){const original=messagesCache.find(m=>m.id===messageId),g=readGame(original?.text);if(!g||g.kind!=="challenge"||original.senderUid===currentUser.uid)return;if(messagesCache.some(x=>x.senderUid===currentUser.uid&&readGame(x.text)?.kind==="answer"&&readGame(x.text)?.gameId===g.gameId))return;const choice=g.options?.[index];if(typeof choice!=="string")return;document.querySelectorAll(`[data-game-answer="${messageId}"]`).forEach(b=>b.disabled=true);await sendMessage({type:"game",text:GAME_PREFIX+JSON.stringify({kind:"answer",gameId:g.gameId,title:g.title,prompt:g.prompt,choice})});toast("وصلت إجابتك للطرف الآخر ♡")}
