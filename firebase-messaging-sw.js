@@ -9,23 +9,27 @@ firebase.initializeApp({
   messagingSenderId: "30733503616",
   appId: "1:30733503616:web:e7e02032c200d347802a65"
 });
+
+// Activate updates promptly so a previously open tab does not leave an old worker waiting.
+self.addEventListener("install", event => event.waitUntil(self.skipWaiting()));
+self.addEventListener("activate", event => event.waitUntil(self.clients.claim()));
 const messaging = firebase.messaging();
 messaging.onBackgroundMessage(payload => {
   const data = payload && payload.data ? payload.data : {};
   const title = data.title || "DAVIN ♡";
   const options = {
     body: data.body || "وصلتك رسالة جديدة 💌",
-    icon: "./icon-192.png",
-    badge: "./icon-192.png",
+    icon: new URL("icon-192.png", self.registration.scope).href,
+    badge: new URL("icon-192.png", self.registration.scope).href,
     tag: data.tag || "davin-message",
     renotify: false,
-    data: { url: data.url || "./" }
+    data: { url: new URL(data.url || self.registration.scope, self.registration.scope).href }
   };
   return self.registration.showNotification(title, options);
 });
 self.addEventListener("notificationclick", event => {
   event.notification.close();
-  const target = new URL(event.notification.data?.url || "./", self.location.origin).href;
+  const target = new URL(event.notification.data?.url || self.registration.scope, self.registration.scope).href;
   event.waitUntil((async () => {
     const clientsList = await clients.matchAll({ type: "window", includeUncontrolled: true });
     for (const client of clientsList) {
